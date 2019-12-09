@@ -20,10 +20,11 @@ export class DataProvider {
   // 3 - v0.9.5 April 2018
   savedProjectsJson: any = {};
   activeProject: Project;
+  public dbVersion = 3;
+
   @select("activeProject")
   readonly activeProject$: Observable<Project>;
   private isSaving: boolean = false;
-  private dbVersion = 3;
 
   constructor(
     public storage: Storage,
