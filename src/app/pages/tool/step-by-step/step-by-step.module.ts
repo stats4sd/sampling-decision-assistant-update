@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { StepByStepPageRoutingModule } from './step-by-step-routing.module';
+import { StepByStepPageRoutingModule } from "./step-by-step-routing.module";
 
-import { StepByStepPage } from './step-by-step.page';
+import { StepByStepPage } from "./step-by-step.page";
+import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StepByStepPageRoutingModule
+    StepByStepPageRoutingModule,
+    GeneralComponentsModule
   ],
   declarations: [StepByStepPage]
 })
