@@ -13,10 +13,10 @@
     <td style="min-width:500px; min-height:250px">
       <ion-textarea type="text" [(ngModel)]="term.definition"></ion-textarea>
     </td>
-    <td><button ion-button icon-only (click)="deleteTerm(i,term)" clear><ion-icon name="remove-circle"></ion-icon></button></td>
+    <td><ion-button icon-only (click)="deleteTerm(i,term)" clear><ion-icon name="remove-circle"></ion-icon></ion-button></td>
   </tr>
 </table>
-<button ion-button style="margin:20px 0 10px 0" block icon-left (click)="addTerm()">
-    <ion-icon name="add"></ion-icon>Add Term</button>
-<button style="float:right" ion-button (click)="save()" [disabled]="status=='pending'">Save and Close</button>
+<ion-button style="margin:20px 0 10px 0" block icon-left (click)="addTerm()">
+    <ion-icon name="add"></ion-icon>Add Term</ion-button>
+<ion-button style="float:right" (click)="save()" [disabled]="status=='pending'">Save and Close</ion-button>
 <div style="margin-bottom:100px"></div>

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { TextInput, Events } from "ionic-angular";
+import { TextInput, Events } from "@ionic/angular";
 import { select, NgRedux } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { debounceTime } from "rxjs/operators";

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { SurveyQuestionComponent } from "../../survey-question/survey-question";
-import { TextInput } from "ionic-angular";
+import { TextInput } from "@ionic/angular";
 
 //
 @Component({

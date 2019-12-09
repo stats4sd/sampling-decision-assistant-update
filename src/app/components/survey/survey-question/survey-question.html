@@ -24,8 +24,8 @@
             <ion-item *ngIf="!showSelectOther">
               <ion-select (ionChange)="selectUpdated($event)" [interface]="question.interface ? question.interface : 'action-sheet'"
                 [formControlName]="question.controlName">
-                <ion-option *ngIf="selectOtherValue" [value]="selectOtherValue">{{selectOtherValue}}</ion-option>
-                <ion-option *ngFor="let option of selectOptionsArray" [value]="option">{{option}}</ion-option>
+                <ion-select-option *ngIf="selectOtherValue" [value]="selectOtherValue">{{selectOtherValue}}</ion-select-option>
+                <ion-select-option *ngFor="let option of selectOptionsArray" [value]="option">{{option}}</ion-select-option>
               </ion-select>
             </ion-item>
             <!-- select with type other -->
@@ -64,8 +64,8 @@
                 <!-- should work with formcontrolname however recently chrome has a bug and isn't working. should retry in future -->
                 <ion-range disabled min="5" max="95" step="5" color="primary" debounce="500" snaps="true" pin="true"
                   [ngModel]="formGroup.value[question.controlName]" [ngModelOptions]="{standalone: true}">
-                  <ion-label range-left>5%</ion-label>
-                  <ion-label range-right>95%</ion-label>
+                  <ion-label slot="start">5%</ion-label>
+                  <ion-label slot="end">95%</ion-label>
                 </ion-range>
               </ion-item>
               <ion-input class="range-input" [formControlName]="question.controlName"></ion-input>

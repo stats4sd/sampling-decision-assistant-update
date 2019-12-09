@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 // import ionic module if plan to use ionic components
-import { IonicModule } from 'ionic-angular';
+import { IonicModule } from '@ionic/angular';
 //  import reactive forms module
 import { ReactiveFormsModule } from '@angular/forms';
 // import drag/drop package

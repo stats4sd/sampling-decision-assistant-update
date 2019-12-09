@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ModalController, Events } from "ionic-angular";
+import { ModalController, Events } from "@ionic/angular";
 
 @Component({
   selector: "introduction",

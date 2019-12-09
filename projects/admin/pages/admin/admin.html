@@ -6,9 +6,9 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-toolbar>
     <ion-title>Stats4SD Admin</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 
 </ion-header>
 
@@ -21,8 +21,8 @@
   <div *ngIf="editMode">
     <h3>Resources Editor</h3>
 
-    <button *ngFor="let stage of stages" ion-button clear (click)="editResources(stage)" [attr.selected]="stage===stageNumber">Stage {{stage}}</button>
-    <button ion-button clear (click)="editGlossary()" [attr.selected]="editorSection=='glossary'">Glossary</button>
+    <ion-button *ngFor="let stage of stages" clear (click)="editResources(stage)" [attr.selected]="stage===stageNumber">Stage {{stage}}</ion-button>
+    <ion-button clear (click)="editGlossary()" [attr.selected]="editorSection=='glossary'">Glossary</ion-button>
 
     <div *ngIf="editorSection=='resources'">
       <dev-editor-resources [stage]="stageNumber"></dev-editor-resources>

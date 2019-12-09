@@ -1,14 +1,14 @@
 import { Component, Input } from "@angular/core";
-import { Events } from "ionic-angular";
+import { Events } from "@ionic/angular";
 
 @Component({
   selector: "help-icon",
   template: `
   <div class="help-container" >
-    <button ion-button icon-only clear style="color:rgba(0,0,0,0.9); margin:0" (click)="helpClicked()">
+   ion-buttonon icon-only clear style="color:rgba(0,0,0,0.9); margin:0" (click)="helpClicked()">
     <span>{{text}}</span>
     <ion-icon style="padding:0 8px" ios="ios-help-circle-outline" md="ios-help-circle-outline"></ion-icon>
-    </button>
+ ion-buttonutton>
   </div>
 `
 })

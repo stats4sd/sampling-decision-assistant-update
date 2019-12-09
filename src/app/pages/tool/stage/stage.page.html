@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-navbar #navbar color="primary">
+  <ion-toolbar #navbar color="primary">
     <ion-title>{{stage.title}}</ion-title>
-    <ion-buttons end> </ion-buttons>
-  </ion-navbar>
+    <ion-buttons slot="primary"> </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="slide-scroll-content" #content id="content">
@@ -18,7 +18,7 @@
         <div class="stage-info">
           <div id="stageOverview" [innerHtml]="introHtml[stage.number]"></div>
           <div id="stageResources">
-            <button block ion-button clear (click)="showResourcesList()">
+            <ion-button block clear (click)="showResourcesList()">
               <span style="padding-right:8px">
                 <ion-icon
                   style="font-size: 1.8em"
@@ -30,7 +30,7 @@
               <span>
                 Additional Resources
               </span>
-            </button>
+            </ion-button>
           </div>
         </div>
         <div class="video-button">

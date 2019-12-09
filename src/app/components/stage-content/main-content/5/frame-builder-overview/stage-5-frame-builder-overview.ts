@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
-import { ModalController } from "ionic-angular";
+import { ModalController } from "@ionic/angular";
 
 @Component({
   selector: "stage-5-frame-builder-overview",

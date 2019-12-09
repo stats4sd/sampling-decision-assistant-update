@@ -6,15 +6,15 @@ import { IGlossaryTerm } from "src/app/models/models";
   templateUrl: "./glossary.page.html",
   template: `
     <ion-header>
-      <ion-navbar color="primary">
+      <ion-toolbar color="primary">
         <ion-title>Glossary</ion-title>
-        <ion-buttons end *ngIf="modalMode">
-          <button ion-button icon-right (click)="dismiss()">
+        <ion-buttons slot="primary" *ngIf="modalMode">
+          <ion-button icon-right (click)="dismiss()">
             Close
             <ion-icon name="close"></ion-icon>
-          </button>
+          </ion-button>
         </ion-buttons>
-      </ion-navbar>
+      </ion-toolbar>
     </ion-header>
     <ion-content padding>
       <glossary-list

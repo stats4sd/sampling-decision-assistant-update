@@ -13,14 +13,14 @@
 
   <ion-grid class="builder-container" *ngIf="reportingLevels && reportingLevels.length>0">
     <ion-row class="row-headers">
-      <ion-col col-2>Reporting Level / Strata</ion-col>
-      <ion-col col-2>Number of Classifications</ion-col>
+      <ion-col size="2">Reporting Level / Strata</ion-col>
+      <ion-col size="2">Number of Classifications</ion-col>
       <ion-col col class="left">Names of Classifications</ion-col>
-      <ion-col col-2>Reporting Required?</ion-col>
+      <ion-col size="2">Reporting Required?</ion-col>
     </ion-row>
     <ion-row *ngFor="let level of reportingLevels; let i=index; let last=last">
-      <ion-col col-2>{{level.name}}</ion-col>
-      <ion-col col-2 class="center" class="required">
+      <ion-col size="2">{{level.name}}</ion-col>
+      <ion-col size="2" class="center" class="required">
         <ion-input type="number" (ionChange)="setClassificationsNumber(level,i)" [(ngModel)]="level.classifications.total"></ion-input>
       </ion-col>
       <ion-col col>
@@ -30,7 +30,7 @@
           </ion-item>
         </div>
       </ion-col>
-      <ion-col col-2>
+      <ion-col size="2">
         <ion-checkbox color="primary" [(ngModel)]="level.reportingRequired"></ion-checkbox>
       </ion-col>
     </ion-row>

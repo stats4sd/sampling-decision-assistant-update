@@ -21,7 +21,7 @@ import {
   ControlValueAccessor,
   FormControl
 } from "@angular/forms";
-import { Events } from "ionic-angular";
+import { Events } from "@ionic/angular";
 import { FormProvider } from "../../../providers/form/form";
 import { DataProvider } from "../../../providers/data/data";
 import { Question } from "../../../models/models";

@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-navbar color="primary-inverted">
+  <ion-toolbar color="primary-inverted">
     <ion-title>Saved Projects</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-left icon-right (click)="dismiss()">
+    <ion-buttons slot="primary">
+      <ion-button icon-left icon-right (click)="dismiss()">
         Close
         <ion-icon name="close"></ion-icon>
-      </button>
+      </ion-button>
     </ion-buttons>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 <ion-content padding>
   <div *ngIf="view=='save'">
@@ -22,14 +22,14 @@
       <note type="error">{{errorMsg}}</note>
       <note type="info">Future progress will be automatically saved</note>
       <ion-item>
-        <button
-          ion-button
+        <ion-button
+         
           icon-left
           [disabled]="!saveName"
           (click)="createNew()"
         >
           <ion-icon name="create"></ion-icon>Create
-        </button>
+        </ion-button>
       </ion-item>
     </ion-list>
   </div>
@@ -45,15 +45,15 @@
             <div class="survey-date">{{project.created | date}}</div>
           </div>
           <div style="margin:5px">
-            <button
-              ion-button
+            <ion-button
+             
               icon-only
               clear
               (click)="deleteProject(project)"
               *ngIf="project.created != activeProject.created"
             >
               <ion-icon name="trash" color="delete"></ion-icon>
-            </button>
+            </ion-button>
             <div
               class="active-project-label"
               *ngIf="project.created == activeProject.created"

@@ -3,8 +3,8 @@
     <ion-input id="textMultipleInput" #textMultipleInput (ionChange)="validateInput()" [(ngModel)]="multipleTextInput"
       [ngModelOptions]="{standalone: true}" type="text" [placeholder]="question.labelMultiple"></ion-input>
   </ion-item>
-  <button ion-button (click)="addTextMultiple()" type="submit" *ngIf="!editMode" [disabled]="!multipleTextInput">Add</button>
-  <button ion-button (click)="saveEdits()" type="submit" *ngIf="editMode">Save</button>
+  <ion-button (click)="addTextMultiple()" type="submit" *ngIf="!editMode" [disabled]="!multipleTextInput">Add</ion-button>
+  <ion-button (click)="saveEdits()" type="submit" *ngIf="editMode">Save</ion-button>
 </form>
 <div *ngFor="let value of multipleTextValues, index as i">
   <div style="display: flex">
@@ -12,8 +12,8 @@
       <span style="flex:1">{{value.name}}</span>
       <ion-icon name="create" class="edit-button" (click)="enableEdit(i)" *ngIf="!editMode"></ion-icon>
     </div>
-    <button ion-button clear (click)="removeTextMultiple(i)" icon-only>
+    <ion-button clear (click)="removeTextMultiple(i)" icon-only>
       <ion-icon name="remove-circle" class="multiple-remove-button"></ion-icon>
-    </button>
+    </ion-button>
   </div>
 </div>

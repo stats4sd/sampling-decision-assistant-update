@@ -2,7 +2,7 @@ import { Component, Input, ViewChild, ElementRef } from "@angular/core";
 import options from "./options";
 import { FormProvider } from "../../../providers/form/form";
 import { FormGroup } from "@angular/forms";
-import { Events } from "ionic-angular";
+import { Events } from "@ionic/angular";
 import {
   ReportingLevel,
   TreeDiagramNode,

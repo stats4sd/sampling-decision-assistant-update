@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 // import ionic module if plan to use ionic components
-import { IonicModule } from "ionic-angular";
+import { IonicModule } from "@ionic/angular";
 import { GeneralComponentsModule } from "../general/generalComponents.module";
 import { SurveyComponentsModule } from "../survey/survey-components.module";
 

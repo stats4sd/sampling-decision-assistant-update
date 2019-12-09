@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-toolbar color="primary">
     <ion-title>Sampling Decision Assistant</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-left (click)="showMenu($event)">
+    <ion-buttons slot="primary">
+      <ion-button icon-left (click)="showMenu($event)">
         <ion-icon name="more"></ion-icon>Menu
-      </button>
+      </ion-button>
     </ion-buttons>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -37,9 +37,9 @@
                 [(ngModel)]="activeProject.description"
               ></ion-textarea>
             </ion-item>
-            <button ion-button id="saveProjectButton" (click)="save()">
+            <ion-button id="saveProjectButton" (click)="save()">
               Save
-            </button>
+            </ion-button>
           </ion-list>
           <div class="new-project-text">
             <video-popup-button
@@ -60,9 +60,9 @@
               >
                 <ion-icon name="clipboard"></ion-icon>{{activeProject.title}}
               </div>
-              <button ion-button icon-only clear (click)="enableEditing()">
+              <ion-button icon-only clear (click)="enableEditing()">
                 <ion-icon name="create"></ion-icon>
-              </button>
+              </ion-button>
             </div>
             <!-- <button ion-button icon-left clear (click)="showIntroVideo()">
               <ion-icon name="logo-youtube"></ion-icon>Watch Intro Video
@@ -99,14 +99,14 @@
             </div>
             <div class="section-title">{{section.stage}}: {{section.name}}</div>
             <div class="section-status">
-              <button
-                ion-button
+              <ion-button
+               
                 icon-only
                 clear
                 [disabled]="!stagesComplete[section.stage]"
               >
                 <ion-icon name="checkmark-circle"></ion-icon>
-              </button>
+              </ion-button>
             </div>
           </div>
         </ion-card>

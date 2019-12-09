@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { IonicModule } from "ionic-angular";
+import { IonicModule } from "@ionic/angular";
 import { TreeDiagramComponent } from "./tree-diagram/tree-diagram";
 import { TreeDiagramKeyComponent } from "./tree-diagram/tree-diagram-key/tree-diagram-key";
 import { TreeNodeInfoComponent } from "./tree-diagram/tree-node-info/tree-node-info";

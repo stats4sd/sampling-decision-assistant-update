@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { IonicPage, NavParams, ViewController } from "ionic-angular";
+import { IonicPage, NavParams, ViewController } from "@ionic/angular";
 
 // this is a simple page for the modal to contain
 @IonicPage()
@@ -8,10 +8,10 @@ import { IonicPage, NavParams, ViewController } from "ionic-angular";
   template: `
   <ion-header>
     <ion-navbar #navbar color="primary">
-      <ion-buttons end>
-      <button ion-button clear (click)="dismiss()" icon-only>
+      <ion-buttoslot="primary"end>
+   ion-buttontton clear (click)="dismiss()" icon-only>
         <ion-icon name="close"></ion-icon>
-      </button>
+  ion-buttonbutton>
       </ion-buttons>
     </ion-navbar>
   </ion-header>

@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef, ViewChild } from "@angular/core";
 import { SurveyQuestionComponent } from "../../survey-question/survey-question";
 import { FormControl } from "@angular/forms";
 import { DragulaService } from "ng2-dragula";
-import { Events, TextInput } from "ionic-angular";
+import { Events, TextInput } from "@ionic/angular";
 import { FormProvider } from "../../../../providers/form/form";
 import { DataProvider } from "../../../../providers/data/data";
 import { select } from "@angular-redux/store";

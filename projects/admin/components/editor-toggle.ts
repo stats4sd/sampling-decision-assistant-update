@@ -5,7 +5,7 @@ import { select } from "@angular-redux/store";
 @Component({
   selector: "dev-editor-toggle",
   template: `
-  <button ion-button icon-left (click)="enableEdit()" *ngIf="!(editMode$|async)"><ion-icon name="create"></ion-icon>Edit Glossary and Resources</button>
+  ion-buttonn icon-left (click)="enableEdit()" *ngIf="!(editMode$|async)"><ion-icon name="create"></ion-icon>Edit Glossary and Resources<ion-buttonn>
   
   `
 })

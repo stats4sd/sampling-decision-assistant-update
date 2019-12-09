@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { DevActions } from "../../actions/actions";
-import { ToastController, AlertController } from "ionic-angular";
+import { ToastController, AlertController } from "@ionic/angular";
 import QUESTION_META from "../../providers/questionMeta";
 
 @Component({
@@ -108,7 +108,7 @@ export class DevEditorResourcesComponent {
 
   deleteQuestion(i) {
     const confirm = this.alertCtrl.create({
-      title: "Delete question?",
+      header: "Delete question?",
       message:
         "Are you sure you want to delete this question? This cannot be undone.",
       buttons: [

@@ -1,12 +1,12 @@
 <ion-item [ngClass]="question._expanded ? 'expanded' : 'contracted'">
   <div class="question-text" [innerHtml]="question.q" (click)="viewResource()"></div>
   <div class="answer-display-options" *ngIf="question._expanded">
-    <button outline ion-button icon-left *ngIf="question.a" (click)="viewResource('text')" [class.selected]="question._expanded && question._showFormat=='text'">
+    <ion-button outline icon-left *ngIf="question.a" (click)="viewResource('text')" [class.selected]="question._expanded && question._showFormat=='text'">
       <ion-icon name="list"></ion-icon>Text
-    </button>
-    <button outline ion-button icon-left *ngIf="question.video" (click)="viewResource('video')" [class.selected]="question._expanded && question._showFormat=='video'">
+    </ion-button>
+    <ion-button outline icon-left *ngIf="question.video" (click)="viewResource('video')" [class.selected]="question._expanded && question._showFormat=='video'">
       <ion-icon name="logo-youtube"></ion-icon>Video
-    </button>
+    </ion-button>
     <note type="dev" *ngIf="!question.a">Coming soon!</note>
     <div style="flex:1" (click)="viewResource()"></div>
   </div>

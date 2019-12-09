@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { AlertController, ViewController } from "ionic-angular";
+import { AlertController, ViewController } from "@ionic/angular";
 import { DataProvider } from "../../../providers/data/data";
 
 @Component({
@@ -21,7 +21,7 @@ export class DecisionToolMenuComponent {
 
   saveAs() {
     const alert = this.alertCtrl.create({
-      title: "Save project as",
+      header: "Save project as",
       inputs: [
         {
           name: "title",

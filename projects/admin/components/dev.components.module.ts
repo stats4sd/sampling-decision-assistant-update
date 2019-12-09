@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
+import { IonicModule } from '@ionic/angular';
 import { DevEditorToggleComponent } from './editor-toggle';
 import { DevEditorResourcesComponent } from './editor-resources';
 import { DevEditorGlossaryComponent } from './editor-glossary';

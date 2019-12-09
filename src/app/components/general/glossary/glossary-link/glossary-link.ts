@@ -3,7 +3,7 @@ import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { GlossaryProvider } from "../../../../providers/glossary/glossary";
 import { IGlossaryTerm } from "../../../../models/models";
-import { NavController } from "ionic-angular";
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: "glossary-link",

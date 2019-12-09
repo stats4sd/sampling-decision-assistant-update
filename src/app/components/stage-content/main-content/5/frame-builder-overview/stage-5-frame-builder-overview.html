@@ -6,19 +6,19 @@
 
   <ion-grid class="builder-container">
     <ion-row class="row-headers">
-      <ion-col col-2>Stage</ion-col>
-      <ion-col col-2>Sampling Unit</ion-col>
-      <ion-col col-3>Frame</ion-col>
-      <ion-col col-2>Units</ion-col>
-      <ion-col col-3>Reporting Level</ion-col>
+      <ion-col size="2">Stage</ion-col>
+      <ion-col size="2">Sampling Unit</ion-col>
+      <ion-col size="3">Frame</ion-col>
+      <ion-col size="2">Units</ion-col>
+      <ion-col size="3">Reporting Level</ion-col>
       <!-- <ion-col col-2>Stratification</ion-col> -->
     </ion-row>
     <div *ngIf="samplingStages.length>0">
       <ion-row *ngFor="let stage of samplingStages; let i=index; let last=last">
 
-        <ion-col col-2>{{i+1}}</ion-col>
+        <ion-col size="2">{{i+1}}</ion-col>
 
-        <ion-col col-2 class="stage-name">
+        <ion-col size="2" class="stage-name">
           <div>{{stage.name}}</div>
         </ion-col>
 
@@ -32,12 +32,12 @@
 
         <!-- Built frame info -->
         <!-- Frame -->
-        <ion-col col-3 *ngIf="stage._built">
+        <ion-col size="3" *ngIf="stage._built">
           <div>{{stage['q5.3.1']=='Yes' ? 'Available' : 'To be built'}}</div>
         </ion-col>
 
         <!-- Units -->
-        <ion-col col-2 *ngIf="stage._built">
+        <ion-col size="2" *ngIf="stage._built">
           <div *ngIf="stage['q5.3.3']=='All'">
             <div>All Units</div>
             <!-- <div class="sample-size">(n={{stageControl.value['q5.3.3.1']}})</div> -->
@@ -46,7 +46,7 @@
         </ion-col>
 
         <!-- Reporting Levels -->
-        <ion-col col-3 *ngIf="stage._built">
+        <ion-col size="3" *ngIf="stage._built">
           <div *ngIf="!stage['q5.3.4.2'] || stage['q5.3.4.2']==''">
             <ion-note>None</ion-note>
           </div>
@@ -58,9 +58,9 @@
         <!-- Edit button -->
         <div class="edit-button-container" *ngIf="stage._built && !reviewMode">
           <div class="edit-button" (click)="buildStage(stage,i)">
-            <button ion-button icon-left clear>
+            <ion-button icon-left clear>
               <ion-icon name="create"></ion-icon>Edit
-            </button>
+            </ion-button>
           </div>
           <div class="edit-button-overlay"></div>
         </div>

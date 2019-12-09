@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 // import ionic module if plan to use ionic components
-import { IonicModule } from "ionic-angular";
+import { IonicModule } from "@ionic/angular";
 import { IntroductionComponent } from "./introduction/introduction";
 import { GlossaryLinkComponent } from "./glossary/glossary-link/glossary-link";
 import { GlossaryListComponent } from "./glossary/glossary-list";
