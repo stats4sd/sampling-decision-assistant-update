@@ -1,9 +1,9 @@
 import { Component, Input } from "@angular/core";
 import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
-import { GlossaryProvider } from "src/app/services/glossary/glossary";
 import { IGlossaryTerm } from "../../../../models/models";
 import { NavController } from "@ionic/angular";
+import { ALL_GLOSSARY } from "src/app/data";
 
 @Component({
   selector: "glossary-link",
@@ -20,29 +20,18 @@ export class GlossaryLinkComponent {
   @select(["view", "params", "tabSection"])
   tabSection$: Observable<string>;
 
-  constructor(
-    private glossaryPrvdr: GlossaryProvider,
-    public navCtrl: NavController
-  ) {}
+  constructor(public navCtrl: NavController) {}
   // on init load glossary from provider (wait if live version and not sync'd)
   // then set terms
   ngOnInit() {
-    if (this.glossaryPrvdr.initComplete) {
-      if (this.slug) {
-        this.term = this.glossaryPrvdr.allGlossary[this.slug];
-        if (!this.term) {
-          throw new Error(`no glossary entry for ${this.slug}`);
-        }
-        if (this.customDefinition) {
-          this.term.definition = this.customDefinition;
-        }
+    if (this.slug) {
+      this.term = ALL_GLOSSARY[this.slug];
+      if (!this.term) {
+        throw new Error(`no glossary entry for ${this.slug}`);
       }
-    } else {
-      // as loading from firestore and not binding to value changes simply use timeout to ensure
-      // glossary fully loaded (only should be a factor when directly navigating to page)
-      setTimeout(() => {
-        this.ngOnInit();
-      }, 500);
+      if (this.customDefinition) {
+        this.term.definition = this.customDefinition;
+      }
     }
   }
 

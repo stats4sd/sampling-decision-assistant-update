@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
-import { GlossaryProvider } from "src/app/services/glossary/glossary";
 import { IGlossaryTerm } from "../../../models/models";
+import { ALL_GLOSSARY } from "src/app/data";
 
 @Component({
   selector: "glossary-list",
@@ -13,16 +13,15 @@ export class GlossaryListComponent {
   @Input("activeTerm")
   activeTerm: IGlossaryTerm;
 
-  constructor(private glossaryPrvdr: GlossaryProvider) {}
+  constructor() {}
 
   // on init get glossary from provider and convert to array for display
   ngOnInit() {
-    this.glossaryPrvdr.getGlossary().then(terms => {
-      this.allGlossaryJson = terms;
-      // convert json to array (would simply use object.values but not supported)
-      this.allGlossaryTerms = Object.keys(terms).map(key => {
-        return terms[key];
-      });
+    const terms = ALL_GLOSSARY;
+    this.allGlossaryJson = terms;
+    // convert json to array (would simply use object.values but not supported)
+    this.allGlossaryTerms = Object.keys(terms).map(key => {
+      return terms[key];
     });
   }
 

@@ -1,8 +1,7 @@
 import { Component, Input } from "@angular/core";
 // dev
-import { AngularFirestore } from "@angular/fire/firestore";
 import { IResourceQuestion } from "../../../../models/models";
-import { Subscription } from "rxjs";
+import { ALL_RESOURCES } from "src/app/data";
 
 @Component({
   selector: "resources-list",
@@ -18,22 +17,13 @@ export class ResourcesListComponent {
   @Input()
   relevant: string;
   _stage: number;
-  resources$: Subscription;
-  allResources = [];
+  allResources = ALL_RESOURCES;
   questions: IResourceQuestion[] = [];
   relevantQuestions: IResourceQuestion[];
 
-  constructor(private db: AngularFirestore) {
-    this.resources$ = this.db
-      .collection("resources")
-      .valueChanges()
-      .subscribe(res => {
-        this.allResources = res;
-        this.setResources(this.allResources[this._stage]);
-      });
-  }
-  ngOnDestroy(): void {
-    this.resources$.unsubscribe();
+  constructor() {
+    this.allResources = ALL_RESOURCES;
+    this.setResources(this.allResources[this._stage]);
   }
 
   // extract questions from stage resources, convert to array and subset to relevant/non if relevant control specified
