@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { APP_VERSION } from "src/environments/version";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -12,37 +13,33 @@ export class HomePage {
   version = APP_VERSION;
   imageSrc = "assets/img/feature-image-1.jpg";
 
-  constructor() {
+  constructor(private router: Router) {
     this.sections = [
       {
         name: "Use the Tool",
-        page: "StepByStepPage",
+        page: "tool",
         icon: "arrow-round-forward"
       },
       {
         name: "Tutorial and Examples",
-        page: "TutorialPage"
+        page: "tutorial"
       }
     ];
 
     this.altSections = [
-      { name: "Glossary of technical terms", page: "GlossaryPage" }
+      { name: "Glossary of technical terms", page: "glossary" }
     ];
-    throw new Error("test error");
   }
 
   //
   goToSection(section) {
     if (section.class !== "disabled") {
-      // this.navCtrl.push(section.page, section.params);
+      console.log("navigate", section);
+      this.router.navigate(["/" + section.page]);
     }
   }
 
   showChangelog() {
-    // this.navCtrl.push("ChangelogPage");
-  }
-
-  goToAdmin() {
-    // this.navCtrl.push("AdminPage");
+    this.router.navigate(["/changelog"]);
   }
 }

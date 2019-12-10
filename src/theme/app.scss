@@ -5,34 +5,12 @@
 // Additionally, this file can be also used as an entry point
 // to import other Sass files to be included in the output CSS.
 @import "./scrollbars.scss";
-@import "../assets/fonts/videogular";
-// dev
-@import "https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css";
 // --------------------------------------------------
 $max-app-width: 768px;
 $small-screen-width: 320px;
 $medium-screen-width: 500px;
 // also applied direct to body so adjust accordingly
 // -------------------------------------------------
-// fonts
-@font-face {
-  font-family: "proxima_nova";
-  font-weight: 300;
-  font-style: normal;
-  src: url("../assets/fonts/proximanova-regular-webfont.woff2");
-  @font-face {
-    font-family: "proxima_nova";
-    font-style: semi-bold;
-    font-weight: 600;
-    src: url("../assets/fonts/proximanova-semibold-webfont.woff2");
-  }
-  @font-face {
-    font-family: "proxima_nova";
-    font-style: bold;
-    font-weight: 700;
-    src: url("../assets/fonts/proximanova-bold-webfont.woff2");
-  }
-}
 
 // --------------------------------------------------
 // header settings
@@ -48,7 +26,8 @@ $medium-screen-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
+  font-size: 14px;
 }
 
 // --------------------------------------------------
@@ -56,12 +35,12 @@ $medium-screen-width: 500px;
 h3 {
   font-size: large;
   font-weight: bold;
-  color: color($colors, primary); //padding: 10px 0;
+  color: var(--ion-color-primary); //padding: 10px 0;
 }
 
 h2 {
   font-size: x-large;
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
 }
 
 .feature-image {
@@ -101,7 +80,7 @@ h2 {
 body {
   user-select: text;
   font-family: "proxima_nova", lato, sans-serif !important;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 // project resume prompt
@@ -135,7 +114,7 @@ body {
 }
 
 .invert {
-  background-color: color($colors, primary);
+  background-color: var(--ion-color-primary);
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -159,7 +138,7 @@ body {
 }
 
 .section-title {
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
   font-size: large;
   flex: 1;
   padding: 5px;
@@ -180,7 +159,7 @@ body {
 
 .segment-button.activated,
 .segment-button.segment-activated {
-  background-color: color($colors, primary) !important;
+  background-color: var(--ion-color-primary) !important;
   color: white !important;
   opacity: 1 !important;
 }
@@ -240,7 +219,7 @@ body {
 ion-card {
   #questionLabelText,
   .question-number.dark {
-    color: color($colors, dark);
+    color: var(--ion-color-dark);
     font-size: 14px;
     font-weight: 500;
   }
@@ -251,7 +230,6 @@ ion-card {
 
 .card {
   margin: 5px; // padding:5px;
-  //background-color: color($colors,secondary);
 }
 
 // popover fix for screen resizing (max-width - 100?)
@@ -270,14 +248,15 @@ ion-card {
   body {
     max-width: 768px;
     left: calc(50% - #{$max-app-width}/ 2);
-    background-color: color($colors, primary);
+    background-color: var(--ion-color-primary);
     height: calc(100vh - 10px);
     margin: 5px auto;
   } // add padding, background and curved edges for large devices
   .menu-content,
-  .app-root {
+  .ion-page {
     border-radius: 10px;
     border: 1px solid white;
+    background: white;
   }
 }
 
@@ -331,42 +310,9 @@ ion-modal.full-screen {
     font-weight: 700;
     color: white;
     width: 100%;
-    background-color: color($colors, primary);
+    background-color: var(--ion-color-primary);
     padding: 5px;
     font-size: large;
     margin-top: 5px;
-  }
-}
-
-// *************************** Custom Icons ******************************** //
-ion-icon {
-  &[class*="custom-"] {
-    mask-size: contain;
-    mask-position: 50% 50%;
-    mask-repeat: no-repeat;
-    background: currentColor;
-    width: 1em;
-    height: 1em;
-  }
-  &[class*="custom-allocate"] {
-    mask-image: url(../assets/img/icons/allocate.svg);
-  }
-  &[class*="custom-indicators"] {
-    mask-image: url(../assets/img/icons/indicators.svg);
-  }
-  &[class*="custom-objectives"] {
-    mask-image: url(../assets/img/icons/objectives.svg);
-  }
-  &[class*="custom-database"] {
-    mask-image: url(../assets/img/icons/database.svg);
-  }
-  &[class*="custom-tree"] {
-    mask-image: url(../assets/img/icons/tree.svg);
-  }
-  &[class*="custom-excel"] {
-    mask-image: url(../assets/img/icons/excel.svg);
-  }
-  &[class*="custom-word"] {
-    mask-image: url(../assets/img/icons/word.svg);
   }
 }

@@ -12,7 +12,6 @@ import { FormGroup } from "@angular/forms";
 import { DataProvider } from "src/app/services/data/data";
 import { DataVisProvider } from "src/app/services/data-vis/data-vis";
 import { FormProvider } from "src/app/services/form/form";
-import { ViewController } from "@ionic/core";
 import { ViewActions, ProjectActions } from "src/app/actions/actions";
 import { ResourcesProvider } from "src/app/services/resources/resources";
 import { NgRedux } from "@angular-redux/store";
@@ -72,7 +71,6 @@ export class StagePage {
     public dataVisPrvdr: DataVisProvider,
     public events: Events,
     public formPrvdr: FormProvider,
-    public viewCtrl: ViewController,
     public viewActions: ViewActions,
     private resourcesPrvdr: ResourcesProvider,
     // project actions and ngredux required for child components

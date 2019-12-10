@@ -2,7 +2,6 @@ import { Component, AfterViewInit } from "@angular/core";
 import { Project } from "src/app/models/models";
 import { AlertController, Events, NavParams } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
-import { ViewController } from "@ionic/core";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
 import {} from "ngx-file-drop";
@@ -26,7 +25,6 @@ export class SavedInfoPage implements AfterViewInit {
   _dbVersion: number;
 
   constructor(
-    public viewCtrl: ViewController,
     public navParams: NavParams,
     public dataPrvdr: DataProvider,
     public events: Events,

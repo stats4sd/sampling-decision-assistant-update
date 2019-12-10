@@ -33,18 +33,11 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              {
-                "input": "src/theme/variables.scss"
-              },
-              {
-                "input": "src/theme/scrollbars.scss"
-              },
-              {
-                "input": "src/global.scss"
-              },
-              {
-                "input": "src/app.scss"
-              }
+              "src/global.scss",
+              "src/theme/variables.scss",
+              "src/theme/scrollbars.scss",
+              "src/theme/app.scss",
+              "./node_modules/videogular2/fonts/videogular.css"
             ],
             "scripts": []
           },

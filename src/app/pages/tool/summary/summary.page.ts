@@ -9,7 +9,6 @@ import {
 import { debounceTime } from "rxjs/operators";
 import { Subscription } from "rxjs";
 import { NgRedux } from "@angular-redux/store";
-import { ViewController } from "@ionic/core";
 import { CalculatorVars } from "src/app/components/dataVis/sample-size-calculator/sample-size-calculator";
 import QUESTION_META from "../../../services/questionMeta";
 import { _htmlToDoc } from "src/utils/download";
@@ -64,10 +63,9 @@ export class SummaryPage {
   reportingLevels: ReportingLevel[];
 
   constructor(
-    private ngRedux: NgRedux<AppState>,
-    // keep dataPrvdr import to allow project resume prompt
-    private viewCtrl: ViewController
-  ) {
+    private ngRedux: NgRedux<AppState>
+  ) // keep dataPrvdr import to allow project resume prompt
+  {
     this.addSubscribers();
     this.getQuestionLabels();
   }

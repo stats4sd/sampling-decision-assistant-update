@@ -21,6 +21,16 @@ const routes: Routes = [
       import("./pages/glossary/glossary.module").then(m => m.GlossaryPageModule)
   },
   {
+    path: "glossary/:slug",
+    loadChildren: () =>
+      import("./pages/glossary/glossary.module").then(m => m.GlossaryPageModule)
+  },
+  {
+    path: "tutorial",
+    loadChildren: () =>
+      import("./pages/tutorial/tutorial.module").then(m => m.TutorialPageModule)
+  },
+  {
     path: "resources",
     loadChildren: () =>
       import("./pages/resources/resources.module").then(

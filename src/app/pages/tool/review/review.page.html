@@ -10,7 +10,7 @@
 <ion-content class="slide-scroll-content survey" style="margin-bottom:10px">
   <ion-content>
     <!-- Review content -->
-    <div padding id="reviewContent">
+    <div class="ion-padding" id="reviewContent">
       <h2>Review Decisions</h2>
       <div>
         <div *ngFor="let group of questionGroups" class="section-group">
@@ -58,7 +58,7 @@
     </div>
 
     <!-- Analysis Content -->
-    <div padding>
+    <div class="ion-padding">
       <h2>Export</h2>
       <div style="display: flex; flex-wrap: wrap  ">
         <ion-button (click)="exportJSON()" class="export-button">

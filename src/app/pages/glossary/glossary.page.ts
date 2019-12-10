@@ -1,22 +1,25 @@
 import { Component } from "@angular/core";
 import { IGlossaryTerm } from "src/app/models/models";
+import { ActivatedRoute } from "@angular/router";
+import { ALL_GLOSSARY } from "src/app/data";
 
 @Component({
   selector: "app-glossary",
-  templateUrl: "./glossary.page.html",
   template: `
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>Glossary</ion-title>
-        <ion-buttons slot="start" *ngIf="modalMode">
-          <ion-button (click)="dismiss()">
+        <ion-buttons slot="start">
+          <ion-back-button *ngIf="!modalMode" defaultHref="home">
+          </ion-back-button>
+          <ion-button (click)="dismiss()" *ngIf="modalMode">
             Close
             <ion-icon slot="end" name="close"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content padding>
+    <ion-content class="ion-padding">
       <glossary-list
         displayMode="page"
         [activeTerm]="activeTerm"
@@ -26,9 +29,10 @@ import { IGlossaryTerm } from "src/app/models/models";
 })
 export class GlossaryPage {
   activeTerm: IGlossaryTerm;
-  constructor(p) {
-    // if (navParams.data.slug) {
-    //   this.activeTerm = navParams.data;
-    // }
+  constructor(route: ActivatedRoute) {
+    const params = route.snapshot.params;
+    if (params && params.slug) {
+      this.activeTerm = ALL_GLOSSARY[params.slug];
+    }
   }
 }

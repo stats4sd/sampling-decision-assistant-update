@@ -5,15 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-toolbar>
     <ion-title>Stats4SD Admin</ion-title>
   </ion-toolbar>
-
 </ion-header>
 
-
-<ion-content padding>
+<ion-content class="ion-padding">
   <!-- <div>
     <strong>For Internal Use Only</strong>
   </div> -->
@@ -21,18 +18,26 @@
   <div *ngIf="editMode">
     <h3>Resources Editor</h3>
 
-    <ion-button *ngFor="let stage of stages" clear (click)="editResources(stage)" [attr.selected]="stage===stageNumber">Stage {{stage}}</ion-button>
-    <ion-button clear (click)="editGlossary()" [attr.selected]="editorSection=='glossary'">Glossary</ion-button>
+    <ion-button
+      *ngFor="let stage of stages"
+      clear
+      (click)="editResources(stage)"
+      [attr.selected]="stage===stageNumber"
+      >Stage {{stage}}</ion-button
+    >
+    <ion-button
+      clear
+      (click)="editGlossary()"
+      [attr.selected]="editorSection=='glossary'"
+      >Glossary</ion-button
+    >
 
     <div *ngIf="editorSection=='resources'">
       <dev-editor-resources [stage]="stageNumber"></dev-editor-resources>
     </div>
 
-    
     <div *ngIf="editorSection=='glossary'">
-        <dev-editor-glossary></dev-editor-glossary>
-      </div>
+      <dev-editor-glossary></dev-editor-glossary>
+    </div>
   </div>
-
-
 </ion-content>

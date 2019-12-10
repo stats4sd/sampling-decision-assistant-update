@@ -15,7 +15,7 @@ Custom component to add multiple stages, populate repeat formgroup and give opti
 @Component({
   selector: "question-custom-stages-define",
   templateUrl: "question-custom-stages-define.html",
-  styleUrls: ["question-custom-stages-define.html.scss"]
+  styleUrls: ["question-custom-stages-define.scss"]
 })
 export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent {
   @select(["activeProject", "values", "q3.1"])

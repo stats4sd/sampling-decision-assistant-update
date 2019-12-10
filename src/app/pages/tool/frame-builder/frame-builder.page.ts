@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
-import { ViewController } from "@ionic/core";
 import { NavParams } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
 import { FormProvider } from "src/app/services/form/form";
@@ -22,7 +21,6 @@ export class FrameBuilderPage implements OnInit {
   reportingLevels$: Observable<any>;
 
   constructor(
-    public viewCtrl: ViewController,
     public navParams: NavParams,
     private dataPrvdr: DataProvider,
     private formPrvdr: FormProvider

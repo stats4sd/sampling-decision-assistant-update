@@ -1,3 +1,6 @@
+:host {
+  flex: 1;
+}
 .scroll-content {
   display: flex;
   flex-direction: column;
@@ -48,4 +51,13 @@
 }
 #stats4sdLink {
   color: #cf1a27;
+}
+.footer-container {
+  opacity: 0.9;
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  font-size: 16px;
+  justify-content: space-between;
+  width: calc(100% - 32px);
 }

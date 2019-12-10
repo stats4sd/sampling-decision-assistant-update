@@ -44,11 +44,6 @@ const routes: Routes = [
     path: "summary",
     loadChildren: () =>
       import("./summary/summary.module").then(m => m.SummaryPageModule)
-  },
-  {
-    path: "tutorial",
-    loadChildren: () =>
-      import("./tutorial/tutorial.module").then(m => m.TutorialPageModule)
   }
 ];
 

@@ -3,10 +3,10 @@
   <div class="header-text hide-small">Sampling Decision Assistant</div>
 </ion-header>
 
-<ion-content class="padding">
+<ion-content class="ion-padding" style="display: flex;flex-direction: column;">
   <div style="flex:1; margin-bottom: 5em">
     <h1 style="margin-top:35px"></h1>
-    <div style="text-align: center">
+    <div style="text-align: center; flex:1">
       <h2 style="margin-bottom:20px">Where do you want to start?</h2>
       <img src="assets/img/feature-image-2.jpg" alt="" class="feature-image" />
       <hr />
@@ -46,7 +46,7 @@
       </div>
     </div>
   </div>
-  <div style="opacity:0.9; display: flex">
+  <div class="footer-container">
     <div style="flex:1">
       Developed in partnership with
       <a
@@ -64,7 +64,4 @@
       v{{version.number}}
     </div>
   </div>
-  <!-- <div id=" stats4sdAdmin" (click)="goToAdmin()">
-      Stats4SD Admin
-    </div> -->
 </ion-content>

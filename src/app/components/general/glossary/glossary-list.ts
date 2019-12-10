@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { IGlossaryTerm } from "../../../models/models";
 import { ALL_GLOSSARY } from "src/app/data";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "glossary-list",
@@ -13,7 +14,7 @@ export class GlossaryListComponent {
   @Input("activeTerm")
   activeTerm: IGlossaryTerm;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   // on init get glossary from provider and convert to array for display
   ngOnInit() {
@@ -27,6 +28,8 @@ export class GlossaryListComponent {
 
   setActiveTerm(term: IGlossaryTerm) {
     this.activeTerm = term;
+    // this.router.navigate([term.slug], { replaceUrl: true });
+    window.history.replaceState({}, "", "/glossary/" + term.slug);
   }
 
   _renderHtml(definition) {
