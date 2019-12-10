@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary-inverted">
     <ion-title>Saved Projects</ion-title>
-    <ion-buttons slot="primary">
-      <button ion-button (click)="dismiss()">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
         Close
         <ion-icon name="close" slot="start"></ion-icon>
       </ion-button>
@@ -22,11 +22,7 @@
       <note type="error">{{errorMsg}}</note>
       <note type="info">Future progress will be automatically saved</note>
       <ion-item>
-        <ion-button
-         
-          [disabled]="!saveName"
-          (click)="createNew()"
-        >
+        <ion-button [disabled]="!saveName" (click)="createNew()">
           <ion-icon name="create" slot="start"></ion-icon>Create
         </ion-button>
       </ion-item>
@@ -45,7 +41,7 @@
           </div>
           <div style="margin:5px">
             <ion-button
-            fill="clear"
+              fill="clear"
               (click)="deleteProject(project)"
               *ngIf="project.created != activeProject.created"
             >

@@ -8,7 +8,7 @@
         'term-incomplete':term.definition==''
       }">{{term.term}}</span>
     </span>
-    <button ion-button  fill="clear" (click)="viewAllTerms()">View all terms</ion-button>
+    <ion-button  fill="clear" (click)="viewAllTerms()">View all terms</ion-button>
     <div class="glossary-detail-container" *ngIf="activeTerm">
       <glossary-detail *ngIf="activeTerm"></glossary-detail>
     </div>

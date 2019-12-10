@@ -5,9 +5,9 @@ import { NavParams } from "@ionic/angular";
   selector: "page-video-viewer",
   template: `
     <ion-header>
-      <button ion-button fill="clear" (click)="dismiss()">
+      <ion-button fill="clear" (click)="dismiss()">
         <ion-icon name="close" slot="icon-only"></ion-icon>
-      </button>
+      </ion-button>
     </ion-header>
     <ion-content>
       <youtube-player

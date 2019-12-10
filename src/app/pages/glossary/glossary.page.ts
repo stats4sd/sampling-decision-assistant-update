@@ -8,8 +8,8 @@ import { IGlossaryTerm } from "src/app/models/models";
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>Glossary</ion-title>
-        <ion-buttons slot="primary" *ngIf="modalMode">
-          <button ion-button  (click)="dismiss()">
+        <ion-buttons slot="start" *ngIf="modalMode">
+          <ion-button (click)="dismiss()">
             Close
             <ion-icon slot="end" name="close"></ion-icon>
           </ion-button>

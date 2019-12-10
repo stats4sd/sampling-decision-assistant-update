@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar #navbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tool"></ion-back-button>
+    </ion-buttons>
     <ion-title>{{stage.title}}</ion-title>
-    <ion-buttons slot="primary"> </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +20,11 @@
         <div class="stage-info">
           <div id="stageOverview" [innerHtml]="introHtml[stage.number]"></div>
           <div id="stageResources">
-            <button ion-button expand="block" fill="clear" (click)="showResourcesList()">
+            <ion-button
+              expand="block"
+              fill="clear"
+              (click)="showResourcesList()"
+            >
               <span style="padding-right:8px">
                 <ion-icon
                   style="font-size: 1.8em"

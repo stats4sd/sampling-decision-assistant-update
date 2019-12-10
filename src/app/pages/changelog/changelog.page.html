@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>What's New?</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -422,7 +425,7 @@
     the calculator requires the manual input of variables which are already
     present in the app, however in the future they will be better integrated.
   </p>
-  <button ion-button (click)="launchSampleSizeCalculator()">
+  <ion-button (click)="launchSampleSizeCalculator()">
     <ion-icon name="calculator" slot="start"></ion-icon>Sample Size Calculator
   </ion-button>
   <p>

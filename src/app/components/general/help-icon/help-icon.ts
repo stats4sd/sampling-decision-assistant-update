@@ -5,8 +5,7 @@ import { Events } from "@ionic/angular";
   selector: "help-icon",
   template: `
     <div class="help-container">
-      <button
-        ion-button
+      <ion-button
         fill="clear"
         style="color:rgba(0,0,0,0.9); margin:0"
         (click)="helpClicked()"
@@ -18,7 +17,7 @@ import { Events } from "@ionic/angular";
           ios="ios-help-circle-outline"
           md="ios-help-circle-outline"
         ></ion-icon>
-      </button>
+      </ion-button>
     </div>
   `
 })
