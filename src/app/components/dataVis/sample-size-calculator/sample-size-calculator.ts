@@ -2,15 +2,13 @@ import { Component } from "@angular/core";
 import { NgRedux } from "@angular-redux/store";
 import * as jStat from "jStat";
 import { Subscription } from "rxjs";
-import { DataProvider } from "../../../providers/data/data";
 import {
   AppState,
   ReportingLevel,
   StageMeta,
   ProjectValues
 } from "../../../models/models";
-import { FormProvider } from "../../../providers/form/form";
-import { DataVisProvider } from "../../../providers/data-vis/data-vis";
+import { DataProvider, FormProvider, DataVisProvider } from "src/app/services";
 
 @Component({
   selector: "sample-size-calculator",

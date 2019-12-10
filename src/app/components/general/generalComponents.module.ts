@@ -9,9 +9,11 @@ import { NoteComponent } from "./note/note";
 import { ResourceItemComponent } from "./resources/resource-item/resource-item";
 import { ResourcesListComponent } from "./resources/resources-list/resources-list";
 import { HelpIconComponent } from "./help-icon/help-icon";
-import { YoutubePlayerModule } from "ngx-youtube-player";
+import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 import { ProjectTitleComponent } from "./project-title";
 import { VideoPopupButtonComponent } from "./video-player/video-popup-button";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 // import { DecisionToolMenuComponent } from './decision-tool-menu/decision-tool-menu';
 @NgModule({
@@ -27,7 +29,13 @@ import { VideoPopupButtonComponent } from "./video-player/video-popup-button";
     ProjectTitleComponent,
     VideoPopupButtonComponent
   ],
-  imports: [IonicModule, YoutubePlayerModule],
+  imports: [
+    IonicModule,
+    NgxYoutubePlayerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
+  ],
   exports: [
     IntroductionComponent,
     GlossaryLinkComponent,

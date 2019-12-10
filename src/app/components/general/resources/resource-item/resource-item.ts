@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
-import { expand } from "../../../../providers/animationStates";
+import { expand } from "src/app/services/animationStates";
 import { IResourceQuestion } from "../../../../models/models";
 
 @Component({

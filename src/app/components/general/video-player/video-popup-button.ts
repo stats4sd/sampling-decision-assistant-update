@@ -7,9 +7,9 @@ import { ModalController } from "@ionic/angular";
 @Component({
   selector: "video-popup-button",
   template: `
-  ion-buttonn icon-left clear (click)="showIntroVideo()">
-    <ion-icon name="logo-youtube"></ion-icon>{{buttonText}}
- ion-buttonton>  
+    ion-buttonn icon-left clear (click)="showIntroVideo()">
+    <ion-icon name="logo-youtube"></ion-icon>{{ buttonText }}
+    ion-buttonton>
   `
 })
 export class VideoPopupButtonComponent {
@@ -20,17 +20,15 @@ export class VideoPopupButtonComponent {
 
   constructor(public modalCtrl: ModalController) {}
 
-  showIntroVideo() {
+  async showIntroVideo() {
     console.log("showing intro video", this.youtubeID, this.buttonText);
-    this.modalCtrl
-      .create(
-        "VideoViewerPage",
-        { youtubeID: this.youtubeID },
-        {
-          enableBackdropDismiss: true,
-          cssClass: "video-player"
-        }
-      )
-      .present();
+    const modal = await this.modalCtrl.create({
+      component: "VideoViewerPage",
+      componentProps: { youtubeID: this.youtubeID },
+
+      backdropDismiss: true,
+      cssClass: "video-player"
+    });
+    await modal.present();
   }
 }

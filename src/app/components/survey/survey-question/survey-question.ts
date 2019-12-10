@@ -22,10 +22,10 @@ import {
   FormControl
 } from "@angular/forms";
 import { Events } from "@ionic/angular";
-import { FormProvider } from "../../../providers/form/form";
-import { DataProvider } from "../../../providers/data/data";
+import { FormProvider } from "src/app/services/form/form";
+import { DataProvider } from "src/app/services/data/data";
 import { Question } from "../../../models/models";
-import { fadein } from "../../../providers/animationStates";
+import { fadein } from "src/app/services/animationStates";
 
 // settings to enable a model binding
 export const VALUE_ACCESSOR: any = {

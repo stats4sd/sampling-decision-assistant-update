@@ -4,8 +4,8 @@
       <ion-input id="textMultipleInput" #textMultipleInput (ionChange)="validateInput()" [(ngModel)]="multipleTextInput"
         [ngModelOptions]="{standalone: true}" type="text" placeholder="Sampling Stages"></ion-input>
     </ion-item>
-    <ion-button (click)="addSamplingStage()" type="submit" [disabled]="!multipleTextInput" *ngIf="!editMode">Add</ion-button>
-    <ion-button (click)="saveEdits()" type="submit" *ngIf="editMode">Save</ion-button>
+    <button ion-button(click)="addSamplingStage()" type="submit" [disabled]="!multipleTextInput" *ngIf="!editMode">Add</ion-button>
+    <button ion-button(click)="saveEdits()" type="submit" *ngIf="editMode">Save</ion-button>
   </form>
 
   <!-- multiple list with optional drag-->
@@ -18,15 +18,15 @@
             <ion-icon name="arrow-down"></ion-icon>
           </div>
           <div style="display: flex">
-            <ion-button icon-only clear [disabled]="last" [attr.data-drag-handle]="last ? 'no-drag' : 'drag'">
+            <button ion-buttonicon-only clear [disabled]="last" [attr.data-drag-handle]="last ? 'no-drag' : 'drag'">
               <ion-icon name="reorder"></ion-icon>
             </ion-button>
-            <ion-button block icon-right class="multiple-arrows-button" (click)="enableEdit(i)"
+            <button ion-buttonblock icon-right class="multiple-arrows-button" (click)="enableEdit(i)"
               [attr.data-editing]="editIndex==i? 'editing':''">
               <span style="flex-basis:100%">{{stage.name}}</span>
               <ion-icon name="create" class="edit-button" *ngIf="!editMode" style="opacity:0.5"></ion-icon>
             </ion-button>
-            <ion-button icon-only clear (click)="removeSamplingStage(i)" [disabled]="last">
+            <button ion-buttonicon-only clear (click)="removeSamplingStage(i)" [disabled]="last">
               <ion-icon name="remove-circle"></ion-icon>
             </ion-button>
           </div>
@@ -40,13 +40,13 @@
           <ion-icon name="arrow-down"></ion-icon>
         </div>
         <div style="display: flex">
-          <ion-button icon-only clear disabled>
+          <button ion-buttonicon-only clear disabled>
             <ion-icon name="reorder"></ion-icon>
           </ion-button>
-          <ion-button block icon-left class="multiple-arrows-button">
+          <button ion-buttonblock icon-left class="multiple-arrows-button">
             <span style="flex-basis:100%">{{finalSamplingUnit}}</span>
           </ion-button>
-          <ion-button icon-only clear (click)="removeSamplingStage(i)" disabled>
+          <button ion-buttonicon-only clear (click)="removeSamplingStage(i)" disabled>
             <ion-icon name="remove-circle"></ion-icon>
           </ion-button>
         </div>

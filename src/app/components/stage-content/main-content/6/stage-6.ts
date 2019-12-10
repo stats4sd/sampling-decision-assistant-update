@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { StagePage } from "../../../../pages/sampling tool/stage/stage";
+import { StagePage } from "src/app/pages/tool/stage/stage.page";
 
 @Component({
   selector: "stage-6",

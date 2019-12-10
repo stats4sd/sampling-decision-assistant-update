@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
-import { GlossaryProvider } from "../../../../providers/glossary/glossary";
+import { GlossaryProvider } from "src/app/services/glossary/glossary";
 import { IGlossaryTerm } from "../../../../models/models";
 import { NavController } from "@ionic/angular";
 
@@ -58,6 +58,6 @@ export class GlossaryLinkComponent {
   // push term navParams to glossary to automatically load
   // had previously been done with url parameters but messy
   goToGlossary() {
-    this.navCtrl.push("GlossaryPage", this.term);
+    // this.navCtrl.push("GlossaryPage", this.term);
   }
 }

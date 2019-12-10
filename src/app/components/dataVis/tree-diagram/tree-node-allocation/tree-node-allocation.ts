@@ -1,5 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { TextInput, Events } from "@ionic/angular";
+import { Events } from "@ionic/angular";
 import { select, NgRedux } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { debounceTime } from "rxjs/operators";
@@ -10,8 +10,8 @@ import {
   StageMeta,
   ReportingLevel
 } from "../../../../models/models";
-import { FormProvider } from "../../../../providers/form/form";
-import { DataProvider } from "../../../../providers/data/data";
+import { FormProvider } from "src/app/services/form/form";
+import { DataProvider } from "src/app/services/data/data";
 
 @Component({
   selector: "tree-node-allocation",
@@ -44,8 +44,8 @@ export class TreeNodeAllocationComponent {
   allocation: any = {};
   allocationControlChecked: boolean;
   reviewMode: boolean;
-  @ViewChild("sampleSizeInput")
-  sampleSizeInput: TextInput;
+  @ViewChild("sampleSizeInput", { static: false })
+  sampleSizeInput: any;
 
   constructor(
     public formPrvdr: FormProvider,

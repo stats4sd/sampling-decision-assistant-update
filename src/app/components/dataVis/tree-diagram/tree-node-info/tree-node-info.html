@@ -4,7 +4,7 @@
       {{activeNode.label}}
     </div>
     <div class="info-subsection-labels">
-      <ion-button clear icon-left [attr.data-active]="infoSection=='info'" (click)="_updateInfoSection('info')">
+      <button ion-buttonclear icon-left [attr.data-active]="infoSection=='info'" (click)="_updateInfoSection('info')">
         <ion-icon name="information-circle"></ion-icon>Info
       </ion-button>
       <!-- <button style="flex:1" ion-button clear icon-left [attr.data-active]="infoSection=='allocation'" (click)="_updateInfoSection('allocation')">

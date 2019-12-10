@@ -2,7 +2,7 @@
 
 import { Component, Input } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { FormProvider } from "../../../providers/form/form";
+import { FormProvider } from "src/app/services/form/form";
 
 @Component({
   selector: "survey-question-group",

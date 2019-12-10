@@ -8,10 +8,10 @@ import {
   TreeState
 } from "../models/models";
 
-export type ProjectSaveAction = FluxStandardAction<Project, null>;
-export type ProjectLoadAction = FluxStandardAction<Project, null>;
-export type ProjectsListAction = FluxStandardAction<Project[], null>;
-export type UpdateProjectAction = FluxStandardAction<any, string>;
+export type ProjectSaveAction = FluxStandardAction<string, Project>;
+export type ProjectLoadAction = FluxStandardAction<string, Project>;
+export type ProjectsListAction = FluxStandardAction<string, null>;
+export type UpdateProjectAction = FluxStandardAction<string, any, string>;
 
 @Injectable({
   providedIn: "root"

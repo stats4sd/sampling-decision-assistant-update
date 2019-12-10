@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, ElementRef } from "@angular/core";
 import options from "./options";
-import { FormProvider } from "../../../providers/form/form";
+import { FormProvider } from "src/app/services/form/form";
 import { FormGroup } from "@angular/forms";
 import { Events } from "@ionic/angular";
 import {
@@ -14,8 +14,8 @@ import { TreeDiagramActions } from "../../../actions/actions";
 import { select, NgRedux } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { debounceTime } from "rxjs/operators";
-import { DataProvider } from "../../../providers/data/data";
-import { DataVisProvider } from "../../../providers/data-vis/data-vis";
+import { DataProvider } from "src/app/services/data/data";
+import { DataVisProvider } from "src/app/services/data-vis/data-vis";
 
 declare let vis: any;
 // format to lazy load vis if there weren't conflict with hammer.js
@@ -40,7 +40,7 @@ export class TreeDiagramComponent {
   showInputNodes: boolean;
   @Input("showKey")
   showKey: boolean;
-  @ViewChild("treeContainer")
+  @ViewChild("treeContainer",{static:true})
   readonly treeContainer: ElementRef;
   @select(["activeProject", "values"])
   readonly projectValues$: Observable<ProjectValues>;

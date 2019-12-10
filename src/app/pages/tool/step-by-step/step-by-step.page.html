@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <ion-title>Sampling Decision Assistant</ion-title>
     <ion-buttons slot="primary">
-      <ion-button icon-left (click)="showMenu($event)">
+      <button ion-buttonicon-left (click)="showMenu($event)">
         <ion-icon name="more"></ion-icon>Menu
       </ion-button>
     </ion-buttons>
@@ -37,7 +37,7 @@
                 [(ngModel)]="activeProject.description"
               ></ion-textarea>
             </ion-item>
-            <ion-button id="saveProjectButton" (click)="save()">
+            <button ion-buttonid="saveProjectButton" (click)="save()">
               Save
             </ion-button>
           </ion-list>
@@ -60,7 +60,7 @@
               >
                 <ion-icon name="clipboard"></ion-icon>{{activeProject.title}}
               </div>
-              <ion-button icon-only clear (click)="enableEditing()">
+              <button ion-buttonicon-only clear (click)="enableEditing()">
                 <ion-icon name="create"></ion-icon>
               </ion-button>
             </div>

@@ -3,7 +3,7 @@
 
 import { Component, Input } from "@angular/core";
 import { FormArray, FormGroup } from "@angular/forms";
-import { FormProvider } from "../../../providers/form/form";
+import { FormProvider } from "src/app/services/form/form";
 
 @Component({
   selector: "survey-repeat-group",

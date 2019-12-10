@@ -3,8 +3,8 @@ import { SurveyQuestionComponent } from "../../survey-question/survey-question";
 import { FormControl } from "@angular/forms";
 import { DragulaService } from "ng2-dragula";
 import { Events, TextInput } from "@ionic/angular";
-import { FormProvider } from "../../../../providers/form/form";
-import { DataProvider } from "../../../../providers/data/data";
+import { FormProvider } from "src/app/services/form/form";
+import { DataProvider } from "src/app/services/data/data";
 import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
 

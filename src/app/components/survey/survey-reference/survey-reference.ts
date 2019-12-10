@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { FormProvider } from "../../../providers/form/form";
+import { FormProvider } from "src/app/services/form/form";
 @Component({
   selector: "survey-reference",
   templateUrl: "survey-reference.html",

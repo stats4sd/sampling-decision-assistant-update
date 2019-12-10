@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { ReportingLevel } from "../../../../../models/models";
-import { FormProvider } from "../../../../../providers/form/form";
+import { FormProvider } from "src/app/services";
 
 export interface ReportingLevel {
   name: string;

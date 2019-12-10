@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { AlertController, ViewController } from "@ionic/angular";
-import { DataProvider } from "../../../providers/data/data";
+import { AlertController } from "@ionic/angular";
+import { DataProvider } from "src/app/services/data/data";
 
 @Component({
   selector: "decision-tool-menu",
@@ -9,18 +9,17 @@ import { DataProvider } from "../../../providers/data/data";
 })
 export class DecisionToolMenuComponent {
   constructor(
-    public viewCtrl: ViewController,
     private alertCtrl: AlertController,
     private dataPrvdr: DataProvider
   ) {
     console.log("Hello DecisionToolMenuComponent Component");
   }
   dismiss(param) {
-    this.viewCtrl.dismiss(param);
+    // this.viewCtrl.dismiss(param);
   }
 
-  saveAs() {
-    const alert = this.alertCtrl.create({
+  async saveAs() {
+    const alert = await this.alertCtrl.create({
       header: "Save project as",
       inputs: [
         {
@@ -40,11 +39,11 @@ export class DecisionToolMenuComponent {
             if (data.title) {
               this.dataPrvdr.saveProjectAs(data.title);
             }
-            this.viewCtrl.dismiss();
+            // this.viewCtrl.dismiss();
           }
         }
       ]
     });
-    alert.present();
+    await alert.present();
   }
 }

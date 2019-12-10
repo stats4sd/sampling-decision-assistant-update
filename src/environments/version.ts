@@ -1,4 +1,4 @@
 export const APP_VERSION = {
-  number: "1.2.6",
+  number: require("../../package.json").version,
   date: "14th March 2019"
 };

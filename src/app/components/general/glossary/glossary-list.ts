@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { GlossaryProvider } from "../../../providers/glossary/glossary";
+import { GlossaryProvider } from "src/app/services/glossary/glossary";
 import { IGlossaryTerm } from "../../../models/models";
 
 @Component({

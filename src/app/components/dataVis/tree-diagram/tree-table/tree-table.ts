@@ -8,9 +8,10 @@ import {
   IAllocation
 } from "../../../../models/models";
 import { CalculatorRecommendations } from "../../sample-size-calculator/sample-size-calculator";
-import { DataVisProvider } from "../../../../providers/data-vis/data-vis";
-import { DataProvider } from "../../../../providers/data/data";
-import { FormProvider } from "../../../../providers/form/form";
+import { DataVisProvider } from "src/app/services/data-vis/data-vis";
+import { DataProvider } from "src/app/services/data/data";
+import { FormProvider } from "src/app/services/form/form";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "tree-table",
@@ -129,7 +130,7 @@ export class TreeTableComponent {
         "_calculatorVars",
         "recommendations"
       ])
-      .takeUntil(this.componentDestroyed)
+      .pipe(takeUntil(this.componentDestroyed))
       .subscribe(recommendations => {
         if (recommendations) {
           console.log("recommendations updated");
