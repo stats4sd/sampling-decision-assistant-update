@@ -55,8 +55,8 @@
 
   <!-- Next and back buttons -->
   <div style="display: flex; justify-content:space-between; padding-bottom:20px; margin-top:20px">
-    <button ion-buttonicon-right (click)="nextStep()" *ngIf="stagePart !='2'" clear block>Continue
-      <ion-icon name="arrow-forward"></ion-icon>
+    <button ion-button (click)="nextStep()" *ngIf="stagePart !='2'" fill="clear" expand="block">Continue
+      <ion-icon slot="end" name="arrow-forward"></ion-icon>
     </ion-button>
   </div>
 </div>

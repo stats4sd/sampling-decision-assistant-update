@@ -2,9 +2,10 @@
 <p>
   We will now find a method to select and reach the
   <glossary-link slug="sampling-unit">sampling units.</glossary-link>
-  <br><br>
-  To start, let us review some of the information that you have presented so far. Note that at any point you can
-  modify this to make sure you build an appropriate strategy.
+  <br /><br />
+  To start, let us review some of the information that you have presented so
+  far. Note that at any point you can modify this to make sure you build an
+  appropriate strategy.
 </p>
 <div class="info-card-container">
   <ion-card *ngFor="let info of infoProvided" class="info-provided-card">
@@ -22,12 +23,16 @@
         <div *ngSwitchCase="'stage-2'">
           <survey-reference controlName="q2.1.1"></survey-reference>
           <!-- averages -->
-          <div *ngIf="form.value['q2.1.2']=='Average or total value of indicator in the population'">
+          <div
+            *ngIf="form.value['q2.1.2']=='Average or total value of indicator in the population'"
+          >
             <span style="padding-left:5px">&sigma; = </span>
             <survey-reference controlName="q2.2.2"></survey-reference>
           </div>
           <!-- proportions -->
-          <div *ngIf="form.value['q2.1.2']=='Proportion of elements in the population with the characteristics of the indicator'">
+          <div
+            *ngIf="form.value['q2.1.2']=='Proportion of elements in the population with the characteristics of the indicator'"
+          >
             <span style="padding-left:5px">Estimated Proportion: </span>
             <survey-reference controlName="q2.3.1"></survey-reference>
           </div>
@@ -53,12 +58,7 @@
             <survey-reference controlName="4.1"></survey-reference>
           </div>
         </div>
-
       </div>
     </div>
-
   </ion-card>
-  <!-- <div class="dev-note" icon-left>
-                    <ion-icon name="bug"></ion-icon>Developer note: sampling unit should include full definition with exclusions and reporting
-                    level should include multiple</div> -->
 </div>

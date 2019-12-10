@@ -58,31 +58,14 @@
     <div padding>
       <h2>Export</h2>
       <div style="display: flex; flex-wrap: wrap  ">
-        <ion-button
-         
-          icon-left
-          (click)="exportJSON()"
-          class="export-button"
-        >
-          <ion-icon name="custom-database"></ion-icon>Project Data
+        <ion-button (click)="exportJSON()" class="export-button">
+          <ion-icon name="custom-database" slot="start"></ion-icon>Project Data
         </ion-button>
-        <!-- <button ion-button icon-left (click)="exportXLSX()" class="export-button" >
-          <ion-icon name="custom-excel"></ion-icon>XLSX Summary</button> -->
-        <ion-button
-         
-          icon-left
-          (click)="exportDocx()"
-          class="export-button"
-        >
-          <ion-icon name="custom-word"></ion-icon>Summary
+        <ion-button (click)="exportDocx()" class="export-button">
+          <ion-icon name="custom-word" slot="start"></ion-icon>Summary
         </ion-button>
-        <ion-button
-         
-          icon-left
-          (click)="exportTreeImage()"
-          class="export-button"
-        >
-          <ion-icon name="custom-tree"></ion-icon>Diagram
+        <ion-button (click)="exportTreeImage()" class="export-button">
+          <ion-icon name="custom-tree" slot="start"></ion-icon>Diagram
         </ion-button>
       </div>
     </div>

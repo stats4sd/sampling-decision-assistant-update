@@ -15,6 +15,13 @@
     "interface-name": false,
     "class-name": false,
     "radix": false,
-    "max-classes-per-file": false
+    "max-classes-per-file": false,
+    "one-variable-per-declaration": false,
+    "only-arrow-functions": false,
+    "variable-name": false,
+    "comment-format": false,
+    "member-ordering": false,
+    "no-string-literal": false,
+    "no-bitwise": false
   }
 }

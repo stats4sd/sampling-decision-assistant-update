@@ -39,7 +39,7 @@
   width: 100px;
 }
 .node-editor-heading {
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
   text-align: center;
   padding: 5px;
   font-size: large;

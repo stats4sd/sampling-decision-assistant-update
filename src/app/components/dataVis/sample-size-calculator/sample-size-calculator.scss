@@ -23,7 +23,7 @@ td {
 .calc-section.results {
   flex: 1;
   background-color: white;
-  border: 2px solid color($colors, primary);
+  border: 2px solid var(--ion-color-primary);
 }
 .calc-section .input-label {
   width: 120px;
@@ -62,10 +62,10 @@ td {
   font-weight: bold;
 }
 .primary {
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
 }
 .section-divider {
-  border-bottom: 1px solid color($colors, primary);
+  border-bottom: 1px solid var(--ion-color-primary);
   margin: 1em 0;
 }
 #multiStageResults {

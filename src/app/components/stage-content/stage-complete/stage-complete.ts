@@ -170,14 +170,14 @@ export class StageCompleteComponent extends StagePage {
     // method to recognise stage-2 -> stage-1 when wanting to go fully back and auto pop history
     let next: number = this.stage.number + 1;
     // push new page and remove duplicate stack
-    this.navCtrl.push("StagePage", { stageID: "stage-" + next }).then(_ => {
-      this.navCtrl.remove(this.navCtrl.length() - 2);
-    });
+    // this.navCtrl.push("StagePage", { stageID: "stage-" + next }).then(_ => {
+    //   this.navCtrl.remove(this.navCtrl.length() - 2);
+    // });
   }
   goToReview() {
-    this.navCtrl
-      .push("ReviewPage")
-      .then(_ => this.navCtrl.remove(this.navCtrl.length() - 2));
+    // this.navCtrl
+    //   .push("ReviewPage")
+    //   .then(_ => this.navCtrl.remove(this.navCtrl.length() - 2));
   }
 
   toggleCheckbox() {

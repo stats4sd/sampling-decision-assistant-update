@@ -2,7 +2,7 @@
   margin: 20px 0 20px 45px;
 }
 .item-inner {
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
 }
 .list-header {
   margin-bottom: 0;

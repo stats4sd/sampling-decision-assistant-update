@@ -60,9 +60,9 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
   //@Input() set formGroup(formGroup:FormGroup){console.log('formgroup set',formGroup)};
   @Output()
   onValueChange = new EventEmitter<any>();
-  @ViewChild("textAreaInput")
+  @ViewChild("textAreaInput", { static: true })
   textAreaInput: ElementRef;
-  @ViewChild("saveMessage")
+  @ViewChild("saveMessage", { static: true })
   saveMessage: ElementRef;
 
   value: any;

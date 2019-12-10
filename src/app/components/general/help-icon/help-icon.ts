@@ -4,13 +4,23 @@ import { Events } from "@ionic/angular";
 @Component({
   selector: "help-icon",
   template: `
-  <div class="help-container" >
-   ion-buttonon icon-only clear style="color:rgba(0,0,0,0.9); margin:0" (click)="helpClicked()">
-    <span>{{text}}</span>
-    <ion-icon style="padding:0 8px" ios="ios-help-circle-outline" md="ios-help-circle-outline"></ion-icon>
- ion-buttonutton>
-  </div>
-`
+    <div class="help-container">
+      <button
+        ion-button
+        fill="clear"
+        style="color:rgba(0,0,0,0.9); margin:0"
+        (click)="helpClicked()"
+      >
+        <span>{{ text }}</span>
+        <ion-icon
+          slot="icon-only"
+          style="padding:0 8px"
+          ios="ios-help-circle-outline"
+          md="ios-help-circle-outline"
+        ></ion-icon>
+      </button>
+    </div>
+  `
 })
 export class HelpIconComponent {
   @Input("relevant")

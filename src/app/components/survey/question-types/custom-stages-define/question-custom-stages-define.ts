@@ -2,11 +2,11 @@ import { Component, ChangeDetectorRef, ViewChild } from "@angular/core";
 import { SurveyQuestionComponent } from "../../survey-question/survey-question";
 import { FormControl } from "@angular/forms";
 import { DragulaService } from "ng2-dragula";
-import { Events, TextInput } from "@ionic/angular";
+import { Events } from "@ionic/angular";
 import { FormProvider } from "src/app/services/form/form";
 import { DataProvider } from "src/app/services/data/data";
 import { select } from "@angular-redux/store";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 
 /*
 Custom component to add multiple stages, populate repeat formgroup and give option to remove or reorder
@@ -22,8 +22,8 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
   readonly finalSamplingUnit$: Observable<string>;
   @select(["activeProject", "values"])
   readonly formValues$: Observable<any>;
-  @ViewChild("textMultipleInput")
-  textMultipleInput: TextInput;
+  @ViewChild("textMultipleInput", { static: true })
+  textMultipleInput: any;
 
   multipleTextInput: string;
   stages: any[] = [];
@@ -32,6 +32,7 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
       return handle.parentElement.dataset.dragHandle == "drag";
     }
   };
+  dragularSub$ = new Subscription();
   finalSamplingUnit: string = "";
   editMode: boolean;
   editIndex: number; ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,6 +55,10 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
     // run init on fsu changes
     this.finalSamplingUnit$.subscribe(fsu => this._init(fsu));
     // rewrite query param on value update (annoying bug in platform that changes hash on action sheet present)
+  }
+
+  ngOnDestroy() {
+    this.dragularSub$.unsubscribe();
   }
 
   ngAfterViewInit() {
@@ -140,9 +145,11 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
 
   _addDragDropSubscriber() {
     // automatically save form values when rearranged using drag drop. Push final sampling unit back to array and reverse
-    this.dragulaService.dropModel.subscribe(_ => {
-      console.log("drop");
-      this.patchForm();
-    });
+    this.dragularSub$.add(
+      this.dragulaService.dropModel().subscribe(_ => {
+        console.log("drop");
+        this.patchForm();
+      })
+    );
   }
 }

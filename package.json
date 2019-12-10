@@ -37,6 +37,7 @@
     "file-saver": "^2.0.2",
     "flux-standard-action": "^2.1.1",
     "jStat": "^1.8.6",
+    "ng2-dragula": "^2.1.1",
     "ngx-file-drop": "^8.0.8",
     "ngx-image-viewer": "^1.0.13",
     "ngx-youtube-player": "^7.1.1",

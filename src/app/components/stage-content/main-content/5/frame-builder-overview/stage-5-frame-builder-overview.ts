@@ -24,11 +24,14 @@ export class Stage5_FrameBuilderOverviewComponent {
       }
     });
   }
-  buildStage(stage, stageIndex) {
+  async buildStage(stage, stageIndex) {
     // get formgroup matching stage name to parentID
     let params = { stageFormGroup: stage, stageIndex: stageIndex };
-    this.modalCtrl
-      .create("FrameBuilderPage", params, { cssClass: "full-screen" })
-      .present();
+    const modal = await this.modalCtrl.create({
+      component: "FrameBuilderPage",
+      componentProps: params,
+      cssClass: "full-screen"
+    });
+    await modal.present();
   }
 }

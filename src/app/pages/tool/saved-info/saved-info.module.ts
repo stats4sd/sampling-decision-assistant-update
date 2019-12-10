@@ -5,7 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { IonicModule } from "@ionic/angular";
 
 import { SavedInfoPageRoutingModule } from "./saved-info-routing.module";
-import { FileDropModule } from "ngx-file-drop";
+import { NgxFileDropModule } from "ngx-file-drop";
 import { SavedInfoPage } from "./saved-info.page";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
 
@@ -15,7 +15,7 @@ import { GeneralComponentsModule } from "src/app/components/general/generalCompo
     FormsModule,
     IonicModule,
     SavedInfoPageRoutingModule,
-    FileDropModule,
+    NgxFileDropModule,
     GeneralComponentsModule
   ],
   declarations: [SavedInfoPage]

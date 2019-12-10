@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { StagePage } from "src/app/pages/tool/stage/stage.page";
 import { Subject, Subscription } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "stage-2",
@@ -31,13 +32,13 @@ export class Stage2Component extends StagePage {
     // listen for updates on min/max values to automatically calculate s.d
     this.sdLower$ = this.ngRedux
       .select(["activeProject", "values", "q2.2.3"])
-      .takeUntil(this.componentDestroyed)
+      .pipe(takeUntil(this.componentDestroyed))
       .subscribe(v => {
         this._calculateSD();
       });
     this.sdUpper$ = this.ngRedux
       .select(["activeProject", "values", "q2.2.4"])
-      .takeUntil(this.componentDestroyed)
+      .pipe(takeUntil(this.componentDestroyed))
       .subscribe(v => {
         this._calculateSD();
       });

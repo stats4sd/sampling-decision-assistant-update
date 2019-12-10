@@ -2,11 +2,11 @@
   <ion-toolbar>
     <ion-title>Summary</ion-title>
     <ion-buttons slot="primary">
-      <button ion-buttonicon-left (click)="download()">
-        <ion-icon name="download"></ion-icon>Download
+      <button ion-button  (click)="download()">
+        <ion-icon name="download" slot="start"></ion-icon>Download
       </ion-button>
-      <button ion-buttonicon-left (click)="dismiss()">
-        <ion-icon name="close"></ion-icon>Close
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close" slot="start"></ion-icon>Close
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

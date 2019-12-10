@@ -185,7 +185,7 @@ export class FormProvider {
     // add listener for update, e.g. if values depend on 4.2 listn for arrayChange:4.2
     this.events.unsubscribe("arrayChange:" + question.selectOptions);
     this.events.subscribe("arrayChange:" + question.selectOptions, update => {
-      const control = <FormArray>this.formGroup.controls[groupPrefix];
+      const control = this.formGroup.controls[groupPrefix] as FormArray;
       if (update.type == "push") {
         control.push(this._buildRepeatGroup(repeatQs, update.pushValue));
       }

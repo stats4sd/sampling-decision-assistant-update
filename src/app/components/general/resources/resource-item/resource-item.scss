@@ -40,7 +40,7 @@ ol {
 }
 .selected,
 .selected:hover {
-  background-color: color($colors, primary) !important;
+  background-color: var(--ion-color-primary) !important;
   color: white;
 }
 .answer-text,
@@ -74,8 +74,8 @@ table {
 //   background-color: white;
 //   .background {
 //     // this is actually the bar
-//     background-color: color($colors, primary);
-//     border: 1px solid color($colors, primary);
+//     background-color: var(--ion-color-primary);
+//     border: 1px solid var(--ion-color-primary);
 //   }
 // }
 // .video-volume-control {

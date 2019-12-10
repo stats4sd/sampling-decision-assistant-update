@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { IGlossaryTerm } from "src/app/models/models";
 
 @Component({
@@ -9,9 +9,9 @@ import { IGlossaryTerm } from "src/app/models/models";
       <ion-toolbar color="primary">
         <ion-title>Glossary</ion-title>
         <ion-buttons slot="primary" *ngIf="modalMode">
-          <button ion-buttonicon-right (click)="dismiss()">
+          <button ion-button  (click)="dismiss()">
             Close
-            <ion-icon name="close"></ion-icon>
+            <ion-icon slot="end" name="close"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>

@@ -29,8 +29,7 @@
 }
 .note.info {
   background-color: white;
-  color: color($colors, primary);
-  // border:1px solid color($colors,primary)
+  color: var(--ion-color-primary);
 }
 .note.success {
   background-color: #d4edda;
@@ -38,10 +37,10 @@
 }
 
 .note.tip {
-  background-color: color($colors, primary);
+  background-color: var(--ion-color-primary);
   color: white;
 }
 .note.clearTip {
   background-color: white;
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
 }

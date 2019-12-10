@@ -1,6 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
 import { SurveyQuestionComponent } from "../../survey-question/survey-question";
-import { TextInput } from "@ionic/angular";
 
 //
 @Component({
@@ -15,8 +14,8 @@ export class QuestionCustomReportingLevelsComponent extends SurveyQuestionCompon
   editValues: string[] = [];
   editIndex: number;
   // use meta to split the question across different slides
-  @ViewChild("textMultipleInput")
-  textMultipleInput: TextInput; ///////////////////////////////////////////////////////////////////////////////////////////////
+  @ViewChild("textMultipleInput", { static: true })
+  textMultipleInput: any; ///////////////////////////////////////////////////////////////////////////////////////////////
 
   /************** custom reporting levels *********************************************************
   similar code and template to multiple text input, but builds objects array instead of string array

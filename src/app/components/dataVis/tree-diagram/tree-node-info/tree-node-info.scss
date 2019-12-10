@@ -17,7 +17,7 @@
 }
 
 .node-title {
-  background: color($colors, primary);
+  background: var(--ion-color-primary);
   padding: 5px;
   color: white;
   text-align: center;
@@ -39,7 +39,7 @@ li[data-active="true"] {
 .info-subsection-labels {
   display: flex;
 
-  border: 1px solid color($colors, primary);
+  border: 1px solid var(--ion-color-primary);
   background-color: white;
 }
 .info-subsection-labels > button {
@@ -50,7 +50,7 @@ li[data-active="true"] {
 }
 .button[data-active="true"] {
   font-weight: bold;
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
 }
 .button[data-active="false"] {
   font-weight: bold;

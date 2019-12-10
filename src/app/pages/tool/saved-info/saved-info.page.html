@@ -2,9 +2,9 @@
   <ion-toolbar color="primary-inverted">
     <ion-title>Saved Projects</ion-title>
     <ion-buttons slot="primary">
-      <button ion-buttonicon-left icon-right (click)="dismiss()">
+      <button ion-button (click)="dismiss()">
         Close
-        <ion-icon name="close"></ion-icon>
+        <ion-icon name="close" slot="start"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -24,11 +24,10 @@
       <ion-item>
         <ion-button
          
-          icon-left
           [disabled]="!saveName"
           (click)="createNew()"
         >
-          <ion-icon name="create"></ion-icon>Create
+          <ion-icon name="create" slot="start"></ion-icon>Create
         </ion-button>
       </ion-item>
     </ion-list>
@@ -46,13 +45,11 @@
           </div>
           <div style="margin:5px">
             <ion-button
-             
-              icon-only
-              clear
+            fill="clear"
               (click)="deleteProject(project)"
               *ngIf="project.created != activeProject.created"
             >
-              <ion-icon name="trash" color="delete"></ion-icon>
+              <ion-icon name="trash" color="delete" slot="icon-only"></ion-icon>
             </ion-button>
             <div
               class="active-project-label"

@@ -3,6 +3,7 @@ import { select, NgRedux } from "@angular-redux/store";
 import { Subject, Subscription } from "rxjs";
 import { ViewActions } from "../../../actions/actions";
 import { AppState } from "../../../models/models";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "stage-breadcrumbs",
@@ -36,7 +37,7 @@ export class StageBreadcrumbsComponent {
     // subscribe to stage part state changes
     this.part$ = this.ngRedux
       .select<number>(["view", "params", "stagePart"])
-      .takeUntil(this.componentDestroyed)
+      .pipe(takeUntil(this.componentDestroyed))
       .subscribe(p => {
         this.activePart = p;
       });

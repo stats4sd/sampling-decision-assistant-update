@@ -7,9 +7,9 @@ import { ModalController } from "@ionic/angular";
 @Component({
   selector: "video-popup-button",
   template: `
-    ion-buttonn icon-left clear (click)="showIntroVideo()">
-    <ion-icon name="logo-youtube"></ion-icon>{{ buttonText }}
-    ion-buttonton>
+    <button ion-buttonn fill="clear" (click)="showIntroVideo()">
+      <ion-icon slot="start" name="logo-youtube"></ion-icon>{{ buttonText }}
+    </button>
   `
 })
 export class VideoPopupButtonComponent {

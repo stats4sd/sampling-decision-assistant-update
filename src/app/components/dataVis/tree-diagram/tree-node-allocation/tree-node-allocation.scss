@@ -4,7 +4,7 @@
 .allocation-input > input {
   margin: 0;
   padding: 10px;
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
   border: 1px solid rgba(0, 0, 0, 0.3);
   font-weight: bold;
 }

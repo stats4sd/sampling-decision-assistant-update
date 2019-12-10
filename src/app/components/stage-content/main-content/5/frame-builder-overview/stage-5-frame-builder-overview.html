@@ -24,9 +24,9 @@
 
         <!-- build frame button -->
         <ion-col class="cell build-stage hover" (click)="buildStage(stage,i)" *ngIf="!stage._built">
-          <div icon-right>
+          <div >
             Make sampling decisions for stage
-            <ion-icon name="arrow-forward"></ion-icon>
+            <ion-icon name="arrow-forward" slot="icon-end"></ion-icon>
           </div>
         </ion-col>
 
@@ -58,8 +58,8 @@
         <!-- Edit button -->
         <div class="edit-button-container" *ngIf="stage._built && !reviewMode">
           <div class="edit-button" (click)="buildStage(stage,i)">
-            <button ion-buttonicon-left clear>
-              <ion-icon name="create"></ion-icon>Edit
+            <button ion-button fill="clear">
+              <ion-icon name="create" slot="start"></ion-icon>Edit
             </ion-button>
           </div>
           <div class="edit-button-overlay"></div>

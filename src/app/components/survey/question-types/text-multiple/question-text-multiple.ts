@@ -1,6 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
 import { SurveyQuestionComponent } from "../../survey-question/survey-question";
-import { TextInput } from "@ionic/angular";
 
 @Component({
   selector: "question-text-multiple",
@@ -13,8 +12,8 @@ export class QuestionTextMultipleComponent extends SurveyQuestionComponent {
   editMode: boolean;
   editValues: string[] = [];
   editIndex: number;
-  @ViewChild("textMultipleInput")
-  textMultipleInput: TextInput;
+  @ViewChild("textMultipleInput", { static: true })
+  textMultipleInput: any;
 
   ngOnInit() {
     console.log("question text multiple init", this.question);

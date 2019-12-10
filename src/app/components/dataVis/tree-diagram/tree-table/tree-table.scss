@@ -27,7 +27,7 @@ td.fail {
   color: red;
 }
 .strata-name {
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
   text-decoration: underline;
 }
 
