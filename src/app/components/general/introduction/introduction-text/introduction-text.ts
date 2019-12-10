@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ModalController } from "@ionic/angular";
 
 @Component({
   selector: "page-introduction-text",
@@ -6,9 +7,9 @@ import { Component } from "@angular/core";
   styleUrls: ["introduction-text.scss"]
 })
 export class IntroductionTextPage {
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
 
   dismiss() {
-    // this.viewCtrl.dismiss();
+    this.modalCtrl.dismiss();
   }
 }

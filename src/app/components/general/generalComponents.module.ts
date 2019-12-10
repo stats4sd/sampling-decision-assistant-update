@@ -14,11 +14,14 @@ import { ProjectTitleComponent } from "./project-title";
 import { VideoPopupButtonComponent } from "./video-player/video-popup-button";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { IntroductionTextPage } from "./introduction/introduction-text/introduction-text";
+import { VideoViewerPage } from "./video-player/video-viewer";
 
 // import { DecisionToolMenuComponent } from './decision-tool-menu/decision-tool-menu';
 @NgModule({
   declarations: [
     IntroductionComponent,
+    IntroductionTextPage,
     GlossaryLinkComponent,
     GlossaryListComponent,
     GlossaryDetailComponent,
@@ -27,7 +30,8 @@ import { CommonModule } from "@angular/common";
     ResourceItemComponent,
     HelpIconComponent,
     ProjectTitleComponent,
-    VideoPopupButtonComponent
+    VideoPopupButtonComponent,
+    VideoViewerPage
   ],
   imports: [
     IonicModule,
@@ -38,6 +42,7 @@ import { CommonModule } from "@angular/common";
   ],
   exports: [
     IntroductionComponent,
+    IntroductionTextPage,
     GlossaryLinkComponent,
     GlossaryListComponent,
     GlossaryDetailComponent,
@@ -46,7 +51,9 @@ import { CommonModule } from "@angular/common";
     ResourceItemComponent,
     HelpIconComponent,
     ProjectTitleComponent,
-    VideoPopupButtonComponent
-  ]
+    VideoPopupButtonComponent,
+    VideoViewerPage
+  ],
+  entryComponents: [IntroductionTextPage, VideoViewerPage]
 })
 export class GeneralComponentsModule {}

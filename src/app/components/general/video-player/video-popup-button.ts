@@ -3,6 +3,7 @@
 import { Component } from "@angular/core";
 import { Input } from "@angular/core";
 import { ModalController } from "@ionic/angular";
+import { VideoViewerPage } from "./video-viewer";
 
 @Component({
   selector: "video-popup-button",
@@ -23,7 +24,7 @@ export class VideoPopupButtonComponent {
   async showIntroVideo() {
     console.log("showing intro video", this.youtubeID, this.buttonText);
     const modal = await this.modalCtrl.create({
-      component: "VideoViewerPage",
+      component: VideoViewerPage,
       componentProps: { youtubeID: this.youtubeID },
 
       backdropDismiss: true,

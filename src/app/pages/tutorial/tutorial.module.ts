@@ -17,6 +17,7 @@ import { GeneralComponentsModule } from "src/app/components/general/generalCompo
     TutorialPageRoutingModule,
     GeneralComponentsModule
   ],
-  declarations: [TutorialPage]
+  declarations: [TutorialPage],
+  entryComponents: []
 })
 export class TutorialPageModule {}

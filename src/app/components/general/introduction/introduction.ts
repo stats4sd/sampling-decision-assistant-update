@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ModalController, Events } from "@ionic/angular";
+import { IntroductionTextPage } from "./introduction-text/introduction-text";
 
 @Component({
   selector: "introduction",
@@ -38,7 +39,7 @@ export class IntroductionComponent {
   }
   async showIntroText() {
     let modal = await this.modalCtrl.create({
-      component: "IntroductionTextPage",
+      component: IntroductionTextPage,
       cssClass: "full-screen"
     });
     await modal.present();
