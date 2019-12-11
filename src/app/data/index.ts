@@ -11,5 +11,5 @@ interface allGlossaryObj {
 interface allResourceObj {
   [stageNResources: string]: IStageResources & exportedData;
 }
-export const ALL_RESOURCES = resources;
+export const ALL_RESOURCES: allResourceObj = resources;
 export const ALL_GLOSSARY: allGlossaryObj = glossary;

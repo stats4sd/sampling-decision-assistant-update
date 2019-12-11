@@ -80,9 +80,7 @@ export interface IGlossaryTerm {
 }
 
 export interface IStageResources {
-  questions?: any[];
-  examples?: any[];
-  links?: any[];
+  questions: { [questionName: string]: IResourceQuestion };
 }
 export interface IStageMeta {
   name: string;
@@ -94,8 +92,8 @@ export interface IResourceQuestion {
   _key: string;
   a: string;
   q: string;
-  relevant?: string;
-  tags?: string;
+  relevant?: string[];
+  tags?: string[];
   audio?: string;
   video?: string;
   youtubeID?: string;

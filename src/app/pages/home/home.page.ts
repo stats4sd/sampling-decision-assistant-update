@@ -31,12 +31,8 @@ export class HomePage {
     ];
   }
 
-  //
   goToSection(section) {
-    if (section.class !== "disabled") {
-      console.log("navigate", section);
-      this.router.navigate(["/" + section.page]);
-    }
+    this.router.navigate(["/" + section.page]);
   }
 
   showChangelog() {

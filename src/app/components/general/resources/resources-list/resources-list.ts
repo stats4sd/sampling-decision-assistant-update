@@ -1,6 +1,6 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 // dev
-import { IResourceQuestion } from "../../../../models/models";
+import { IResourceQuestion, IStageResources } from "../../../../models/models";
 import { ALL_RESOURCES } from "src/app/data";
 
 @Component({
@@ -8,34 +8,43 @@ import { ALL_RESOURCES } from "src/app/data";
   templateUrl: "resources-list.html",
   styleUrls: ["resources-list.scss"]
 })
-export class ResourcesListComponent {
+export class ResourcesListComponent implements OnInit {
   @Input()
-  set stage(stage: number) {
-    this.setResources(this.allResources[stage]);
-    this._stage = stage;
+  set stageNumber(stageNumber: string) {
+    this._stage = `stage${stageNumber}Resources`;
   }
   @Input()
   relevant: string;
-  _stage: number;
-  allResources = ALL_RESOURCES;
-  questions: IResourceQuestion[] = [];
+
+  _stage: string;
+  allResources: { [stageID: string]: IStageResources } = ALL_RESOURCES;
+  stageResources: IResourceQuestion[] = [];
+  otherQuestions: IResourceQuestion[] = [];
   relevantQuestions: IResourceQuestion[];
 
-  constructor() {
-    this.allResources = ALL_RESOURCES;
-    this.setResources(this.allResources[this._stage]);
+  constructor() {}
+  ngOnInit(): void {
+    const stageQuestions = this.getStageQuestions();
+    console.log("stage resources", this.stageResources);
+    const sortedQuestions = this._sortQuestions(stageQuestions);
+    const { relevant, nonRelevant } = this.getRelevantQuestions(
+      sortedQuestions
+    );
+    console.log("relevant", this.relevant);
+    this.otherQuestions = nonRelevant;
+    this.relevantQuestions = relevant;
   }
 
-  // extract questions from stage resources, convert to array and subset to relevant/non if relevant control specified
-  setResources(stageResources: any) {
-    if (stageResources) {
-      let questions = [];
-      Object.keys(stageResources.questions).forEach(k => {
-        questions.push(stageResources.questions[k]);
-      });
-      this.questions = this._sortQuestions(questions);
-      this.setRelevantQuestions(questions);
-    }
+  /**
+   * When fetching resources return either just questions for the stage
+   * all all questions when not defined
+   */
+  getStageQuestions(): IResourceQuestion[] {
+    return this._stage
+      ? Object.values(this.allResources[this._stage].questions)
+      : [].concat(
+          Object.values(this.allResources).map(v => Object.values(v.questions))
+        );
   }
   // resources are populated Q1, Q2 etc. need to add better sort so that Q10 does not follow Q1
   _sortQuestions(questions: IResourceQuestion[]) {
@@ -47,21 +56,17 @@ export class ResourcesListComponent {
     return questions;
   }
   // if relevant question specified push those matching to a new array and remove from full questions list
-  setRelevantQuestions(questions: IResourceQuestion[]) {
-    if (this.relevant) {
-      this.relevantQuestions = [];
-      this.questions = questions.filter(q => {
-        if (
-          q.relevant &&
-          this.relevant &&
-          q.relevant.indexOf(this.relevant) > -1
-        ) {
-          this.relevantQuestions.push(q);
-          return false;
-        } else {
-          return true;
-        }
-      });
-    }
+  getRelevantQuestions(questions: IResourceQuestion[]) {
+    const relevant: IResourceQuestion[] = [];
+    const nonRelevant: IResourceQuestion[] = [];
+    const r = this.relevant ? this.relevant : "N/A";
+    questions.forEach(q => {
+      if (q.relevant && q.relevant.includes(r)) {
+        relevant.push(q);
+      } else {
+        nonRelevant.push(q);
+      }
+    });
+    return { relevant, nonRelevant };
   }
 }

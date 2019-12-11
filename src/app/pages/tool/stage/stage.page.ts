@@ -5,7 +5,6 @@ import {
   NavController,
   Events,
   IonContent,
-  NavParams,
   ModalController
 } from "@ionic/angular";
 import { Subscription } from "rxjs";
@@ -142,7 +141,9 @@ export class StagePage {
   }
 
   showResourcesList(relevant?: string) {
-    this.router.navigate(["resources"], { queryParams: { relevant } });
+    this.router.navigate(["resources"], {
+      queryParams: { relevant, stageNumber: this.stage.number }
+    });
   }
 
   getResources(stage: number) {

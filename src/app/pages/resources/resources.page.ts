@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { IStageMeta, IStageResources } from "src/app/models/models";
+import { IStageMeta } from "src/app/models/models";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-resources",
@@ -7,14 +8,15 @@ import { IStageMeta, IStageResources } from "src/app/models/models";
   styleUrls: ["./resources.page.scss"]
 })
 export class ResourcesPage implements OnInit {
-  stage: IStageMeta;
-  resources: IStageResources;
+  stageNumber: IStageMeta;
   relevant: string;
-  constructor() {
-    alert("todo");
-    // this.stage = navParams.data.stage;
-    // this.resources = navParams.data.resources;
-    // this.relevant = navParams.data.relevant;
+  constructor(route: ActivatedRoute) {
+    const params = route.snapshot.queryParams;
+    this.stageNumber = params.stageNumber;
+    this.relevant = params.relevant;
+    console.log("params", params);
+    console.log("stage number", this.stageNumber);
+    console.log("relevant", this.relevant);
   }
 
   // whilst in modal clicking help icon will still push the resources page which will by default
