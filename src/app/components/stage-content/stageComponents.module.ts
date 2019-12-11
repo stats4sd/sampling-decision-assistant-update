@@ -20,6 +20,7 @@ import { Stage5_SamplingWeightsComponent } from "./main-content/5/sampling-weigh
 import { Stage6Component } from "./main-content/6/stage-6";
 import { DataVisComponentsModule } from "../dataVis/dataVisComponents.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 // import { DecisionToolMenuComponent } from './decision-tool-menu/decision-tool-menu';
 @NgModule({
@@ -41,6 +42,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   ],
   imports: [
     IonicModule,
+    CommonModule,
     GeneralComponentsModule,
     SurveyComponentsModule,
     DataVisComponentsModule,

@@ -8,6 +8,7 @@ import { TreeTableComponent } from "./tree-diagram/tree-table/tree-table";
 import { SampleSizeCalculatorComponent } from "./sample-size-calculator/sample-size-calculator";
 import { GeneralComponentsModule } from "../general/generalComponents.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   ],
   imports: [
     IonicModule,
+    CommonModule,
     GeneralComponentsModule,
     FormsModule,
     ReactiveFormsModule

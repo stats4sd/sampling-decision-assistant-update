@@ -77,6 +77,9 @@ export class ProjectActions {
   });
 }
 
+@Injectable({
+  providedIn: "root"
+})
 export class ViewActions {
   static readonly SET_VIEW = "SET_VIEW";
   static readonly UPDATE_VIEW = "UPDATE_VIEW";
@@ -99,6 +102,9 @@ export class ViewActions {
   });
 }
 
+@Injectable({
+  providedIn: "root"
+})
 export class TreeDiagramActions {
   static readonly SET_ACTIVE_NODE = "SET_ACTIVE_NODE";
   static readonly SET_NODES = "SET_NODES";
@@ -126,6 +132,9 @@ export class TreeDiagramActions {
   });
 }
 
+@Injectable({
+  providedIn: "root"
+})
 export class DevActions {
   static readonly EDIT_TOGGLE = "EDIT_TOGGLE";
 

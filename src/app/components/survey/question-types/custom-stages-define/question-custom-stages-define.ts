@@ -27,11 +27,6 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
 
   multipleTextInput: string;
   stages: any[] = [];
-  dragulaOptions = {
-    moves: function(el, source, handle, sibling) {
-      return handle.parentElement.dataset.dragHandle == "drag";
-    }
-  };
   dragularSub$ = new Subscription();
   finalSamplingUnit: string = "";
   editMode: boolean;
@@ -49,6 +44,11 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
     public dataPrvdr: DataProvider
   ) {
     super(cdr, events, formPrvdr, dataPrvdr);
+    this.dragulaService.createGroup("general-group", {
+      moves: function(el, source, handle, sibling) {
+        return handle.parentElement.dataset.dragHandle == "drag";
+      }
+    });
   }
 
   ngOnInit() {

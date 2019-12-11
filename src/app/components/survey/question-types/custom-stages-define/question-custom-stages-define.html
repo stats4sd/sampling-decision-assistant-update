@@ -26,11 +26,7 @@
   <!-- multiple list with optional drag-->
   <div style="margin:10px 0">
     <!-- drag drop for arrow format -->
-    <div
-      [dragula]="'bag-one'"
-      [dragulaOptions]="dragulaOptions"
-      [dragulaModel]="stages"
-    >
+    <div [dragula]="'bag-one'" [(dragulaModel)]="stages">
       <div *ngFor="let stage of stages; let i=index; let last=last">
         <div class="multiple-arrows" *ngIf="!last">
           <div class="multiple-arrow-down">

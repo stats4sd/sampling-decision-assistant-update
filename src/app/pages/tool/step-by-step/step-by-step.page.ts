@@ -11,6 +11,7 @@ import { DataProvider } from "src/app/services/data/data";
 import { Project } from "src/app/models/models";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-step-by-step",
@@ -27,7 +28,7 @@ export class StepByStepPage {
   readonly activeProject$: Observable<Project>;
 
   constructor(
-    public navCtrl: NavController,
+    private router: Router,
     public dataPrvdr: DataProvider,
     public modalCtrl: ModalController,
     public events: Events,
@@ -73,9 +74,7 @@ export class StepByStepPage {
   }
 
   goToSection(section) {
-    if (section.class != "disabled") {
-      // this.navCtrl.push("StagePage", { stageID: "stage-" + section.stage });
-    }
+    this.router.navigate(["tool", "stage", section.stage]);
   }
   enableEditing() {
     this.editingMode = true;
@@ -123,8 +122,5 @@ export class StepByStepPage {
   save() {
     this.dataPrvdr.backgroundSave();
     this.editingMode = false;
-  }
-  pushPage(page) {
-    // this.navCtrl.push(page);
   }
 }

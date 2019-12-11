@@ -80,22 +80,21 @@
       <!-- step by step sections -->
       <div class="section-break">Step By Step Decisions</div>
       <p class="instruction">
-        <ion-icon name="information-circle" slot="start"></ion-icon>Use each
-        step below to build an overview of your sampling decisions
+        <ion-icon name="information-circle" slot="start"></ion-icon>
+        <span style="margin-left:5px"
+          >Use each step below to build an overview of your sampling
+          decisions</span
+        >
       </p>
       <!-- section cards -->
       <div id="sectionCardsContainer">
         <ion-card
           *ngFor="let section of sections"
-          class="hover-fill"
+          class="hover-fill section-card"
           style="height:120px"
           (click)="goToSection(section)"
-          [ngClass]="section.class"
         >
           <div class="section-container">
-            <div *ngIf="section.class=='disabled'" class="section-disabled">
-              This step is not currently available for preview
-            </div>
             <div class="section-icon-container">
               <img class="section-icon" [src]="section.icon" />
             </div>
