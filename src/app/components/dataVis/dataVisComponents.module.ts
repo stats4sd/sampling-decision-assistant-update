@@ -7,6 +7,7 @@ import { TreeNodeAllocationComponent } from "./tree-diagram/tree-node-allocation
 import { TreeTableComponent } from "./tree-diagram/tree-table/tree-table";
 import { SampleSizeCalculatorComponent } from "./sample-size-calculator/sample-size-calculator";
 import { GeneralComponentsModule } from "../general/generalComponents.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,12 @@ import { GeneralComponentsModule } from "../general/generalComponents.module";
     TreeTableComponent,
     SampleSizeCalculatorComponent
   ],
-  imports: [IonicModule, GeneralComponentsModule],
+  imports: [
+    IonicModule,
+    GeneralComponentsModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   exports: [
     TreeDiagramComponent,
     TreeDiagramKeyComponent,

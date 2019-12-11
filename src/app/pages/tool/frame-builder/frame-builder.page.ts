@@ -21,14 +21,13 @@ export class FrameBuilderPage implements OnInit {
   reportingLevels$: Observable<any>;
 
   constructor(
-    public navParams: NavParams,
     private dataPrvdr: DataProvider,
     private formPrvdr: FormProvider
   ) {
-    console.log("framebuilder params", navParams.data);
-    this.stageRepeatIndex = navParams.data.stageIndex;
-    this.stageName = navParams.data.stageFormGroup.name;
-    this.parentStageName = this.getParentStageName(navParams.data.stageIndex);
+    alert("todo");
+    // this.stageRepeatIndex = navParams.data.stageIndex;
+    // this.stageName = navParams.data.stageFormGroup.name;
+    // this.parentStageName = this.getParentStageName(navParams.data.stageIndex);
     console.log("parent stage name:", this.parentStageName);
     this._buildFormGroup();
   }

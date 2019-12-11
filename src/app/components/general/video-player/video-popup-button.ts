@@ -11,7 +11,8 @@ import { VideoViewerPage } from "./video-viewer";
     <ion-button fill="clear" (click)="showIntroVideo()">
       <ion-icon slot="start" name="logo-youtube"></ion-icon>{{ buttonText }}
     </ion-button>
-  `
+  `,
+  styleUrls: ["./video-player.scss"]
 })
 export class VideoPopupButtonComponent {
   @Input("buttonText")
@@ -22,13 +23,11 @@ export class VideoPopupButtonComponent {
   constructor(public modalCtrl: ModalController) {}
 
   async showIntroVideo() {
-    console.log("showing intro video", this.youtubeID, this.buttonText);
     const modal = await this.modalCtrl.create({
       component: VideoViewerPage,
       componentProps: { youtubeID: this.youtubeID },
-
       backdropDismiss: true,
-      cssClass: "video-player"
+      cssClass: "video-player-modal"
     });
     await modal.present();
   }

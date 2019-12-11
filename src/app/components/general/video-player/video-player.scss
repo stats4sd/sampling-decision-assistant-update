@@ -1,7 +1,10 @@
-.toolbar-background {
-  background: black;
+ion-button.closeButton {
+  --padding-start: 0;
+  --padding-end: 0;
+  margin: 0;
 }
-.scroll-content {
-  overflow: hidden;
-  background: black;
+.player-container {
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
 }

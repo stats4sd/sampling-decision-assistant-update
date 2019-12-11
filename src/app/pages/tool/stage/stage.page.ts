@@ -1,12 +1,6 @@
 import { ViewChild, Component } from "@angular/core";
 import { IStageMeta, IStageResources, AppState } from "src/app/models/models";
-import {
-  IonSlides,
-  NavController,
-  NavParams,
-  Events,
-  IonContent
-} from "@ionic/angular";
+import { IonSlides, NavController, Events, IonContent } from "@ionic/angular";
 import { Subscription } from "rxjs";
 import { FormGroup } from "@angular/forms";
 import { DataProvider } from "src/app/services/data/data";
@@ -66,7 +60,6 @@ export class StagePage {
   videoPlayerHeight: number;
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
     public dataPrvdr: DataProvider,
     public dataVisPrvdr: DataVisProvider,
     public events: Events,
@@ -77,7 +70,7 @@ export class StagePage {
     public ngRedux: NgRedux<AppState>,
     public projectActions: ProjectActions
   ) {
-    this.stageInit(navParams);
+    this.stageInit();
     this._addSubscribers();
     this.videoPlayerWidth = Math.min(window.innerWidth - 70, 675);
     this.videoPlayerHeight = Math.round((this.videoPlayerWidth / 16) * 9);
@@ -100,8 +93,10 @@ export class StagePage {
     });
   }
 
-  stageInit(navParams) {
-    let stageID = navParams.data.stageID;
+  stageInit() {
+    alert("todo");
+    return;
+    let stageID = "navParams.data.stageID";
     this.stages = {
       "stage-1": {
         name: "General objectives",

@@ -14,20 +14,20 @@
         <h3 class="invert">Sampling Decision Assistant</h3>
         <ion-card
           *ngFor="let section of sections"
-          style="height: 100%; max-height:120px"
+          style="height: 100%; max-height:120px; padding:0"
           (click)="goToSection(section)"
           [ngClass]="section.class"
         >
-          <div class="section-container">
-            <div class="section-title" [id]="section.page">
-              <span>{{section.name}}</span>
-              <ion-icon
-                style="margin-left:10px"
-                [name]="section.icon"
-                class="section-icon"
-              ></ion-icon>
-            </div>
-          </div>
+          <ion-button class="section-container" expand="block" fill="clear">
+            <span [attr.data-section]="section.name" class="section-name"
+              >{{section.name}}</span
+            >
+            <ion-icon
+              style="margin-left:10px"
+              [name]="section.icon"
+              slot="end"
+            ></ion-icon>
+          </ion-button>
         </ion-card>
         <hr />
         <h3 class="invert">Extra Resources</h3>
@@ -38,9 +38,11 @@
           (click)="goToSection(alt)"
           [ngClass]="alt.class"
         >
-          <div class="section-container">
-            <div class="section-title">{{alt.name}}</div>
-          </div>
+          <ion-button class="section-container" expand="block" fill="clear">
+            <span [attr.data-section]="alt.name" class="section-name"
+              >{{alt.name}}</span
+            >
+          </ion-button>
         </ion-card>
         <hr />
       </div>

@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-        <ion-back-button defaultHref="tool"></ion-back-button>
-      </ion-buttons>
-      <ion-title>Sampling Decision Assistant</ion-title>
+      <ion-back-button defaultHref="tool"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sampling Decision Assistant</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="showMenu($event)">
         <ion-icon name="more" slot="start"></ion-icon>Menu
@@ -22,8 +22,11 @@
           class="new-project-container"
         >
           <p>
-            <ion-icon name="bulb"></ion-icon>You are working on a new project,
-            please provide a title and description
+            <ion-icon name="bulb"></ion-icon>
+            <span style="margin-left:5px"
+              >You are working on a new project, please provide a title and
+              description</span
+            >
           </p>
           <ion-list class="new-project-info">
             <ion-item>
@@ -40,7 +43,7 @@
                 [(ngModel)]="activeProject.description"
               ></ion-textarea>
             </ion-item>
-            <ion-buttonid="saveProjectButton" (click)="save()">
+            <ion-button id="saveProjectButton" (click)="save()">
               Save
             </ion-button>
           </ion-list>
@@ -76,9 +79,9 @@
       </div>
       <!-- step by step sections -->
       <div class="section-break">Step By Step Decisions</div>
-      <p class="instruction" >
-        <ion-icon name="information-circle" slot="start"></ion-icon>Use each step below to
-        build an overview of your sampling decisions
+      <p class="instruction">
+        <ion-icon name="information-circle" slot="start"></ion-icon>Use each
+        step below to build an overview of your sampling decisions
       </p>
       <!-- section cards -->
       <div id="sectionCardsContainer">
@@ -111,8 +114,8 @@
       <!-- Review and export -->
       <div class="section-break">Review and Export</div>
       <p class="instruction">
-        <ion-icon name="information-circle" slot="start"></ion-icon>Review the decisions you
-        have made and make revisions before final export
+        <ion-icon name="information-circle" slot="start"></ion-icon>Review the
+        decisions you have made and make revisions before final export
       </p>
       <div style="margin-bottom: 2em">
         <ion-card class="review-box" (click)="pushPage('ReviewPage')">

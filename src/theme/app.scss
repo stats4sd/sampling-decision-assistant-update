@@ -116,6 +116,7 @@ body {
 .invert {
   background-color: var(--ion-color-primary);
   color: rgba(255, 255, 255, 0.9);
+  padding: 5px;
 }
 
 .section-icon {
@@ -259,6 +260,9 @@ ion-card {
     background: white;
   }
 }
+ion-modal.video-player-modal {
+  background: rgba(0, 0, 0, 0.5);
+}
 
 // allow modal to take up full screen (no backdrop) whilst still fitting in max size bounds
 ion-modal.full-screen {
@@ -274,7 +278,8 @@ ion-modal.full-screen {
 
 // when using the modal as a video popup want to limit height to fit video and make background a bit darker
 @media screen and (min-width: $max-app-width) {
-  ion-modal.video-player {
+  ion-modal.video-player-modal {
+    --height: 370px;
     .modal-wrapper {
       max-height: 392px;
     }

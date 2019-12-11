@@ -16,8 +16,6 @@ export class Stage5_FrameBuilderOverviewComponent {
   samplingStages: any[] = [];
   constructor(private modalCtrl: ModalController) {}
   ngOnInit() {
-    // lock params are used to bypass case where url hash loses navparams on action sheet open (when clicking a select question)
-    // this is likely to be fixed via router upgrade
     this.samplingStages$.subscribe(stages => {
       if (stages) {
         this.samplingStages = stages;

@@ -19,6 +19,8 @@ import {
 import { AppState } from "./models/models";
 import { rootReducer, INITIAL_STATE } from "./reducers/reducers";
 import { SentryErrorHandler } from "./services/error-handler/error-handler";
+import { IonicStorageModule } from "@ionic/storage";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,11 +29,16 @@ import { SentryErrorHandler } from "./services/error-handler/error-handler";
     BrowserModule,
     BrowserAnimationsModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot({
+      name: "__sampling"
+    }),
     AppRoutingModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     }),
-    NgReduxModule
+    NgReduxModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,

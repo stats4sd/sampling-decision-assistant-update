@@ -44,8 +44,6 @@ export class GlossaryLinkComponent {
     }
   }
 
-  // push term navParams to glossary to automatically load
-  // had previously been done with url parameters but messy
   goToGlossary() {
     // this.navCtrl.push("GlossaryPage", this.term);
   }

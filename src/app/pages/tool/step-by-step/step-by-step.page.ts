@@ -1,10 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { DecisionToolMenuComponent } from "src/app/components/general/decision-tool-menu/decision-tool-menu";
 import {
   PopoverController,
   Events,
   ModalController,
-  NavParams,
   NavController
 } from "@ionic/angular";
 import { FormProvider } from "src/app/services/form/form";
@@ -29,7 +28,6 @@ export class StepByStepPage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
     public dataPrvdr: DataProvider,
     public modalCtrl: ModalController,
     public events: Events,
@@ -105,7 +103,6 @@ export class StepByStepPage {
     }
   }
 
-  showIntroVideo() {}
   startNew() {
     this.dataPrvdr.createNewProject();
   }

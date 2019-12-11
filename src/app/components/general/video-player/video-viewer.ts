@@ -1,27 +1,28 @@
 import { Component, Input } from "@angular/core";
-import { NavParams, ModalController } from "@ionic/angular";
+import { ModalController, NavParams } from "@ionic/angular";
 
 @Component({
   selector: "page-video-viewer",
+  styleUrls: ["./video-player.scss"],
   template: `
-    <ion-header style="background-color:black">
-      <ion-toolbar color="dark">
-        <ion-buttons slot="end">
-          <ion-button color="light" fill="clear" (click)="dismiss()">
-            <ion-icon name="close" slot="icon-only"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <youtube-player
-        [videoId]="youtubeID"
-        [width]="videoPlayerWidth"
-        [height]="videoPlayerHeight"
-        (ready)="onPlayerReady($event)"
-        [playerVars]="playerVars"
-      ></youtube-player>
-    </ion-content>
+    <div class="player-container">
+      <ion-button
+        fill="clear"
+        size="small"
+        (click)="dismiss()"
+        class="closeButton"
+      >
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </div>
+
+    <youtube-player
+      [videoId]="youtubeID"
+      [width]="videoPlayerWidth"
+      [height]="videoPlayerHeight"
+      (ready)="onPlayerReady($event)"
+      [playerVars]="playerVars"
+    ></youtube-player>
   `
 })
 export class VideoViewerPage {
@@ -30,9 +31,8 @@ export class VideoViewerPage {
   videoPlayerWidth: number;
   videoPlayerHeight: number;
   playerVars = { rel: 0, showinfo: 0, ecver: 2 };
-  constructor(params: NavParams, private modalCtrl: ModalController) {
-    console.log("hello video view component", params.data);
-    this.youtubeID = params.data.youtubeID;
+  constructor(private modalCtrl: ModalController, navParams: NavParams) {
+    this.youtubeID = navParams.data.youtubeID;
   }
   ngOnInit() {
     this.videoPlayerWidth = Math.min(window.innerWidth, 600);

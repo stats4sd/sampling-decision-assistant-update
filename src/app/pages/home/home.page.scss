@@ -5,9 +5,7 @@
   display: flex;
   flex-direction: column;
 }
-.start-button {
-  font-size: large;
-}
+
 .align-start {
   align-items: flex-start;
 }
@@ -18,10 +16,6 @@
   background-color: wheat;
 }
 
-.button-block {
-  // minor tweak to prevent block buttons stretching over
-  margin: 2px;
-}
 .version-info {
   position: absolute;
   right: 5px;
@@ -33,22 +27,17 @@
     margin: 0;
   }
 }
-#StepByStepPage {
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  display: flex;
-  font-weight: bold;
-}
+
 .section-icon {
   font-size: x-large;
 }
-#stats4sdAdmin {
-  margin-top: 100px;
-  text-align: right;
-  text-decoration: underline;
-  cursor: pointer;
+.section-name {
+  text-transform: none;
 }
+.section-name[data-section="Use the Tool"] {
+  font-weight: bold;
+}
+
 #stats4sdLink {
   color: #cf1a27;
 }

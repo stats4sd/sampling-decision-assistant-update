@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from "@angular/core";
 import { Project } from "src/app/models/models";
-import { AlertController, Events, NavParams } from "@ionic/angular";
+import { AlertController, Events } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
@@ -25,12 +25,12 @@ export class SavedInfoPage implements AfterViewInit {
   _dbVersion: number;
 
   constructor(
-    public navParams: NavParams,
     public dataPrvdr: DataProvider,
     public events: Events,
     public alertCtrl: AlertController
   ) {
-    this.view = this.navParams.data.view;
+    alert("todo");
+    // this.view = this.navParams.data.view;
     this._dbVersion = this.dataPrvdr.dbVersion;
     this.savedProjects$.subscribe(projects => {
       if (projects) {

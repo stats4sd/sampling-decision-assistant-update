@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { NavParams } from "@ionic/angular";
 import { IStageMeta, IStageResources } from "src/app/models/models";
 
 @Component({
@@ -11,11 +10,11 @@ export class ResourcesPage implements OnInit {
   stage: IStageMeta;
   resources: IStageResources;
   relevant: string;
-  constructor(public navParams: NavParams) {
-    this.stage = navParams.data.stage;
-    this.resources = navParams.data.resources;
-    this.relevant = navParams.data.relevant;
-    console.log("resources contructor", navParams.data);
+  constructor() {
+    alert("todo");
+    // this.stage = navParams.data.stage;
+    // this.resources = navParams.data.resources;
+    // this.relevant = navParams.data.relevant;
   }
 
   // whilst in modal clicking help icon will still push the resources page which will by default
