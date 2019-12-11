@@ -11,7 +11,6 @@ export class ResourcesProvider {
   constructor() {}
 
   getStageResources(stage: number) {
-    console.log(`getting stage-${stage}Resources`);
     return this.allResourcesByStage[`stage${stage}Resources`];
   }
 }

@@ -14,15 +14,14 @@ import { ModalController, NavParams } from "@ionic/angular";
       >
         <ion-icon name="close" slot="icon-only"></ion-icon>
       </ion-button>
+      <youtube-player
+        [videoId]="youtubeID"
+        [width]="videoPlayerWidth"
+        [height]="videoPlayerHeight"
+        (ready)="onPlayerReady($event)"
+        [playerVars]="playerVars"
+      ></youtube-player>
     </div>
-
-    <youtube-player
-      [videoId]="youtubeID"
-      [width]="videoPlayerWidth"
-      [height]="videoPlayerHeight"
-      (ready)="onPlayerReady($event)"
-      [playerVars]="playerVars"
-    ></youtube-player>
   `
 })
 export class VideoViewerPage {

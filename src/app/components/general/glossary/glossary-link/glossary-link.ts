@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { IGlossaryTerm } from "../../../../models/models";
 import { NavController } from "@ionic/angular";
 import { ALL_GLOSSARY } from "src/app/data";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "glossary-link",
@@ -20,7 +21,7 @@ export class GlossaryLinkComponent {
   @select(["view", "params", "tabSection"])
   tabSection$: Observable<string>;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(private router: Router) {}
   // on init load glossary from provider (wait if live version and not sync'd)
   // then set terms
   ngOnInit() {
@@ -44,7 +45,7 @@ export class GlossaryLinkComponent {
     }
   }
 
-  goToGlossary() {
-    // this.navCtrl.push("GlossaryPage", this.term);
+  goToGlossary(term: IGlossaryTerm) {
+    this.router.navigate(["glossary", term.slug]);
   }
 }

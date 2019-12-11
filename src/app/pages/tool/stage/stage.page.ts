@@ -1,6 +1,13 @@
 import { ViewChild, Component } from "@angular/core";
 import { IStageMeta, IStageResources, AppState } from "src/app/models/models";
-import { IonSlides, NavController, Events, IonContent } from "@ionic/angular";
+import {
+  IonSlides,
+  NavController,
+  Events,
+  IonContent,
+  NavParams,
+  ModalController
+} from "@ionic/angular";
 import { Subscription } from "rxjs";
 import { FormGroup } from "@angular/forms";
 import { DataProvider } from "src/app/services/data/data";
@@ -9,6 +16,7 @@ import { FormProvider } from "src/app/services/form/form";
 import { ViewActions, ProjectActions } from "src/app/actions/actions";
 import { ResourcesProvider } from "src/app/services/resources/resources";
 import { NgRedux } from "@angular-redux/store";
+import { ActivatedRoute, Router } from "@angular/router";
 
 const INTRO_HTML = {
   1: `You will identify the main objectives of the survey you want to carry out. There are <strong>1-3 questions</strong> in 
@@ -30,6 +38,44 @@ const INTRO_VIDEOS = {
   5: "v9lbkggU9lc",
   6: "8dwF0Zjz1ZY"
 };
+const STAGES = {
+  "1": {
+    name: "General objectives",
+    title: "General Objectives",
+    icon: "assets/img/icons/objectives.svg",
+    number: 1
+  },
+  "2": {
+    name: "Indicators",
+    title: "Indicators",
+    icon: "assets/img/icons/indicators.svg",
+    number: 2
+  },
+  "3": {
+    name: "Definition of the target population and units of study",
+    title: "Target Population",
+    icon: "assets/img/icons/population.svg",
+    number: 3
+  },
+  "4": {
+    name: "At what level do you need to report these results",
+    title: "Reporting Results",
+    icon: "assets/img/icons/reporting.svg",
+    number: 4
+  },
+  "5": {
+    name: "Selecting the sampling units",
+    title: "Selecting and Reaching Sampling Units",
+    icon: "assets/img/icons/outreach.svg",
+    number: 5
+  },
+  "6": {
+    name: "Allocating and deploying resources",
+    title: "Allocating and deploying resources",
+    icon: "assets/img/icons/allocate.svg",
+    number: 6
+  }
+};
 
 @Component({
   selector: "app-stage",
@@ -38,7 +84,7 @@ const INTRO_VIDEOS = {
 })
 export class StagePage {
   stage: IStageMeta;
-  stages: { [stageId: string]: IStageMeta };
+  stages: { [stageId: string]: IStageMeta } = STAGES;
   @ViewChild("navbar", { static: true })
   navbar: any;
   @ViewChild("content", { static: true })
@@ -60,6 +106,7 @@ export class StagePage {
   videoPlayerHeight: number;
   constructor(
     public navCtrl: NavController,
+    private route: ActivatedRoute,
     public dataPrvdr: DataProvider,
     public dataVisPrvdr: DataVisProvider,
     public events: Events,
@@ -68,9 +115,11 @@ export class StagePage {
     private resourcesPrvdr: ResourcesProvider,
     // project actions and ngredux required for child components
     public ngRedux: NgRedux<AppState>,
-    public projectActions: ProjectActions
+    public projectActions: ProjectActions,
+    private router: Router,
+    private modalCtrl: ModalController
   ) {
-    this.stageInit();
+    this.stageInit(this.route.snapshot.params.stageNumber);
     this._addSubscribers();
     this.videoPlayerWidth = Math.min(window.innerWidth - 70, 675);
     this.videoPlayerHeight = Math.round((this.videoPlayerWidth / 16) * 9);
@@ -84,88 +133,25 @@ export class StagePage {
       .select<string>(["view", "params", "stagePart"])
       .subscribe(p => (this.stagePart = p));
   }
-  ionViewWillEnter() {
-    this.getResources(this.stage.number);
-    // use events to listen for help click and show relevant resources
-    this.events.unsubscribe("help:clicked");
-    this.events.subscribe("help:clicked", relevant => {
-      this.showResourcesList(relevant);
-    });
-  }
 
-  stageInit() {
-    alert("todo");
-    return;
-    let stageID = "navParams.data.stageID";
-    this.stages = {
-      "stage-1": {
-        name: "General objectives",
-        title: "General Objectives",
-        icon: "assets/img/icons/objectives.svg",
-        number: 1
-      },
-      "stage-2": {
-        name: "Indicators",
-        title: "Indicators",
-        icon: "assets/img/icons/indicators.svg",
-        number: 2
-      },
-      "stage-3": {
-        name: "Definition of the target population and units of study",
-        title: "Target Population",
-        icon: "assets/img/icons/population.svg",
-        number: 3
-      },
-      "stage-4": {
-        name: "At what level do you need to report these results",
-        title: "Reporting Results",
-        icon: "assets/img/icons/reporting.svg",
-        number: 4
-      },
-      "stage-5": {
-        name: "Selecting the sampling units",
-        title: "Selecting and Reaching Sampling Units",
-        icon: "assets/img/icons/outreach.svg",
-        number: 5
-      },
-      "stage-6": {
-        name: "Allocating and deploying resources",
-        title: "Allocating and deploying resources",
-        icon: "assets/img/icons/allocate.svg",
-        number: 6
-      }
-    };
-    this.stage = this.stages[stageID];
+  stageInit(stageNumber: string) {
+    this.stage = this.stages[stageNumber];
     this.section = this.stage.name;
-    this.viewActions.updateView({ activeStageID: stageID });
-  }
-
-  ionViewDidEnter() {
-    this.loaded = true;
-    // this._addBackButtonFunction();
+    this.viewActions.updateView({ activeStageID: stageNumber });
+    this.getResources(this.stage.number);
   }
 
   showResourcesList(relevant?: string) {
-    // this.navCtrl.push("ResourcesPage", {
-    //   stage: this.stage,
-    //   resources: this.stageResources,
-    //   relevant: relevant
-    // });
+    this.router.navigate(["resources"], { queryParams: { relevant } });
   }
 
-  // load resources from provider, take the 'questions' field as measure for total number
-  // *** note, will want to change in future if containing additional resource types, e.g. weblinks
-  async getResources(stage: number) {
-    this.stageResources = await this.resourcesPrvdr.getStageResources(stage);
+  getResources(stage: number) {
+    this.stageResources = this.resourcesPrvdr.getStageResources(stage);
   }
 
   closeModal() {
     this.dataPrvdr.backgroundSave();
-    // this.viewCtrl.dismiss();
-  }
-
-  pushPage(component, params) {
-    // this.navCtrl.push(component, params);
+    this.modalCtrl.dismiss();
   }
 
   // click handler to move to next part of stage subsection

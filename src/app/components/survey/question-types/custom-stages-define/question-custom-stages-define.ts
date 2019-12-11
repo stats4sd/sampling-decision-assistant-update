@@ -45,7 +45,7 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
   ) {
     super(cdr, events, formPrvdr, dataPrvdr);
     this.dragulaService.createGroup("general-group", {
-      moves: function(el, source, handle, sibling) {
+      moves: (el, source, handle, sibling) => {
         return handle.parentElement.dataset.dragHandle == "drag";
       }
     });

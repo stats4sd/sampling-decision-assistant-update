@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Events } from "@ionic/angular";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "help-icon",
@@ -29,9 +29,11 @@ export class HelpIconComponent {
   @Input("text")
   text: string;
 
-  constructor(public events: Events) {}
+  constructor(private router: Router) {}
 
   helpClicked() {
-    this.events.publish("help:clicked", this.relevant);
+    this.router.navigate(["resources"], {
+      queryParams: { relevant: this.relevant }
+    });
   }
 }

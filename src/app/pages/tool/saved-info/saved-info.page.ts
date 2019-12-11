@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from "@angular/core";
 import { Project } from "src/app/models/models";
-import { AlertController, Events } from "@ionic/angular";
+import { AlertController, Events, ModalController } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
@@ -27,7 +27,8 @@ export class SavedInfoPage implements AfterViewInit {
   constructor(
     public dataPrvdr: DataProvider,
     public events: Events,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private modalCtrl: ModalController
   ) {
     alert("todo");
     // this.view = this.navParams.data.view;
@@ -49,7 +50,7 @@ export class SavedInfoPage implements AfterViewInit {
   createNew() {
     if (this.dataPrvdr.checkProjectTitleUnique(this.saveName) == -1) {
       this.dataPrvdr.createNewProject(this.saveName);
-      // this.viewCtrl.dismiss({ title: this.saveName });
+      this.modalCtrl.dismiss({ title: this.saveName });
     } else {
       this.errorMsg = "A project with that name already exists";
     }
@@ -59,12 +60,12 @@ export class SavedInfoPage implements AfterViewInit {
     this.view = view;
   }
   dismiss() {
-    // this.viewCtrl.dismiss();
+    this.modalCtrl.dismiss();
   }
   loadProject(project: Project) {
     console.log("loading project", project);
     this.dataPrvdr.loadProject(project);
-    // this.viewCtrl.dismiss();
+    this.modalCtrl.dismiss();
   }
   deleteProject(project: Project) {
     this.dataPrvdr.deleteProject(project);
@@ -83,9 +84,6 @@ export class SavedInfoPage implements AfterViewInit {
     });
     this.dataPrvdr.import(files);
   }
-
-  fileOver(e) {}
-  fileLeave(e) {}
 
   async promptRename(project) {
     let prompt = await this.alertCtrl.create({

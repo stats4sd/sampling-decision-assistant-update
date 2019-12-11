@@ -12,6 +12,7 @@ import { NgRedux } from "@angular-redux/store";
 import { CalculatorVars } from "src/app/components/dataVis/sample-size-calculator/sample-size-calculator";
 import QUESTION_META from "../../../services/questionMeta";
 import { _htmlToDoc } from "src/utils/download";
+import { ModalController } from "@ionic/angular";
 
 interface IQuestionMeta {
   ["controlName"]?: {
@@ -63,9 +64,9 @@ export class SummaryPage {
   reportingLevels: ReportingLevel[];
 
   constructor(
-    private ngRedux: NgRedux<AppState>
-  ) // keep dataPrvdr import to allow project resume prompt
-  {
+    private ngRedux: NgRedux<AppState>, // keep dataPrvdr import to allow project resume prompt
+    private modalCtrl: ModalController
+  ) {
     this.addSubscribers();
     this.getQuestionLabels();
   }
@@ -73,7 +74,7 @@ export class SummaryPage {
     this.projectValues$.unsubscribe();
   }
   dismiss() {
-    // this.viewCtrl.dismiss();
+    this.modalCtrl.dismiss();
   }
 
   init(values: ProjectValues) {
@@ -189,7 +190,7 @@ export class SummaryPage {
     const title = this.ngRedux.getState().activeProject.title;
     _htmlToDoc("exportSummary", title);
     try {
-      // this.viewCtrl.dismiss();
+      this.modalCtrl.dismiss();
     } catch (error) {
       // loaded page directly so back button will exist
     }

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
-import { NavParams } from "@ionic/angular";
+import { NavParams, ModalController } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
 import { FormProvider } from "src/app/services/form/form";
 
@@ -22,7 +22,8 @@ export class FrameBuilderPage implements OnInit {
 
   constructor(
     private dataPrvdr: DataProvider,
-    private formPrvdr: FormProvider
+    private formPrvdr: FormProvider,
+    private modalCtrl: ModalController
   ) {
     alert("todo");
     // this.stageRepeatIndex = navParams.data.stageIndex;
@@ -99,6 +100,6 @@ export class FrameBuilderPage implements OnInit {
       this._patchValue({ _built: true });
     }
     this.dataPrvdr.backgroundSave();
-    // this.viewCtrl.dismiss();
+    this.modalCtrl.dismiss();
   }
 }

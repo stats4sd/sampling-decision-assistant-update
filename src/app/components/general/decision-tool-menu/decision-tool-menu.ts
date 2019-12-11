@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { AlertController } from "@ionic/angular";
+import { AlertController, ModalController } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
 
 @Component({
@@ -10,12 +10,11 @@ import { DataProvider } from "src/app/services/data/data";
 export class DecisionToolMenuComponent {
   constructor(
     private alertCtrl: AlertController,
-    private dataPrvdr: DataProvider
-  ) {
-    console.log("Hello DecisionToolMenuComponent Component");
-  }
+    private dataPrvdr: DataProvider,
+    private modalCtrl: ModalController
+  ) {}
   dismiss(param) {
-    // this.viewCtrl.dismiss(param);
+    this.modalCtrl.dismiss(param);
   }
 
   async saveAs() {
@@ -39,7 +38,7 @@ export class DecisionToolMenuComponent {
             if (data.title) {
               this.dataPrvdr.saveProjectAs(data.title);
             }
-            // this.viewCtrl.dismiss();
+            this.modalCtrl.dismiss();
           }
         }
       ]

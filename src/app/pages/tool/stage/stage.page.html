@@ -7,12 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content
-  class="ion-padding"
-  class="slide-scroll-content"
-  #content
-  id="content"
->
+<ion-content class="ion-padding" #content id="content">
   <div class="central-content">
     <!-- Main Content -->
     <div
@@ -30,16 +25,9 @@
               fill="clear"
               (click)="showResourcesList()"
             >
-              <span style="padding-right:8px">
-                <ion-icon
-                  style="font-size: 1.8em"
-                  ios="ios-help-circle-outline"
-                  md="ios-help-circle-outline"
-                  color="primary"
-                ></ion-icon>
-              </span>
-              <span>
-                Additional Resources
+              <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+              <span style="white-space: initial;">
+                Additional<br />Resources
               </span>
             </ion-button>
           </div>
