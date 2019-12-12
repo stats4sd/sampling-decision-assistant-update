@@ -9,14 +9,9 @@ import { ALL_RESOURCES } from "src/app/data";
   styleUrls: ["resources-list.scss"]
 })
 export class ResourcesListComponent implements OnInit {
-  @Input()
-  set stageNumber(stageNumber: string) {
-    this._stage = `stage${stageNumber}Resources`;
-  }
-  @Input()
-  relevant: string;
+  @Input() stageNumber: string;
+  @Input() relevant: string;
 
-  _stage: string;
   allResources: { [stageID: string]: IStageResources } = ALL_RESOURCES;
   stageResources: IResourceQuestion[] = [];
   otherQuestions: IResourceQuestion[] = [];
@@ -40,9 +35,12 @@ export class ResourcesListComponent implements OnInit {
    * all all questions when not defined
    */
   getStageQuestions(): IResourceQuestion[] {
-    return this._stage
-      ? Object.values(this.allResources[this._stage].questions)
-      : [].concat(
+    return this.stageNumber
+      ? Object.values(
+          this.allResources[`stage${this.stageNumber}Resources`].questions
+        )
+      : [].concat.apply(
+          [],
           Object.values(this.allResources).map(v => Object.values(v.questions))
         );
   }

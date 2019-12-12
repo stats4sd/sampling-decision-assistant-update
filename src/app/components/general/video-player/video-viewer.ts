@@ -38,10 +38,9 @@ export class VideoViewerPage {
     this.youtubeID = this.navParams.data.youtubeID;
     this.videoPlayerWidth = Math.min(window.innerWidth, 600);
     this.videoPlayerHeight = Math.round((this.videoPlayerWidth / 16) * 9);
-    console.log("video viewer init", this.youtubeID);
   }
   onPlayerReady(player: YT.Player) {
-    console.log("player ready", player);
+    this.player = player;
   }
   dismiss() {
     this.modalCtrl.dismiss();
