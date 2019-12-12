@@ -1,24 +1,20 @@
 import { Component } from "@angular/core";
-import { DecisionToolMenuComponent } from "src/app/components/general/decision-tool-menu/decision-tool-menu";
-import {
-  PopoverController,
-  Events,
-  ModalController,
-  NavController
-} from "@ionic/angular";
+import { PopoverController, Events, ModalController } from "@ionic/angular";
 import { FormProvider } from "src/app/services/form/form";
 import { DataProvider } from "src/app/services/data/data";
 import { Project } from "src/app/models/models";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
 import { Router } from "@angular/router";
+// import { SavedInfoComponent } from "src/app/components/modals/saved-info/saved-info.component";
+// import { DecisionToolMenuComponent } from "src/app/components/modals/decision-tool-menu/decision-tool-menu";
 
 @Component({
-  selector: "app-step-by-step",
-  templateUrl: "./step-by-step.page.html",
-  styleUrls: ["./step-by-step.page.scss"]
+  selector: "app-tool-page",
+  templateUrl: "./tool.page.html",
+  styleUrls: ["./tool.page.scss"]
 })
-export class StepByStepPage {
+export class ToolPage {
   introVideoYoutubeID = "c6RnCjDnRAI";
   sections: any = [];
   stagesComplete: boolean[] = [];
@@ -81,7 +77,7 @@ export class StepByStepPage {
   }
   async showMenu(e) {
     let popover = await this.popoverCtrl.create({
-      component: DecisionToolMenuComponent,
+      component: "DecisionToolMenuComponent",
       event: e
     });
     await popover.present();
@@ -107,7 +103,7 @@ export class StepByStepPage {
   }
   async load() {
     const modal = await this.modalCtrl.create({
-      component: "SavedInfoPage",
+      component: "SavedInfoComponent",
       cssClass: "full-screen",
       componentProps: { view: "load" }
     });

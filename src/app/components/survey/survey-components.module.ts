@@ -22,7 +22,6 @@ import { QuestionCustomReportingLevelsComponent } from "./question-types/custom-
 import { QuestionTextMultipleComponent } from "./question-types/text-multiple/question-text-multiple";
 import { CommonModule } from "@angular/common";
 
-// import { DecisionToolMenuComponent } from './decision-tool-menu/decision-tool-menu';
 @NgModule({
   declarations: [
     SurveyQuestionComponent,

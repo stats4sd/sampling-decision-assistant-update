@@ -8,10 +8,10 @@ import {} from "ngx-file-drop";
 
 @Component({
   selector: "app-saved-info",
-  templateUrl: "./saved-info.page.html",
-  styleUrls: ["./saved-info.page.scss"]
+  templateUrl: "./saved-info.component.html",
+  styleUrls: ["./saved-info.component.scss"]
 })
-export class SavedInfoPage implements AfterViewInit {
+export class SavedInfoComponent implements AfterViewInit {
   @select("savedProjects")
   savedProjects$: Observable<Project[]>;
   @select("activeProject")

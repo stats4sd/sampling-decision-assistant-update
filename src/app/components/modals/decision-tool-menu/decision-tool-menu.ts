@@ -1,5 +1,9 @@
 import { Component } from "@angular/core";
-import { AlertController, ModalController } from "@ionic/angular";
+import {
+  AlertController,
+  ModalController,
+  PopoverController
+} from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
 
 @Component({
@@ -11,10 +15,10 @@ export class DecisionToolMenuComponent {
   constructor(
     private alertCtrl: AlertController,
     private dataPrvdr: DataProvider,
-    private modalCtrl: ModalController
+    private popoverCtrl: PopoverController
   ) {}
-  dismiss(param) {
-    this.modalCtrl.dismiss(param);
+  dismiss(params?: any) {
+    this.popoverCtrl.dismiss(params);
   }
 
   async saveAs() {
@@ -38,7 +42,7 @@ export class DecisionToolMenuComponent {
             if (data.title) {
               this.dataPrvdr.saveProjectAs(data.title);
             }
-            this.modalCtrl.dismiss();
+            this.dismiss();
           }
         }
       ]

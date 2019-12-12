@@ -8,7 +8,7 @@ import { GlossaryDetailComponent } from "./glossary/glossary-detail/glossary-det
 import { NoteComponent } from "./note/note";
 import { ResourceItemComponent } from "./resources/resource-item/resource-item";
 import { ResourcesListComponent } from "./resources/resources-list/resources-list";
-import { HelpIconComponent } from "./help-icon/help-icon";
+import { HelpIconComponent, InfoIconComponent } from "./icons";
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 import { ProjectTitleComponent } from "./project-title";
 import { VideoPopupButtonComponent } from "./video-player/video-popup-button";
@@ -17,7 +17,6 @@ import { CommonModule } from "@angular/common";
 import { IntroductionTextPage } from "./introduction/introduction-text/introduction-text";
 import { VideoViewerPage } from "./video-player/video-viewer";
 
-// import { DecisionToolMenuComponent } from './decision-tool-menu/decision-tool-menu';
 @NgModule({
   declarations: [
     IntroductionComponent,
@@ -29,6 +28,7 @@ import { VideoViewerPage } from "./video-player/video-viewer";
     ResourcesListComponent,
     ResourceItemComponent,
     HelpIconComponent,
+    InfoIconComponent,
     ProjectTitleComponent,
     VideoPopupButtonComponent,
     VideoViewerPage
@@ -50,6 +50,7 @@ import { VideoViewerPage } from "./video-player/video-viewer";
     ResourcesListComponent,
     ResourceItemComponent,
     HelpIconComponent,
+    InfoIconComponent,
     ProjectTitleComponent,
     VideoPopupButtonComponent,
     VideoViewerPage

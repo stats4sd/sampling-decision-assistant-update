@@ -80,10 +80,9 @@
       <!-- step by step sections -->
       <div class="section-break">Step By Step Decisions</div>
       <p class="instruction">
-        <ion-icon name="information-circle" slot="start"></ion-icon>
-        <span style="margin-left:5px"
+        <info-icon
           >Use each step below to build an overview of your sampling
-          decisions</span
+          decisions</info-icon
         >
       </p>
       <!-- section cards -->
@@ -113,30 +112,34 @@
       <!-- Review and export -->
       <div class="section-break">Review and Export</div>
       <p class="instruction">
-        <ion-icon name="information-circle" slot="start"></ion-icon>Review the
-        decisions you have made and make revisions before final export
+        <info-icon
+          >Review the decisions you have made and make revisions before final
+          export</info-icon
+        >
       </p>
       <div style="margin-bottom: 2em">
-        <ion-card class="review-box" routerLink="/review">
-          <div style="display:flex; ">
-            <div class="review-card">
-              <span>Review</span>
+        <ion-card routerLink="/review">
+          <div class="review-box">
+            <div style="display:flex; ">
+              <div class="review-card">
+                <span>Review</span>
+              </div>
+              <img
+                class="section-icon _80px"
+                src="assets/img/icons/arrows-dual.svg"
+              />
+              <div class="review-card">
+                <span>Improve</span>
+              </div>
             </div>
-            <img
-              class="section-icon _80px"
-              src="assets/img/icons/arrows-dual.svg"
-            />
-            <div class="review-card">
-              <span>Improve</span>
-            </div>
-          </div>
-          <div style="display:flex; justify-content:center">
-            <img
-              class="section-icon _80px"
-              src="assets/img/icons/arrow-right.svg"
-            />
-            <div class="review-card">
-              <div>Export</div>
+            <div style="display:flex; justify-content:center">
+              <img
+                class="section-icon _80px"
+                src="assets/img/icons/arrow-right.svg"
+              />
+              <div class="review-card">
+                <div>Export</div>
+              </div>
             </div>
           </div>
         </ion-card>

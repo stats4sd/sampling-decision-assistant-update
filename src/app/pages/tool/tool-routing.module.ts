@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { StepByStepPage } from "./step-by-step/step-by-step.page";
+import { ToolPage } from "./tool.page";
 
 const routes: Routes = [
   {
     path: "",
-    component: StepByStepPage
+    component: ToolPage
   },
   {
     path: "stage",
@@ -27,11 +27,6 @@ const routes: Routes = [
     path: "review",
     loadChildren: () =>
       import("./review/review.module").then(m => m.ReviewPageModule)
-  },
-  {
-    path: "saved-info",
-    loadChildren: () =>
-      import("./saved-info/saved-info.module").then(m => m.SavedInfoPageModule)
   },
   {
     path: "summary",
