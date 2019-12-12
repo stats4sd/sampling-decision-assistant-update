@@ -21,6 +21,7 @@ import { rootReducer, INITIAL_STATE } from "./reducers/reducers";
 import { SentryErrorHandler } from "./services/error-handler/error-handler";
 import { IonicStorageModule } from "@ionic/storage";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     }),
     NgReduxModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxYoutubePlayerModule.forRoot()
   ],
   providers: [
     StatusBar,

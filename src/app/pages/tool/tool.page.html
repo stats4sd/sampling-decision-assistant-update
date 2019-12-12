@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="tool"></ion-back-button>
+      <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title>Sampling Decision Assistant</ion-title>
     <ion-buttons slot="end">
@@ -58,16 +58,20 @@
         <!-- Existing project info -->
         <div *ngIf="activeProject.title && !editingMode">
           <div class="existing-project-container">
-            <div class="existing-project-container" style="flex:1">
+            <div style="flex:1">
               <div
-                style="font-size: medium; font-weight:700"
+                style="font-size: medium; font-weight:700; display: flex; align-items: center;"
                 *ngIf="activeProject && activeProject.title"
               >
-                <ion-icon name="clipboard"></ion-icon>{{activeProject.title}}
+                <span style="margin-left:5px; ">{{activeProject.title}}</span>
+                <ion-button
+                  fill="clear"
+                  (click)="enableEditing()"
+                  class="edit-button"
+                >
+                  <ion-icon name="create" slot="icon-only"></ion-icon>
+                </ion-button>
               </div>
-              <ion-button fill="clear" (click)="enableEditing()">
-                <ion-icon name="create" slot="icon-only"></ion-icon>
-              </ion-button>
             </div>
             <video-popup-button
               buttonText="Watch Intro Video"

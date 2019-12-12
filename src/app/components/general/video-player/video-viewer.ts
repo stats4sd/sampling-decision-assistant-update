@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
 import { ModalController, NavParams } from "@ionic/angular";
 
 @Component({
@@ -25,17 +25,20 @@ import { ModalController, NavParams } from "@ionic/angular";
   `
 })
 export class VideoViewerPage {
-  @Input("youtubeID")
   youtubeID: string;
   videoPlayerWidth: number;
   videoPlayerHeight: number;
   playerVars = { rel: 0, showinfo: 0, ecver: 2 };
-  constructor(private modalCtrl: ModalController, navParams: NavParams) {
-    this.youtubeID = navParams.data.youtubeID;
-  }
+  player: YT.Player;
+  constructor(
+    private modalCtrl: ModalController,
+    private navParams: NavParams
+  ) {}
   ngOnInit() {
+    this.youtubeID = this.navParams.data.youtubeID;
     this.videoPlayerWidth = Math.min(window.innerWidth, 600);
     this.videoPlayerHeight = Math.round((this.videoPlayerWidth / 16) * 9);
+    console.log("video viewer init", this.youtubeID);
   }
   onPlayerReady(player: YT.Player) {
     console.log("player ready", player);

@@ -99,6 +99,11 @@
   flex-wrap: wrap;
   align-items: center;
 }
+ion-button.edit-button {
+  --padding-start: 5px;
+  --padding-end: 5px;
+  margin-right: 15px;
+}
 
 @media screen and (max-width: 450px) {
   .review-card {

@@ -7,6 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { ToolPageRoutingModule } from "./tool-routing.module";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
 import { ToolPage } from "./tool.page";
+import { ModalComponentsModule } from "src/app/components/modals/modalComponents.module";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ToolPage } from "./tool.page";
     ReactiveFormsModule,
     IonicModule,
     ToolPageRoutingModule,
-    GeneralComponentsModule
+    GeneralComponentsModule,
+    ModalComponentsModule
   ],
   declarations: [ToolPage]
 })

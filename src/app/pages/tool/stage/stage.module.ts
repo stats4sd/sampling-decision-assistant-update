@@ -10,7 +10,6 @@ import { StagePage } from "./stage.page";
 import { StageComponentsModule } from "src/app/components/stage-content/stageComponents.module";
 import { SurveyComponentsModule } from "src/app/components/survey/survey-components.module";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
-import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 
 @NgModule({
   imports: [
@@ -21,8 +20,7 @@ import { NgxYoutubePlayerModule } from "ngx-youtube-player";
     StagePageRoutingModule,
     StageComponentsModule,
     SurveyComponentsModule,
-    GeneralComponentsModule,
-    NgxYoutubePlayerModule
+    GeneralComponentsModule
   ],
   declarations: [StagePage]
 })

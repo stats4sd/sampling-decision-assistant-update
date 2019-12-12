@@ -9,6 +9,7 @@ import { SavedProjects, Project, AppState } from "../../models/models";
 import { select, NgRedux } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { Events, ToastController, AlertController } from "@ionic/angular";
+import { NgxFileDropEntry, FileSystemFileEntry } from "ngx-file-drop";
 
 @Injectable({
   providedIn: "root"
@@ -274,7 +275,8 @@ export class DataProvider {
     return processed;
   }
 
-  import(files) {
+  import(entries: NgxFileDropEntry[] = []) {
+    console.log("import files", entries);
     // support processing of drag and drop files using filereader api
     // *** note, currently only supporting readasbinarystring so not entirely compatible. Need to test ***
     // prepare reader
@@ -284,13 +286,16 @@ export class DataProvider {
       console.log("error", err);
     };
     // process files
-    files.forEach(file => {
-      file.fileEntry.file(info => {
-        // get in base64 format
-        // reader.readAsDataURL(info)
-        reader.readAsBinaryString(info);
-        //reader.readAsArrayBuffer(info)
-      });
+    entries.forEach(entry => {
+      if (entry.fileEntry.isFile) {
+        const fileEntry = entry.fileEntry as FileSystemFileEntry;
+        fileEntry.file(info => {
+          // get in base64 format
+          // reader.readAsDataURL(info)
+          reader.readAsBinaryString(info);
+          //reader.readAsArrayBuffer(info)
+        });
+      }
     });
   }
 

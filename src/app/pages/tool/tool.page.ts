@@ -6,8 +6,8 @@ import { Project } from "src/app/models/models";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
 import { Router } from "@angular/router";
-// import { SavedInfoComponent } from "src/app/components/modals/saved-info/saved-info.component";
-// import { DecisionToolMenuComponent } from "src/app/components/modals/decision-tool-menu/decision-tool-menu";
+import { DecisionToolMenuComponent } from "src/app/components/modals/decision-tool-menu/decision-tool-menu";
+import { SavedInfoComponent } from "src/app/components/modals/saved-info/saved-info.component";
 
 @Component({
   selector: "app-tool-page",
@@ -77,7 +77,7 @@ export class ToolPage {
   }
   async showMenu(e) {
     let popover = await this.popoverCtrl.create({
-      component: "DecisionToolMenuComponent",
+      component: DecisionToolMenuComponent,
       event: e
     });
     await popover.present();
@@ -103,7 +103,7 @@ export class ToolPage {
   }
   async load() {
     const modal = await this.modalCtrl.create({
-      component: "SavedInfoComponent",
+      component: SavedInfoComponent,
       cssClass: "full-screen",
       componentProps: { view: "load" }
     });

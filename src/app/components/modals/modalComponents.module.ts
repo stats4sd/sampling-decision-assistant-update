@@ -4,8 +4,8 @@ import { CommonModule } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
 
 import { FormsModule } from "@angular/forms";
-// import { GeneralComponentsModule } from "../general/generalComponents.module";
-// import { NgxFileDropModule } from "ngx-file-drop";
+import { GeneralComponentsModule } from "../general/generalComponents.module";
+import { NgxFileDropModule } from "ngx-file-drop";
 // Components
 import { DecisionToolMenuComponent } from "./decision-tool-menu/decision-tool-menu";
 import { SavedInfoComponent } from "./saved-info/saved-info.component";
@@ -17,9 +17,9 @@ const modals = [SavedInfoComponent, DecisionToolMenuComponent];
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule
-    // NgxFileDropModule,
-    // GeneralComponentsModule
+    IonicModule,
+    NgxFileDropModule,
+    GeneralComponentsModule
   ],
   declarations: modals,
   exports: modals,

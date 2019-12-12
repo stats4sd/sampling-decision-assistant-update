@@ -4,7 +4,7 @@ import { AlertController, Events, ModalController } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
-import {} from "ngx-file-drop";
+import { NgxFileDropEntry } from "ngx-file-drop";
 
 @Component({
   selector: "app-saved-info",
@@ -19,7 +19,6 @@ export class SavedInfoComponent implements AfterViewInit {
   savedProjects: Project[] = [];
   activeProject: Project;
   saveName: string;
-  view: string;
   savedSurveys: any;
   errorMsg: string;
   _dbVersion: number;
@@ -30,8 +29,6 @@ export class SavedInfoComponent implements AfterViewInit {
     public alertCtrl: AlertController,
     private modalCtrl: ModalController
   ) {
-    alert("todo");
-    // this.view = this.navParams.data.view;
     this._dbVersion = this.dataPrvdr.dbVersion;
     this.savedProjects$.subscribe(projects => {
       if (projects) {
@@ -56,14 +53,10 @@ export class SavedInfoComponent implements AfterViewInit {
     }
   }
 
-  setView(view) {
-    this.view = view;
-  }
   dismiss() {
     this.modalCtrl.dismiss();
   }
   loadProject(project: Project) {
-    console.log("loading project", project);
     this.dataPrvdr.loadProject(project);
     this.modalCtrl.dismiss();
   }
@@ -72,9 +65,9 @@ export class SavedInfoComponent implements AfterViewInit {
   }
 
   // file drop
-  dropped(e) {
+  dropped(files: NgxFileDropEntry[]) {
     // handle file drop
-    let files = e.files;
+    console.log("dropped", files);
     this.events.subscribe("import:duplicate", project => {
       console.log("duplicate file", project);
       this.promptRename(project);

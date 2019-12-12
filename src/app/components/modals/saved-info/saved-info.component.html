@@ -10,34 +10,16 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <div *ngIf="view=='save'">
-    <h3>Create New Project</h3>
-    <ion-list>
-      <ion-item>
-        <ion-input
-          placeholder="Input a name for the project"
-          [(ngModel)]="saveName"
-        ></ion-input>
-      </ion-item>
-      <note type="error">{{errorMsg}}</note>
-      <note type="info">Future progress will be automatically saved</note>
-      <ion-item>
-        <ion-button [disabled]="!saveName" (click)="createNew()">
-          <ion-icon name="create" slot="start"></ion-icon>Create
-        </ion-button>
-      </ion-item>
-    </ion-list>
-  </div>
-  <div *ngIf="view=='load'">
+  <div *ngIf="view == 'load'">
     <h3>Load saved project</h3>
     <ion-list>
       <ion-item *ngFor="let project of savedProjects">
         <div style="display: flex">
           <div style="flex:1; cursor:pointer" (click)="loadProject(project)">
             <div class="survey-title">
-              {{project.title? project.title : 'untitled'}}
+              {{ project.title ? project.title : "untitled" }}
             </div>
-            <div class="survey-date">{{project.created | date}}</div>
+            <div class="survey-date">{{ project.created | date }}</div>
           </div>
           <div style="margin:5px">
             <ion-button
@@ -56,10 +38,8 @@
           </div>
         </div>
       </ion-item>
-      <div *ngIf="savedProjects.length==0">
-        There are no projects saved. Click
-        <span class="link" (click)="setView('save')">here</span> to create a new
-        project
+      <div *ngIf="savedProjects.length == 0">
+        There are no projects saved.
       </div>
     </ion-list>
     <h3>Load a project templates</h3>
@@ -71,16 +51,15 @@
     </ion-list>
     <h3>Import data JSON</h3>
     <ion-list>
-      <div>Import a file previously exported from the tool</div>
-      <file-drop
+      <div style="margin-bottom: 1em;">
+        Import a file previously exported from the tool
+      </div>
+      <ngx-file-drop
         headertext="Drop files here"
         (onFileDrop)="dropped($event)"
-        (onFileOver)="fileOver($event)"
-        (onFileLeave)="fileLeave($event)"
       >
-        <!-- <span>optional content (don't set headertext then)</span> -->
-      </file-drop>
-      <note type="error" *ngIf="errorMsg">{{errorMsg}}</note>
+      </ngx-file-drop>
+      <note type="error" *ngIf="errorMsg">{{ errorMsg }}</note>
     </ion-list>
   </div>
 </ion-content>

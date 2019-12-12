@@ -8,7 +8,7 @@ import { VideoViewerPage } from "./video-viewer";
 @Component({
   selector: "video-popup-button",
   template: `
-    <ion-button fill="clear" (click)="showIntroVideo()">
+    <ion-button fill="clear" (click)="showVideo()">
       <ion-icon slot="start" name="logo-youtube"></ion-icon>{{ buttonText }}
     </ion-button>
   `,
@@ -22,7 +22,7 @@ export class VideoPopupButtonComponent {
 
   constructor(public modalCtrl: ModalController) {}
 
-  async showIntroVideo() {
+  async showVideo() {
     const modal = await this.modalCtrl.create({
       component: VideoViewerPage,
       componentProps: { youtubeID: this.youtubeID },
