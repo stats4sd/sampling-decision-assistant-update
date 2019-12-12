@@ -41,7 +41,8 @@ ion-select {
   visibility: hidden;
 }
 textarea {
-  min-height: 60px;
+  min-height: 5em;
+  margin: 1em 0;
   height: auto;
   border: 1px solid black;
   border-radius: 10px;

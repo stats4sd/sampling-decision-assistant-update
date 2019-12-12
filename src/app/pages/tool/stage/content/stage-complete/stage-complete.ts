@@ -4,7 +4,7 @@ import { StagePage } from "../../stage.page";
 import { select } from "@angular-redux/store";
 import { Observable, Subscription } from "rxjs";
 import { flyin } from "src/app/services/animationStates";
-import { ProjectValues } from "../../../../../models/models";
+import { ProjectValues } from "src/app/models/models";
 
 @Component({
   selector: "stage-complete",
@@ -166,18 +166,17 @@ export class StageCompleteComponent extends StagePage {
   }
 
   nextStage() {
-    // push next stage page and remove currnet page from nav stack to allow direct nav back to home. Could also be done with slugs, will need
-    // method to recognise stage-2 -> stage-1 when wanting to go fully back and auto pop history
     let next: number = this.stage.number + 1;
-    // push new page and remove duplicate stack
-    // this.navCtrl.push("StagePage", { stageID: "stage-" + next }).then(_ => {
-    //   this.navCtrl.remove(this.navCtrl.length() - 2);
-    // });
+    this.router.navigate(["../../" + next], {
+      relativeTo: this.route,
+      replaceUrl: true
+    });
   }
   goToReview() {
-    // this.navCtrl
-    //   .push("ReviewPage")
-    //   .then(_ => this.navCtrl.remove(this.navCtrl.length() - 2));
+    this.router.navigate(["../../../review"], {
+      relativeTo: this.route,
+      replaceUrl: true
+    });
   }
 
   toggleCheckbox() {

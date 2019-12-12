@@ -1,12 +1,6 @@
 import { ViewChild, Component } from "@angular/core";
 import { IStageMeta, IStageResources, AppState } from "src/app/models/models";
-import {
-  IonSlides,
-  NavController,
-  Events,
-  IonContent,
-  ModalController
-} from "@ionic/angular";
+import { IonSlides, Events, IonContent, ModalController } from "@ionic/angular";
 import { Subscription } from "rxjs";
 import { FormGroup } from "@angular/forms";
 import { DataProvider } from "src/app/services/data/data";
@@ -104,8 +98,7 @@ export class StagePage {
   videoPlayerWidth: number;
   videoPlayerHeight: number;
   constructor(
-    public navCtrl: NavController,
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public dataPrvdr: DataProvider,
     public dataVisPrvdr: DataVisProvider,
     public events: Events,
@@ -115,7 +108,7 @@ export class StagePage {
     // project actions and ngredux required for child components
     public ngRedux: NgRedux<AppState>,
     public projectActions: ProjectActions,
-    private router: Router,
+    public router: Router,
     private modalCtrl: ModalController
   ) {
     this.stageInit(this.route.snapshot.params.stageNumber);

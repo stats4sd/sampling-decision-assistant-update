@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary-inverted">
     <ion-title>Saved Projects</ion-title>
-    <ion-buttons slot="start">
+    <ion-buttons slot="end">
       <ion-button (click)="dismiss()">
         Close
         <ion-icon name="close" slot="start"></ion-icon>
@@ -55,7 +55,7 @@
         Import a file previously exported from the tool
       </div>
       <ngx-file-drop
-        headertext="Drop files here"
+        dropZoneLabel="Drop files here"
         (onFileDrop)="dropped($event)"
       >
       </ngx-file-drop>

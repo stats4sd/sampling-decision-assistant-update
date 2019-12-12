@@ -2,7 +2,6 @@ import { Component, Input } from "@angular/core";
 import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { IGlossaryTerm } from "../../../../models/models";
-import { NavController } from "@ionic/angular";
 import { ALL_GLOSSARY } from "src/app/data";
 import { Router } from "@angular/router";
 
