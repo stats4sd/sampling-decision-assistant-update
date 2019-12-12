@@ -21,7 +21,6 @@ import { rootReducer, INITIAL_STATE } from "./reducers/reducers";
 import { SentryErrorHandler } from "./services/error-handler/error-handler";
 import { IonicStorageModule } from "@ionic/storage";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { ModalComponentsModule } from "./components/modals/modalComponents.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,8 +38,7 @@ import { ModalComponentsModule } from "./components/modals/modalComponents.modul
     }),
     NgReduxModule,
     FormsModule,
-    ReactiveFormsModule,
-    ModalComponentsModule
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,
