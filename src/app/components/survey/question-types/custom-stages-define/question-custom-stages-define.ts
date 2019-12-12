@@ -48,7 +48,7 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
       moves: (el, source, handle, sibling) => {
         return handle.parentElement.dataset.dragHandle == "drag";
       }
-    });
+    } as any);
   }
 
   ngOnInit() {
