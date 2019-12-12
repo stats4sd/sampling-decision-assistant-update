@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { Stage4Component } from "../stage-4";
 import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
-import { ReportingLevel } from "../../../../../models/models";
+import { ReportingLevel } from "../../../../../../../models/models";
 
 @Component({
   selector: "stage-4-review-levels",

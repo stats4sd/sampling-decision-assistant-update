@@ -1,8 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { select, NgRedux } from "@angular-redux/store";
 import { Subject, Subscription } from "rxjs";
-import { ViewActions } from "../../../actions/actions";
-import { AppState } from "../../../models/models";
+import { ViewActions } from "../../../../../actions/actions";
+import { AppState } from "../../../../../models/models";
 import { takeUntil } from "rxjs/operators";
 
 @Component({

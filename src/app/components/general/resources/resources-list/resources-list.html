@@ -3,7 +3,11 @@
   <h2>Key Questions</h2>
   <!-- related -->
   <ion-list *ngIf="relevant">
-    <ion-list-header *ngIf="relevant">Related to {{relevant}}</ion-list-header>
+    <ion-list-header *ngIf="relevant"
+      ><ion-label class="list-header"
+        >Related to {{relevant}}</ion-label
+      ></ion-list-header
+    >
     <resource-item
       *ngFor="let question of relevantQuestions; let i=index"
       [question]="question"
@@ -18,7 +22,9 @@
   </ion-list>
   <!-- more in this step -->
   <ion-list>
-    <ion-list-header *ngIf="relevant">More in this step</ion-list-header>
+    <ion-list-header *ngIf="relevant" class="list-header"
+      ><ion-label>More in this step</ion-label></ion-list-header
+    >
     <resource-item
       *ngFor="let question of otherQuestions; let i=index"
       [question]="question"

@@ -52,12 +52,10 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
   set controlName(controlName: string) {
     this.question = this.formPrvdr.getQuestion(controlName);
   }
-  //@Input('repeatFormGroup') repeatFormGroup: FormGroup
   @Input("formGroup")
   formGroup: FormGroup;
   @Input("reviewMode")
   reviewMode: boolean;
-  //@Input() set formGroup(formGroup:FormGroup){console.log('formgroup set',formGroup)};
   @Output()
   onValueChange = new EventEmitter<any>();
   @ViewChild("textAreaInput", { static: true })

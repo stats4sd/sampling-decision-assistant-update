@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 // import ionic module if plan to use ionic components
 import { IonicModule } from "@ionic/angular";
-import { GeneralComponentsModule } from "../general/generalComponents.module";
-import { SurveyComponentsModule } from "../survey/survey-components.module";
+import { GeneralComponentsModule } from "../../../../components/general/generalComponents.module";
+import { SurveyComponentsModule } from "../../../../components/survey/survey-components.module";
 
 import { StageCompleteComponent } from "./stage-complete/stage-complete";
 import { StageBreadcrumbsComponent } from "./stage-breadcrumbs/stage-breadcrumbs";
@@ -18,7 +18,7 @@ import { Stage5_RecapComponent } from "./main-content/5/recap/stage-5-recap";
 import { Stage5_DefineStagesComponent } from "./main-content/5/define-stages/stage-5-define-stages";
 import { Stage5_SamplingWeightsComponent } from "./main-content/5/sampling-weights/stage-5-sampling-weights";
 import { Stage6Component } from "./main-content/6/stage-6";
-import { DataVisComponentsModule } from "../dataVis/dataVisComponents.module";
+import { DataVisComponentsModule } from "../../../../components/dataVis/dataVisComponents.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 

@@ -1,10 +1,10 @@
 import { Component, Input } from "@angular/core";
-import { StagePage } from "../../../pages/tool/stage/stage.page";
+import { StagePage } from "../../stage.page";
 
 import { select } from "@angular-redux/store";
 import { Observable, Subscription } from "rxjs";
 import { flyin } from "src/app/services/animationStates";
-import { ProjectValues } from "../../../models/models";
+import { ProjectValues } from "../../../../../models/models";
 
 @Component({
   selector: "stage-complete",

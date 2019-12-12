@@ -18,7 +18,7 @@ p {
   user-select: text;
 }
 .expanded {
-  background-color: #e0e0e0;
+  background-color: #dadada;
   .question-text {
     font-weight: bold;
   }
@@ -38,15 +38,10 @@ ol {
   margin: 0;
   color: rgb(32, 32, 32) !important; // line-height: 1em;
 }
-.selected,
-.selected:hover {
-  background-color: var(--ion-color-primary) !important;
-  color: white;
-}
+
 .answer-text,
 p {
-  font-size: small !important;
-  line-height: 1.4em !important;
+  line-height: 1.5em;
 }
 ul {
   margin-top: -1.4em;
@@ -62,4 +57,13 @@ td {
 }
 table {
   border-collapse: collapse;
+}
+.container {
+  padding: 15px;
+  margin-bottom: 1em;
+  cursor: pointer;
+  border: 1px solid #dadada;
+}
+.container:hover {
+  background-color: #dadada;
 }

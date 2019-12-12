@@ -1,4 +1,6 @@
-<ion-item [ngClass]="question._expanded ? 'expanded' : 'contracted'">
+<div
+  [ngClass]="question._expanded ? 'container expanded' : 'container contracted'"
+>
   <div
     class="question-text"
     [innerHtml]="question.q"
@@ -52,4 +54,4 @@
       [height]="videoPlayerHeight"
     ></youtube-player>
   </div>
-</ion-item>
+</div>
