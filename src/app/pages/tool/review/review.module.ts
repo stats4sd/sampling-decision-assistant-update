@@ -9,7 +9,7 @@ import { ReviewPageRoutingModule } from "./review-routing.module";
 import { ReviewPage } from "./review.page";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
 import { SurveyComponentsModule } from "src/app/components/survey/survey-components.module";
-import { StageComponentsModule } from "src/app/pages/tool/stage/stage-content/stageComponents.module";
+import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageComponents.module";
 import { DataVisComponentsModule } from "src/app/components/dataVis/dataVisComponents.module";
 
 @NgModule({

@@ -8,18 +8,17 @@
   ></div>
   <div class="answer-display-options" *ngIf="question._expanded">
     <ion-button
-      fill="outline"
+      [fill]="question._expanded && question._showFormat=='text' ? 'solid' : 'outline'"
       *ngIf="question.a"
       (click)="viewResource('text')"
-      [class.selected]="question._expanded && question._showFormat=='text'"
+      color="primary"
     >
       <ion-icon name="list" slot="start"></ion-icon>Text
     </ion-button>
     <ion-button
-      fill="outline"
+      [fill]="question._expanded && question._showFormat=='video' ? 'solid' : 'outline'"
       *ngIf="question.video"
       (click)="viewResource('video')"
-      [class.selected]="question._expanded && question._showFormat=='video'"
     >
       <ion-icon name="logo-youtube" slot="start"></ion-icon>Video
     </ion-button>

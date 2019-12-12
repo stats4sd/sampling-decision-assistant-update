@@ -7,7 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { StagePageRoutingModule } from "./stage-routing.module";
 
 import { StagePage } from "./stage.page";
-import { StageComponentsModule } from "src/app/pages/tool/stage/stage-content/stageComponents.module";
+import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageComponents.module";
 import { SurveyComponentsModule } from "src/app/components/survey/survey-components.module";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
 

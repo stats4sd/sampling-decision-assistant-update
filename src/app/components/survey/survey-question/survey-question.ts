@@ -199,6 +199,11 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
       this.showSelectOther = false;
     }
   }
+  // ************** Range **************************************************
+  updateRange(e) {
+    const patch = { [this.question.controlName]: e.target.value };
+    this.formPrvdr.formGroup.patchValue(patch);
+  }
 
   // *****************************************************
   // functions required to allow model binding
@@ -246,8 +251,9 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
       if (el) {
         let instances = el.querySelectorAll(".dynamic-text");
         for (let i = 0; i < instances.length; i++) {
-          if (instances[i].getAttribute("name") == key)
+          if (instances[i].getAttribute("name") == key) {
             instances[i].innerHTML = value;
+          }
         }
       }
     }

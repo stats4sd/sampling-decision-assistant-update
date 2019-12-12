@@ -8,7 +8,7 @@ import { ChangelogPageRoutingModule } from "./changelog-routing.module";
 
 import { ChangelogPage } from "./changelog.page";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
-import { StageComponentsModule } from "src/app/pages/tool/stage/stage-content/stageComponents.module";
+import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageComponents.module";
 import { ImageViewerModule } from "ngx-image-viewer";
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 

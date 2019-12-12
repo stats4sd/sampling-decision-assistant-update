@@ -17,7 +17,8 @@
 p {
   user-select: text;
 }
-.expanded {
+.expanded,
+.container:hover {
   background-color: #dadada;
   .question-text {
     font-weight: bold;
@@ -63,7 +64,4 @@ table {
   margin-bottom: 1em;
   cursor: pointer;
   border: 1px solid #dadada;
-}
-.container:hover {
-  background-color: #dadada;
 }

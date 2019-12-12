@@ -6,11 +6,8 @@ import { GlossaryLinkComponent } from "./glossary/glossary-link/glossary-link";
 import { GlossaryListComponent } from "./glossary/glossary-list";
 import { GlossaryDetailComponent } from "./glossary/glossary-detail/glossary-detail";
 import { NoteComponent } from "./note/note";
-import { ResourceItemComponent } from "./resources/resource-item/resource-item";
-import { ResourcesListComponent } from "./resources/resources-list/resources-list";
 import { HelpIconComponent, InfoIconComponent } from "./icons";
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
-import { ProjectTitleComponent } from "./project-title";
 import { VideoPopupButtonComponent } from "./video-player/video-popup-button";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
@@ -25,11 +22,8 @@ import { VideoViewerPage } from "./video-player/video-viewer";
     GlossaryListComponent,
     GlossaryDetailComponent,
     NoteComponent,
-    ResourcesListComponent,
-    ResourceItemComponent,
     HelpIconComponent,
     InfoIconComponent,
-    ProjectTitleComponent,
     VideoPopupButtonComponent,
     VideoViewerPage
   ],
@@ -47,11 +41,8 @@ import { VideoViewerPage } from "./video-player/video-viewer";
     GlossaryListComponent,
     GlossaryDetailComponent,
     NoteComponent,
-    ResourcesListComponent,
-    ResourceItemComponent,
     HelpIconComponent,
     InfoIconComponent,
-    ProjectTitleComponent,
     VideoPopupButtonComponent,
     VideoViewerPage
   ],

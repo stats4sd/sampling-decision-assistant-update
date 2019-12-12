@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "help-icon",
@@ -29,11 +29,12 @@ export class HelpIconComponent {
   @Input("text")
   text: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   helpClicked() {
+    const stageNumber = this.route.snapshot.params.stageNumber;
     this.router.navigate(["resources"], {
-      queryParams: { relevant: this.relevant }
+      queryParams: { relevant: this.relevant, stageNumber }
     });
   }
 }

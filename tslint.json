@@ -22,6 +22,8 @@
     "comment-format": false,
     "member-ordering": false,
     "no-string-literal": false,
-    "no-bitwise": false
+    "no-bitwise": false,
+    "prefer-for-of": false,
+    "no-eval": false
   }
 }

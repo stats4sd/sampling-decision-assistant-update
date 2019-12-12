@@ -8,6 +8,7 @@ import { ResourcesPageRoutingModule } from "./resources-routing.module";
 
 import { ResourcesPage } from "./resources.page";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
+import { ResourceComponentsModule } from "./components/resourceComponents.module";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { GeneralComponentsModule } from "src/app/components/general/generalCompo
     FormsModule,
     IonicModule,
     ResourcesPageRoutingModule,
-    GeneralComponentsModule
+    GeneralComponentsModule,
+    ResourceComponentsModule
   ],
   declarations: [ResourcesPage]
 })
