@@ -1,5 +1,5 @@
 <div class="slide-content">
-  <stage-breadcrumbs [stage]='5' [stageSlidesIndex]="stageSlidesIndex"></stage-breadcrumbs>
+  <stage-breadcrumbs [stage]="5"></stage-breadcrumbs>
   <div [ngSwitch]="stagePart">
     <!-- recap slide -->
     <div *ngSwitchDefault>
@@ -16,16 +16,20 @@
     <!-- sampling weights slide -->
     <div *ngSwitchCase="3">
       <stage-5-sampling-weights></stage-5-sampling-weights>
-      <stage-complete stageNumber=5></stage-complete>
+      <stage-complete stageNumber="5"></stage-complete>
     </div>
-
-
   </div>
 
   <!-- Next and back buttons -->
-  <div style="display: flex; justify-content:space-between; padding-bottom:20px">
-
-    <ion-button (click)="nextStep()" *ngIf="stagePart !='3'" fill="clear" expand="block">Continue
+  <div
+    style="display: flex; justify-content:space-between; padding-bottom:20px"
+  >
+    <ion-button
+      (click)="nextStep()"
+      *ngIf="stagePart !='3'"
+      fill="clear"
+      expand="block"
+      >Continue
       <ion-icon name="arrow-forward" slot="end"></ion-icon>
     </ion-button>
   </div>

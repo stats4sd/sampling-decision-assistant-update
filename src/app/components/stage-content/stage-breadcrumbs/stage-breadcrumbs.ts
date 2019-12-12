@@ -15,8 +15,6 @@ export class StageBreadcrumbsComponent {
   set stage(stage: number) {
     this.breadcrumbs = this.stageBreadcrumbs[stage];
   }
-  @Input("stageSlidesIndex")
-  stageSlidesIndex: number;
   part$: Subscription;
   activePart: number;
   breadcrumbs: any = [];

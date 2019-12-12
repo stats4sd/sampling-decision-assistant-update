@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { ModalController, Events } from "@ionic/angular";
 import { IntroductionTextPage } from "./introduction-text/introduction-text";
+import { SavedInfoComponent } from "src/app/components/modals/saved-info/saved-info.component";
 
 @Component({
   selector: "introduction",
@@ -13,7 +14,7 @@ export class IntroductionComponent {
 
   async startNew() {
     const modal = await this.modalCtrl.create({
-      component: "SavedInfoPage",
+      component: SavedInfoComponent,
       componentProps: { view: "save" },
       cssClass: "full-screen"
     });
@@ -26,7 +27,7 @@ export class IntroductionComponent {
   }
   async load() {
     const modal = await this.modalCtrl.create({
-      component: "SavedInfoPage",
+      component: SavedInfoComponent,
       componentProps: { view: "load" },
       cssClass: "full-screen"
     });

@@ -22,7 +22,6 @@ import { DataVisComponentsModule } from "../dataVis/dataVisComponents.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 
-// import { DecisionToolMenuComponent } from './decision-tool-menu/decision-tool-menu';
 @NgModule({
   declarations: [
     Stage1Component,
