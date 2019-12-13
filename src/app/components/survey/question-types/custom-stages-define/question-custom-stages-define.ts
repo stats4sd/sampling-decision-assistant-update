@@ -44,11 +44,13 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
     public dataPrvdr: DataProvider
   ) {
     super(cdr, events, formPrvdr, dataPrvdr);
-    this.dragulaService.createGroup("general-group", {
-      moves: (el, source, handle, sibling) => {
-        return handle.parentElement.dataset.dragHandle == "drag";
-      }
-    } as any);
+    if (!this.dragulaService.find("general-group")) {
+      this.dragulaService.createGroup("general-group", {
+        moves: (el, source, handle, sibling) => {
+          return handle.parentElement.dataset.dragHandle == "drag";
+        }
+      } as any);
+    }
   }
 
   ngOnInit() {

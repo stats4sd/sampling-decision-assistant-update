@@ -1,8 +1,3 @@
-.builder-stage-container,
-.builder-container {
-  max-width: 600px;
-  margin: unset;
-}
 .build-stage {
   min-height: 3em;
   flex: 1;
@@ -15,15 +10,13 @@
   color: var(--ion-color-primary);
 }
 .row-headers {
-  background-color: rgb(250, 250, 250);
   font-weight: bold;
-  border-color: rgb(128, 128, 128);
+  background: var(--ion-color-light-tint);
   text-align: center;
 }
-.row {
-  align-items: center; //border-bottom: 1px solid rgb(232, 232, 232);
-  border-bottom: 1px solid rgb(232, 232, 232);
-  min-height: 3em;
+ion-row {
+  align-items: center;
+  border-bottom: 1px solid var(--ion-color-light-tint);
   text-align: center;
 }
 .col {
@@ -62,5 +55,21 @@
 .center {
   input {
     text-align: center;
+  }
+}
+
+// general review show/hide
+.review-mode > h4,
+.review-mode > p {
+  display: none;
+}
+
+.review-mode {
+  input {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+  note {
+    display: none;
   }
 }

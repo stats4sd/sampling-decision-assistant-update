@@ -1,8 +1,11 @@
+:host {
+  margin-bottom: 1em;
+}
 .multiple-list {
   display: flex;
-  max-width: 470px;
+  width: 100%;
   align-items: center;
-  margin: 5px 5px 5px 20px;
+  margin-bottom: 5px;
   font-size: medium;
   color: rgba(0, 0, 0, 0.9);
   padding: 5px;
