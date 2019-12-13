@@ -9,6 +9,7 @@ import { NgxFileDropModule } from "ngx-file-drop";
 // Components
 import { DecisionToolMenuComponent } from "./decision-tool-menu/decision-tool-menu";
 import { SavedInfoComponent } from "./saved-info/saved-info.component";
+import { PageComponentsModule } from "../page/pageComponentsModule";
 
 // NOTE - modal components must be imported into root app to make aware of available
 // entry components
@@ -19,7 +20,8 @@ const modals = [SavedInfoComponent, DecisionToolMenuComponent];
     FormsModule,
     IonicModule,
     NgxFileDropModule,
-    GeneralComponentsModule
+    GeneralComponentsModule,
+    PageComponentsModule
   ],
   declarations: modals,
   exports: modals,

@@ -6,14 +6,14 @@
         <div class="section-title">Information provided</div>
         <ion-list style="margin:10px">
           <div *ngFor="let field of calculatedFields">
-            <div class="input-item" *ngIf="!inputValues[field.var]">
+            <ion-item class="input-item" *ngIf="!inputValues[field.var]">
               <div class="input-label">{{field.label}}</div>
               <note type="error">Input Missing</note>
-            </div>
-            <div class="input-item" *ngIf="inputValues[field.var]">
+            </ion-item>
+            <ion-item class="input-item" *ngIf="inputValues[field.var]">
               <div class="input-label">{{field.label}}</div>
               <div class="input-value">{{inputValues[field.var]}}</div>
-            </div>
+            </ion-item>
           </div>
         </ion-list>
       </div>
@@ -88,13 +88,13 @@
             ></ion-input>
           </ion-item>
         </div>
-        <ion-button fill="clear" color="primary">
+        <div>
           <help-icon
-            slot="end"
+            slot="icon-only"
             relevant="q6.1"
             text="How is the sample size calculated?"
           ></help-icon>
-        </ion-button>
+        </div>
       </div>
     </div>
 

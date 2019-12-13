@@ -7,70 +7,65 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="survey" style="margin-bottom:10px">
-  <ion-content>
-    <!-- Review content -->
-    <div class="ion-padding" id="reviewContent">
-      <h2>Review Decisions</h2>
-      <div>
-        <div *ngFor="let group of questionGroups" class="section-group">
-          <div class="heading">
-            {{group.section}}
-          </div>
+<page-content>
+  <!-- Review content -->
+  <div class="survey" id="reviewContent" style="margin-bottom:10px">
+    <h2>Review Decisions</h2>
+    <div>
+      <div *ngFor="let group of questionGroups" class="section-group">
+        <div class="heading">
+          {{group.section}}
+        </div>
+        <div *ngFor="let question of group.questions" class="section-question">
+          <survey-question
+            *ngIf="!question.repeatGroup && !question.hideOnReview"
+            [question]="question"
+            [reviewMode]="true"
+          ></survey-question>
+        </div>
+        <div [ngSwitch]="group.section">
+          <!-- additional group-specific content -->
           <div
-            *ngFor="let question of group.questions"
-            class="section-question"
+            *ngSwitchCase="'At what level do you need to report these results'"
           >
-            <survey-question
-              *ngIf="!question.repeatGroup && !question.hideOnReview"
-              [question]="question"
-              [reviewMode]="true"
-            ></survey-question>
+            <ion-card class="container">
+              <stage-4-define-level-categories
+                [reviewMode]="true"
+              ></stage-4-define-level-categories>
+            </ion-card>
           </div>
-          <div [ngSwitch]="group.section">
-            <!-- additional group-specific content -->
-            <div
-              *ngSwitchCase="'At what level do you need to report these results'"
-            >
-              <ion-card class="container">
-                <stage-4-define-level-categories
-                  [reviewMode]="true"
-                ></stage-4-define-level-categories>
-              </ion-card>
-            </div>
-            <div *ngSwitchCase="'Selecting the sampling units'">
-              <ion-card class="container">
-                <stage-5-frame-builder-overview
-                  [reviewMode]="true"
-                ></stage-5-frame-builder-overview>
-              </ion-card>
-            </div>
-            <div *ngSwitchCase="'Allocating and deploying resources'">
-              <tree-diagram></tree-diagram>
-              <div class="section-padding"></div>
-              <sample-size-calculator></sample-size-calculator>
-              <div class="section-padding"></div>
-              <tree-table></tree-table>
-            </div>
+          <div *ngSwitchCase="'Selecting the sampling units'">
+            <ion-card class="container">
+              <stage-5-frame-builder-overview
+                [reviewMode]="true"
+              ></stage-5-frame-builder-overview>
+            </ion-card>
+          </div>
+          <div *ngSwitchCase="'Allocating and deploying resources'">
+            <tree-diagram></tree-diagram>
+            <div class="section-padding"></div>
+            <sample-size-calculator></sample-size-calculator>
+            <div class="section-padding"></div>
+            <tree-table></tree-table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Analysis Content -->
-    <div class="ion-padding">
-      <h2>Export</h2>
-      <div style="display: flex; flex-wrap: wrap  ">
-        <ion-button (click)="exportJSON()" class="export-button">
-          <ion-icon name="custom-database" slot="start"></ion-icon>Project Data
-        </ion-button>
-        <ion-button (click)="exportDocx()" class="export-button">
-          <ion-icon name="custom-word" slot="start"></ion-icon>Summary
-        </ion-button>
-        <ion-button (click)="exportTreeImage()" class="export-button">
-          <ion-icon name="custom-tree" slot="start"></ion-icon>Diagram
-        </ion-button>
-      </div>
+  <!-- Analysis Content -->
+  <div class="ion-padding">
+    <h2>Export</h2>
+    <div style="display: flex; flex-wrap: wrap  ">
+      <ion-button (click)="exportJSON()" class="export-button">
+        <ion-icon name="custom-database" slot="start"></ion-icon>Project Data
+      </ion-button>
+      <ion-button (click)="exportDocx()" class="export-button">
+        <ion-icon name="custom-word" slot="start"></ion-icon>Summary
+      </ion-button>
+      <ion-button (click)="exportTreeImage()" class="export-button">
+        <ion-icon name="custom-tree" slot="start"></ion-icon>Diagram
+      </ion-button>
     </div>
-  </ion-content></ion-content
->
+  </div>
+</page-content>

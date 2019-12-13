@@ -35,8 +35,8 @@
             "styles": [
               "src/global.scss",
               "src/theme/variables.scss",
-              "src/theme/scrollbars.scss",
               "src/theme/app.scss",
+              "src/theme/scrollbar.scss",
               "./node_modules/videogular2/fonts/videogular.css"
             ],
             "scripts": []

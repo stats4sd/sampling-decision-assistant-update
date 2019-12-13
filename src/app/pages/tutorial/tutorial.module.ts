@@ -8,6 +8,7 @@ import { TutorialPageRoutingModule } from "./tutorial-routing.module";
 
 import { TutorialPage } from "./tutorial.page";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
+import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { GeneralComponentsModule } from "src/app/components/general/generalCompo
     FormsModule,
     IonicModule,
     TutorialPageRoutingModule,
-    GeneralComponentsModule
+    GeneralComponentsModule,
+    PageComponentsModule
   ],
   declarations: [TutorialPage],
   entryComponents: []

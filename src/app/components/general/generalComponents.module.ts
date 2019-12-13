@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { IntroductionTextPage } from "./introduction/introduction-text/introduction-text";
 import { VideoViewerPage } from "./video-player/video-viewer";
+import { PageComponentsModule } from "../page/pageComponentsModule";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { VideoViewerPage } from "./video-player/video-viewer";
     NgxYoutubePlayerModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    PageComponentsModule
   ],
   exports: [
     IntroductionComponent,

@@ -11,6 +11,7 @@ import { GeneralComponentsModule } from "src/app/components/general/generalCompo
 import { SurveyComponentsModule } from "src/app/components/survey/survey-components.module";
 import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageComponents.module";
 import { DataVisComponentsModule } from "src/app/components/dataVis/dataVisComponents.module";
+import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { DataVisComponentsModule } from "src/app/components/dataVis/dataVisCompo
     FormsModule,
     IonicModule,
     ReviewPageRoutingModule,
+    PageComponentsModule,
     GeneralComponentsModule,
     SurveyComponentsModule,
     StageComponentsModule,

@@ -9,7 +9,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
+<page-content>
   <div *ngIf="view == 'load'">
     <h3>Load saved project</h3>
     <ion-list>
@@ -62,4 +62,4 @@
       <note type="error" *ngIf="errorMsg">{{ errorMsg }}</note>
     </ion-list>
   </div>
-</ion-content>
+</page-content>

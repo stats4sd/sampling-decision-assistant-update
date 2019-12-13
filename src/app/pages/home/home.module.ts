@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { IonicModule } from "@ionic/angular";
+import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
-import { HomePage } from './home.page';
+import { HomePage } from "./home.page";
+import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    PageComponentsModule,
     RouterModule.forChild([
       {
-        path: '',
+        path: "",
         component: HomePage
       }
     ])

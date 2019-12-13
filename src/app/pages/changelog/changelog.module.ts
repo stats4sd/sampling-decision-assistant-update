@@ -11,10 +11,12 @@ import { GeneralComponentsModule } from "src/app/components/general/generalCompo
 import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageComponents.module";
 import { ImageViewerModule } from "ngx-image-viewer";
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
+import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
 
 @NgModule({
   imports: [
     CommonModule,
+    PageComponentsModule,
     FormsModule,
     IonicModule,
     ChangelogPageRoutingModule,

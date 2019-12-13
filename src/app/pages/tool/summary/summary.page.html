@@ -13,7 +13,7 @@
 </ion-header>
 
 <!-- All styling in-line to format in word document also -->
-<ion-content class="ion-padding" id="exportSummary">
+<page-content id="exportSummary">
   <div *ngFor="let section of sections" style="margin-bottom:20px">
     <h1>{{section.section}}</h1>
     <table style="border:1px solid black">
@@ -144,4 +144,4 @@
     <p>The following formula was used to calculate sample sizes:</p>
     <img src="assets/img/tool-formula.png"> -->
   </div>
-</ion-content>
+</page-content>

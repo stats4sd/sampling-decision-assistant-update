@@ -9,6 +9,7 @@ import { SampleSizeCalculatorComponent } from "./sample-size-calculator/sample-s
 import { GeneralComponentsModule } from "../general/generalComponents.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { PageComponentsModule } from "../page/pageComponentsModule";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CommonModule } from "@angular/common";
     CommonModule,
     GeneralComponentsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PageComponentsModule
   ],
   exports: [
     TreeDiagramComponent,

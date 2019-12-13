@@ -10,6 +10,7 @@ import { StagePage } from "./stage.page";
 import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageComponents.module";
 import { SurveyComponentsModule } from "src/app/components/survey/survey-components.module";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
+import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { GeneralComponentsModule } from "src/app/components/general/generalCompo
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    PageComponentsModule,
     StagePageRoutingModule,
     StageComponentsModule,
     SurveyComponentsModule,

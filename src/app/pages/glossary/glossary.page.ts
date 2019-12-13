@@ -19,12 +19,12 @@ import { ALL_GLOSSARY } from "src/app/data";
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
+    <page-content>
       <glossary-list
         displayMode="page"
         [activeTerm]="activeTerm"
       ></glossary-list>
-    </ion-content>
+    </page-content>
   `
 })
 export class GlossaryPage {

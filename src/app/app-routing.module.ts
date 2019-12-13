@@ -41,8 +41,8 @@ const routes: Routes = [
     path: "tool",
     loadChildren: () =>
       import("./pages/tool/tool.module").then(m => m.ToolPageModule)
-  },
-  { path: "**", redirectTo: "home" }
+  }
+  // { path: "**", redirectTo: "home" }
 ];
 
 @NgModule({

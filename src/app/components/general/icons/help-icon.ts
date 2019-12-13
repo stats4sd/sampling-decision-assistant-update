@@ -7,10 +7,10 @@ import { Router, ActivatedRoute } from "@angular/router";
     <div class="help-container">
       <ion-button
         fill="clear"
-        style="color:rgba(0,0,0,0.9); margin:0"
+        style="color:rgba(0,0,0,0.9); margin:0; max-width:100%"
         (click)="helpClicked()"
       >
-        <span>{{ text }}</span>
+        <span style="max-width:80%; white-space:initial">{{ text }}</span>
         <ion-icon
           slot="icon-only"
           style="padding:0 8px"

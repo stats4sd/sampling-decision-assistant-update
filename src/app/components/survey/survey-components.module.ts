@@ -21,6 +21,7 @@ import { QuestionCustomStagesDefineComponent } from "./question-types/custom-sta
 import { QuestionCustomReportingLevelsComponent } from "./question-types/custom-reporting-levels/question-custom-reporting-levels";
 import { QuestionTextMultipleComponent } from "./question-types/text-multiple/question-text-multiple";
 import { CommonModule } from "@angular/common";
+import { PageComponentsModule } from "../page/pageComponentsModule";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CommonModule } from "@angular/common";
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
+    PageComponentsModule,
     // NOTE - Dragula needs extra config to work, see:
     // https://github.com/valor-software/ng2-dragula/issues/849
     // (currently in tsconfig.app.json)

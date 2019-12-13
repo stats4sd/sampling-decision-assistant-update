@@ -16,7 +16,7 @@ import { takeUntil } from "rxjs/operators";
 @Component({
   selector: "tree-table",
   templateUrl: "tree-table.html",
-  styleUrls: ["tree-table.scss"]
+  styleUrls: ["./tree-table.scss"]
 })
 export class TreeTableComponent {
   samplingStages: StageMeta[] = [];

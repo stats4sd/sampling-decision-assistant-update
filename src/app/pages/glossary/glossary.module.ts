@@ -8,12 +8,14 @@ import { GlossaryPageRoutingModule } from "./glossary-routing.module";
 
 import { GlossaryPage } from "./glossary.page";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
+import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    PageComponentsModule,
     GlossaryPageRoutingModule,
     GeneralComponentsModule
   ],

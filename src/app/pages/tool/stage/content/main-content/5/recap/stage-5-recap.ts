@@ -4,7 +4,7 @@ import { Stage5Component } from "../stage-5";
 @Component({
   selector: "stage-5-recap",
   templateUrl: "stage-5-recap.html",
-  styleUrls: ["stage-5-recap.scss"]
+  styleUrls: ["stage-5-recap.scss", "../stage-5.scss"]
 })
 export class Stage5_RecapComponent extends Stage5Component {
   infoProvided = [
