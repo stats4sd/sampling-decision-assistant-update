@@ -70,8 +70,7 @@
         "q": "What are the limitations of results that come from a non-representative sample?",
         "video": "https://youtu.be/DqYrBzgSPAs"
       }
-    },
-    "__collections__": {}
+    }
   },
   "stage2Resources": {
     "questions": {
@@ -131,8 +130,7 @@
         "relevant": [],
         "_key": "Q2"
       }
-    },
-    "__collections__": {}
+    }
   },
   "stage3Resources": {
     "questions": {
@@ -152,8 +150,7 @@
         "relevant": [],
         "_key": "Q3"
       }
-    },
-    "__collections__": {}
+    }
   },
   "stage4Resources": {
     "questions": {
@@ -181,8 +178,7 @@
         "a": "<div>Disaggregating an estimate allows for a better understanding of the results. Generally speaking, data is disaggregated for the purpose of revealing underlying trends, patterns, or insights that would not be observable in aggregated data sets, such as disparities across different categories of refugees, for example.</div><div>However, disaggregation implies splitting the sample in subsamples, one for each category. This has two consequences:</div><div><br></div><div>-<span style=\"white-space:pre\">\t</span>Disaggregated results will represent smaller sample sizes and lower precision of the estimates, or a significant increase in the overall sample size</div><div><br></div><div>-<span style=\"white-space:pre\">\t</span>The sampling design should aim for some level of balance, i.e. subsamples of similar size across the different categories</div><div><br></div>",
         "audio": ""
       }
-    },
-    "__collections__": {}
+    }
   },
   "stage5Resources": {
     "questions": {
@@ -267,8 +263,7 @@
         "video": "",
         "a": "<div>We already know that one way of increasing the precision of an estimate is to increase the sample size. Stratification is sometimes use to increase estimation precision by using information we already have about the population by creating strata: groups of sampling units that are similar to each other, and as different as possible from other groups. Stratification does not imply any departure from the principle of probability selection. All it means is that, before any selection takes place, the population is divided into a number of strata, then a random sample is drawn from each stratum.&nbsp; &nbsp;&nbsp;</div><div><br></div><div>Clustering, however, decreases the precision of estimates. The way clustering affects the precision of the estimates depends on:</div><div><br></div><div>-<span style=\"white-space:pre\">\t</span>The homogeneity/heterogeneity of the sample within clusters. The more diverse a cluster is, i.e. the more a cluster resembles the whole population, the least precision will be lost by clustering. However if the elements within a cluster are fairly similar among themselves, and do not resemble the variability of the overall population, the most precision will be lost.</div><div><br></div><div>-<span style=\"white-space:pre\">\t</span>With respect to how many clusters to select: in general, selecting a large number of small clusters is better -other things being equal- than a small number of large clusters.</div><div><br></div>"
       }
-    },
-    "__collections__": {}
+    }
   },
   "stage6Resources": {
     "questions": {
@@ -304,7 +299,6 @@
         "relevant": [],
         "_key": "Q4"
       }
-    },
-    "__collections__": {}
+    }
   }
 }
