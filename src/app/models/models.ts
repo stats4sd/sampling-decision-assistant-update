@@ -13,6 +13,29 @@ export interface Project {
   draft?: boolean;
 }
 
+export interface IQuestionMeta {
+  isQuestion: string;
+  controlName: string;
+  type:
+    | "select"
+    | "text"
+    | "number"
+    | "range"
+    | "custom-reporting-levels"
+    | "custom-stages-define"
+    | "repeat"
+    | "custom-strata-select"
+    | "info";
+  selectOptions?: any;
+  options?: any;
+  repeatGroup?: string;
+  label: string;
+  section: string;
+  condition: string;
+  labelMultiple?: string;
+  hideOnReview?: boolean;
+}
+
 export type SavedProjects = Project[];
 
 export interface AppState {
@@ -152,7 +175,7 @@ export interface StageMeta {
   reportingAllocations?: number[];
   _built?: boolean;
   _reportingLevels?: ReportingLevel[];
-  _stageStrata?: string[];
+  _stageStrata?: string[][];
 }
 
 // no longer tracking popsize, want to just use sample size to make it easier to bind to redux changes

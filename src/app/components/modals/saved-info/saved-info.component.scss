@@ -23,3 +23,7 @@ h3 {
 .active-project-label {
   color: var(--ion-color-primary);
 }
+ion-item:hover {
+  --background: wheat;
+  // font-weight: bold;
+}

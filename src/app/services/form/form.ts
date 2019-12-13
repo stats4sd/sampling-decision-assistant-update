@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray } from "@angular/forms";
 import { debounceTime } from "rxjs/operators";
-import questionMeta from "../questionMeta";
 import { ProjectActions } from "../../actions/actions";
 import { Events } from "@ionic/angular";
+import { ALL_QUESTIONS } from "src/app/data";
 
 @Injectable({
   providedIn: "root"
 })
 export class FormProvider {
   public formGroup: FormGroup;
-  public allQuestions = questionMeta;
+  public allQuestions = ALL_QUESTIONS;
   groupQuestions: any;
   section: any;
   // track questions to omit from main lists
@@ -68,33 +68,6 @@ export class FormProvider {
         }
         patch[key] = val;
       }
-
-      //  if (typeof (val) == "string" || typeof(val)=="number") {
-      //    patch[key] = val
-      //   }
-      // handle arrays
-      //else
-      // if (val instanceof Array) {
-      //   // handle array values stored as strings (e.g. lists)
-      //   if (typeof val[0] == "string") {
-      //     patch[key] = val
-      //     //formGroup.patchValue(patch)
-      //   }
-      //   else {
-      //     // handle values stores as objects (e.g. repeat groups)
-      //     // iterate over each value array (repeatGroup)
-      //     // let arrayControl: FormArray = formGroup.controls[key] as FormArray
-      //     // val.forEach((repeatGroup,i) => {
-      //     //   // initialise without values and then patch to ensure correct representation of arrays
-      //     //   let repeatFormGroup = this.fb.group({})
-      //     //   Object.keys(repeatGroup).forEach(repeatKey=>{
-      //     //     let repeatVal = repeatGroup[repeatKey]
-      //     //     repeatFormGroup.addControl(repeatKey,this.fb.control(repeatVal))
-      //     //   })
-      //     //    arrayControl.push(repeatFormGroup)
-      //     // })
-      //   }
-      // }
     });
     // patch all values
     this.formGroup.patchValue(patch);
@@ -147,21 +120,6 @@ export class FormProvider {
     console.log("questions", questions);
     questions.forEach(q => {
       questionGroup[q.controlName] = q.value;
-      // build templates for any repeat groups - currently avoiding through custom form builder calls in repeat groups
-      // if (q.type == "repeat") {
-      //   // build formgroup sections appropriately
-      //   let repeatQs = this._generateRepeatQuestions(q)
-      //   q.repeatQuestions = repeatQs
-      //   questionGroup[q.controlName] = this.fb.array([])
-      // }
-      // else {
-      // if (!q.value) { q.value = "" }
-      // // omit non questions and repeat questions (unless building repeat group)
-      // if (q.isQuestion == "TRUE") {
-      //   if (!q.hasOwnProperty('repeatGroup')) { questionGroup[q.controlName] = q.value }
-      //   else if (repeatGroup) { questionGroup[q.controlName] = q.value }
-      // }
-      // }
     });
     return this.fb.group(questionGroup);
   }

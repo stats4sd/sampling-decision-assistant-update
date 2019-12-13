@@ -14,7 +14,7 @@
     <h3>Load saved project</h3>
     <ion-list>
       <ion-item *ngFor="let project of savedProjects">
-        <div style="display: flex">
+        <div style="display: flex; width:100%">
           <div style="flex:1; cursor:pointer" (click)="loadProject(project)">
             <div class="survey-title">
               {{ project.title ? project.title : "untitled" }}
@@ -42,12 +42,21 @@
         There are no projects saved.
       </div>
     </ion-list>
-    <h3>Load a project templates</h3>
+    <h3>Load a project template</h3>
+    <div class="temp-text">
+      Here you will be able load templates that have been precreated to
+      facilitate the sampling decision processes
+    </div>
     <ion-list>
-      <div class="temp-text">
-        Here you will be able load templates that have been precreated to
-        facilitate the sampling decision processes
-      </div>
+      <ion-item
+        *ngFor="let t of projectTemplates"
+        style="cursor: pointer;"
+        (click)="loadTemplate(t)"
+      >
+        <div class="survey-title">
+          {{ t.title }}
+        </div>
+      </ion-item>
     </ion-list>
     <h3>Import data JSON</h3>
     <ion-list>

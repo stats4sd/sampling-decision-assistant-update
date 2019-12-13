@@ -5,6 +5,7 @@ import { DataProvider } from "src/app/services/data/data";
 import { Observable } from "rxjs";
 import { select } from "@angular-redux/store";
 import { NgxFileDropEntry } from "ngx-file-drop";
+import { ALL_EXAMPLES } from "src/app/data";
 
 @Component({
   selector: "app-saved-info",
@@ -17,6 +18,7 @@ export class SavedInfoComponent implements AfterViewInit {
   @select("activeProject")
   activeProject$: Observable<Project>;
   savedProjects: Project[] = [];
+  projectTemplates: Project[] = ALL_EXAMPLES;
   activeProject: Project;
   saveName: string;
   savedSurveys: any;
@@ -44,15 +46,6 @@ export class SavedInfoComponent implements AfterViewInit {
     this.dataPrvdr.loadSavedProjects(false);
   }
 
-  createNew() {
-    if (this.dataPrvdr.checkProjectTitleUnique(this.saveName) == -1) {
-      this.dataPrvdr.createNewProject(this.saveName);
-      this.modalCtrl.dismiss({ title: this.saveName });
-    } else {
-      this.errorMsg = "A project with that name already exists";
-    }
-  }
-
   dismiss() {
     this.modalCtrl.dismiss();
   }
@@ -62,6 +55,12 @@ export class SavedInfoComponent implements AfterViewInit {
   }
   deleteProject(project: Project) {
     this.dataPrvdr.deleteProject(project);
+  }
+  async loadTemplate(project: Project) {
+    const d: number = Date.now();
+    const newProject = { ...project, created: d, edited: d };
+    delete newProject.title;
+    this.loadProject(newProject);
   }
 
   // file drop

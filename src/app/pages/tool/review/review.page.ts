@@ -30,7 +30,7 @@ export class ReviewPage {
     private loading: LoadingController,
     private modalCtrl: ModalController
   ) {
-    // load question meta from questionMeta.ts and seperate out into question groups for binding to survey question components
+    // load question meta and seperate out into question groups for binding to survey question components
     this._generateQuestionGroups();
   }
 

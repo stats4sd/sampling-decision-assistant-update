@@ -1,21 +1,26 @@
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
-import questionMeta from "../questionMeta";
 import { utils, write, WorkBook } from "xlsx";
 import { saveAs } from "file-saver";
 import { FormProvider } from "../form/form";
 import { ProjectActions } from "../../actions/actions";
-import { SavedProjects, Project, AppState } from "../../models/models";
+import {
+  SavedProjects,
+  Project,
+  AppState,
+  IQuestionMeta
+} from "../../models/models";
 import { select, NgRedux } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { Events, ToastController, AlertController } from "@ionic/angular";
 import { NgxFileDropEntry, FileSystemFileEntry } from "ngx-file-drop";
+import { ALL_QUESTIONS } from "src/app/data";
 
 @Injectable({
   providedIn: "root"
 })
 export class DataProvider {
-  questionMeta = questionMeta;
+  questionMeta: IQuestionMeta[] = ALL_QUESTIONS;
 
   // db versions
   // 3 - v0.9.5 April 2018
@@ -291,9 +296,7 @@ export class DataProvider {
         const fileEntry = entry.fileEntry as FileSystemFileEntry;
         fileEntry.file(info => {
           // get in base64 format
-          // reader.readAsDataURL(info)
           reader.readAsBinaryString(info);
-          //reader.readAsArrayBuffer(info)
         });
       }
     });

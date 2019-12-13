@@ -10,11 +10,11 @@ import { debounceTime } from "rxjs/operators";
 import { Subscription } from "rxjs";
 import { NgRedux } from "@angular-redux/store";
 import { CalculatorVars } from "src/app/components/dataVis/sample-size-calculator/sample-size-calculator";
-import QUESTION_META from "../../../services/questionMeta";
 import { _htmlToDoc } from "src/utils/download";
 import { ModalController } from "@ionic/angular";
+import { ALL_QUESTIONS } from "src/app/data";
 
-interface IQuestionMeta {
+interface IMeta {
   ["controlName"]?: {
     section: string;
     label: string;
@@ -51,7 +51,7 @@ interface ICalcVal {
 export class SummaryPage {
   projectValues$: Subscription;
   projectValues: ProjectValues;
-  questionMetaObject: IQuestionMeta = {};
+  questionMetaObject: IMeta = {};
   summaryQuestions: ISummaryQuestion[];
   calcVals: {
     assumptions: ICalcVal[];
@@ -161,7 +161,7 @@ export class SummaryPage {
   // take master question meta array and reduce to object for quick reference
   getQuestionLabels() {
     const meta = {};
-    QUESTION_META.forEach(q => {
+    ALL_QUESTIONS.forEach(q => {
       meta[q.controlName] = {
         section: q.section,
         label: q.label
