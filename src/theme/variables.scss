@@ -1,9 +1,11 @@
 :root {
   --page-background: #ffffff;
 
-  /** Ionic CSS Variables **/
+  /** Ionic overrids **/
   --ion-font-family: "proxima_nova";
+  --ion-color-step-550: var(--ion-color-dark);
 
+  /** Ionic color theme **/
   --ion-color-primary: #5b92e5;
   --ion-color-primary-rgb: 91, 146, 229;
   --ion-color-primary-contrast: #ffffff;
