@@ -20,7 +20,7 @@ In this document find recorded the main changes that have been implemented.
       XLS Summary: This contains a breakdown of questions answered and information calculated for the project for more general
       use
 
-      <ion-icon style="margin-right:5px" name="custom-tree"></ion-icon>
+      <ion-icon style="margin-right:5px" src="assets/img/icons/tree.svg"></ion-icon>
       Tree Diagram: This is a seperate image containing the generated tree diagram (currently sized at the same size viewed in
       the browser, but in the future this will be scaled up)
 
