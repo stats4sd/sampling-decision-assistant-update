@@ -31,7 +31,11 @@
                 "output": "./svg"
               },
               "src/manifest.webmanifest",
-              "src/_redirects"
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/global.scss",

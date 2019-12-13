@@ -126,7 +126,7 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
     this.patchForm();
   }
 
-  removeSamplingStage(index, value) {
+  removeSamplingStage(index: number) {
     this.stages.splice(index, 1);
     this.patchForm();
   }

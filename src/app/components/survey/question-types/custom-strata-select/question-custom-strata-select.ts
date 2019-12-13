@@ -13,12 +13,7 @@ Custom component to display list of options from previous question with own inpu
 export class QuestionCustomStrataSelectComponent extends SurveyQuestionComponent {
   alreadySelected: any = {};
   selected: any = {};
-  // customStrata: string[] = []
-  // strataInput: string;
   reportingLevels: any[] = [];
-  // @Input() set preloadValue(v: any[]) {
-  //   if (v) { this.setSavedValue(v) }
-  // }
   @Input("preloadValue")
   preloadValue: any[];
   finalSamplingUnit: string;

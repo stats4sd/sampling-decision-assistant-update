@@ -41,7 +41,7 @@
             <ion-item *ngIf="!showSelectOther">
               <ion-select
                 (ionChange)="selectUpdated($event)"
-                [interface]="question.interface ? question.interface : 'action-sheet'"
+                interface="action-sheet"
                 [formControlName]="question.controlName"
               >
                 <ion-select-option
