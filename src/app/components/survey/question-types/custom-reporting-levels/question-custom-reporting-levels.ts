@@ -51,8 +51,7 @@ export class QuestionCustomReportingLevelsComponent extends SurveyQuestionCompon
       classifications: {
         total: null,
         names: []
-      },
-      reportingRequired: true
+      }
     };
     this.multipleTextValues.unshift(pushValue);
     this.multipleTextInput = "";

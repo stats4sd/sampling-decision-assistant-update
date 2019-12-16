@@ -20,7 +20,7 @@ export class StageBreadcrumbsComponent {
   breadcrumbs: any = [];
   componentDestroyed: Subject<any> = new Subject();
   stageBreadcrumbs = {
-    4: ["Intro", "Level Classifications and Strata", "Review"],
+    4: ["Intro", "Level Classifications", "Review"],
     5: ["Intro", "Sampling Stages", "Building Frames", "Sampling Weights"],
     6: ["Intro", "Sample Sizes", "Resource Allocation"]
   };

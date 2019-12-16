@@ -18,7 +18,7 @@
             class="question-number dark"
             [attr.controlName]="question.controlName"
           >
-            {{question.controlName}}
+            {{controlName}}
           </div>
           <div
             class="question-label-text"
@@ -50,7 +50,7 @@
                   >{{selectOtherValue}}</ion-select-option
                 >
                 <ion-select-option
-                  *ngFor="let option of selectOptionsArray"
+                  *ngFor="let option of selectOptions"
                   [value]="option"
                   >{{option}}</ion-select-option
                 >

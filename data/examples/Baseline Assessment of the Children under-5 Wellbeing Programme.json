@@ -22,16 +22,14 @@
     "reportingLevels": [
       {
         "name": "refugee density",
-        "classifications": { "total": "2", "names": ["High", "Low"] },
-        "reportingRequired": false
+        "classifications": { "total": "2", "names": ["High", "Low"] }
       },
       {
         "name": "Refugee status",
         "classifications": {
           "total": "2",
           "names": ["Refugee", "Non-refugee"]
-        },
-        "reportingRequired": true
+        }
       },
       {
         "name": "Length of programme intervention",
@@ -43,8 +41,7 @@
             "Starting 2018",
             "Starting 2019"
           ]
-        },
-        "reportingRequired": true
+        }
       }
     ],
     "q4.3": null,
@@ -75,8 +72,7 @@
                 "Starting 2018",
                 "Starting 2019"
               ]
-            },
-            "reportingRequired": true
+            }
           }
         ],
         "_stageStrata": [
@@ -100,8 +96,7 @@
         "_reportingLevels": [
           {
             "name": "refugee density",
-            "classifications": { "total": "2", "names": ["High", "Low"] },
-            "reportingRequired": false
+            "classifications": { "total": "2", "names": ["High", "Low"] }
           }
         ],
         "_stageStrata": [["High"], ["Low"]],
@@ -136,8 +131,7 @@
             "classifications": {
               "total": "2",
               "names": ["Refugee", "Non-refugee"]
-            },
-            "reportingRequired": true
+            }
           }
         ],
         "_stageStrata": [["Refugee"], ["Non-refugee"]]
@@ -200,8 +194,7 @@
               "classifications": {
                 "total": "2",
                 "names": ["Refugee", "Non-refugee"]
-              },
-              "reportingRequired": true
+              }
             },
             {
               "name": "Length of programme intervention",
@@ -213,8 +206,7 @@
                   "Starting 2018",
                   "Starting 2019"
                 ]
-              },
-              "reportingRequired": true
+              }
             }
           ],
           "levelCombinations": [

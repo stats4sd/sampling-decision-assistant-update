@@ -26,7 +26,7 @@ export interface IQuestionMeta {
     | "repeat"
     | "custom-strata-select"
     | "info";
-  selectOptions?: any;
+  selectOptions?: string[];
   options?: any;
   repeatGroup?: string;
   label: string;
@@ -74,7 +74,7 @@ export interface Question {
   controlName: string;
   repeatGroup?: string;
   type: string;
-  selectOptions?: string;
+  selectOptions?: string[];
   label: string;
   section: string;
   condition?: string;
@@ -87,7 +87,6 @@ export interface Question {
 export interface ReportingLevel {
   name: string;
   classifications: ReportingLevelClassification;
-  reportingRequired: boolean;
 }
 
 export interface ReportingLevelClassification {

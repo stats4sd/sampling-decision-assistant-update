@@ -63,36 +63,6 @@ export class DataVisProvider {
     }
   }
 
-  // additional method to distinguish between strata and reporting required levels for colouring
-  // simply looks up level names and return if any has 'reportingRequired'
-  isReportingRequired(levels: string[]) {
-    const reportingRequiredLevels: string[] = this.getReportingRequiredLevels();
-    let containsRequired = false;
-    levels.forEach(level => {
-      if (reportingRequiredLevels.indexOf(level) > -1) {
-        containsRequired = true;
-      }
-    });
-    return containsRequired;
-  }
-
-  // iterate over all reporting levels and return string array of just those marked as reportingRequired
-  getReportingRequiredLevels() {
-    try {
-      const reportingLevels = this.ngRedux
-        .getState()
-        .activeProject.values.reportingLevels.filter(level => {
-          return level.reportingRequired;
-        })
-        .map(level => {
-          return level.name;
-        });
-      return reportingLevels;
-    } catch (error) {
-      return [];
-    }
-  }
-
   /*
     Alternate code taken from stage 4 - should be merged with above for single concise piece
   */
@@ -106,9 +76,7 @@ export class DataVisProvider {
       if (levels) {
         // reshape levels array lists to build combinations (want array of name arrays)
         // omit levels not marked as reporting requirements (stratification only)
-        this.reportingLevels = levels.filter(l => {
-          return l.reportingRequired;
-        });
+        this.reportingLevels = levels;
         let categoryLabels = [];
         this.reportingLevels.forEach(level => {
           // manage empty arrays (just push not blank)

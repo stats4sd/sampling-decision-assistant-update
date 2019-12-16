@@ -40,7 +40,7 @@ export class TreeDiagramComponent {
   showInputNodes: boolean;
   @Input("showKey")
   showKey: boolean;
-  @ViewChild("treeContainer",{static:true})
+  @ViewChild("treeContainer", { static: true })
   readonly treeContainer: ElementRef;
   @select(["activeProject", "values"])
   readonly projectValues$: Observable<ProjectValues>;
@@ -139,9 +139,6 @@ export class TreeDiagramComponent {
       }
       // build nodes for reporting levels
       if (reportingLevels) {
-        const reportingRequired = this.dataVisPrvdr.isReportingRequired(
-          reportingLevels
-        );
         const reportingLevelCombinations = this.dataVisPrvdr.buildReportingCombinations(
           reportingLevels
         );
@@ -155,9 +152,7 @@ export class TreeDiagramComponent {
         reportingLevelCombinations.forEach((combination, i) => {
           let childPath = basePath.slice();
           childPath.push(stage.name + "_._" + combination);
-          const className = reportingRequired
-            ? "reportingLevelNodes"
-            : "strataOnlyNodes";
+          const className = "strataOnlyNodes";
           let node = this._createNode(
             childPath,
             className,

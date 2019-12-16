@@ -40,7 +40,6 @@
       <tr>
         <th style="border:1px solid black">Reporting Level / Strata</th>
         <th style="border:1px solid black">Classifications</th>
-        <th style="border:1px solid black">Reporting required?</th>
       </tr>
       <tr *ngFor="let level of reportingLevels; index as i">
         <td style="padding:5px; width:50px; border:1px solid black">
@@ -52,9 +51,6 @@
               {{classification}}
             </li>
           </ul>
-        </td>
-        <td style="padding:5px; width:50px; border:1px solid black">
-          {{level.reportingRequired ? 'yes' : 'no'}}
         </td>
       </tr>
     </table>

@@ -12,6 +12,7 @@ import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageCom
 import { ImageViewerModule } from "ngx-image-viewer";
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
+import { ResourceComponentsModule } from "../resources/components/resourceComponents.module";
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { PageComponentsModule } from "src/app/components/page/pageComponentsModu
     IonicModule,
     ChangelogPageRoutingModule,
     GeneralComponentsModule,
+    ResourceComponentsModule,
     StageComponentsModule,
     NgxYoutubePlayerModule,
     ImageViewerModule.forRoot({

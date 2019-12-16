@@ -47,7 +47,7 @@
             <div>Disaggregated by:</div>
             <ul *ngIf="form.value['reportingLevels']!=''">
               <div *ngFor="let estimate of form.value['reportingLevels']">
-                <li *ngIf="estimate.reportingRequired">{{estimate.name}}</li>
+                <li>{{estimate.name}}</li>
               </div>
             </ul>
           </div>
