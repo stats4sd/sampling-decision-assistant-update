@@ -44,7 +44,6 @@
         <!-- stage 4 -->
         <div *ngSwitchCase="'stage-4'">
           <div *ngIf="form.value['q4.1']=='Disaggregated estimates'">
-            <div>Disaggregated by:</div>
             <ul *ngIf="form.value['reportingLevels']!=''">
               <div *ngFor="let estimate of form.value['reportingLevels']">
                 <li>{{estimate.name}}</li>
