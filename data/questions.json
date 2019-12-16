@@ -283,7 +283,7 @@
     "repeatGroup": "q5.3",
     "type": "custom-strata-select",
     "selectOptions": ["Yes", "No"],
-    "label": "Can the stage be stratified by any of your reporting levels?",
+    "label": "Can the stage be stratified by any of your Disaggregation?",
     "section": "Selecting the sampling units",
     "condition": "type:prerequisite, controlName:q5.3.3",
     "labelMultiple": null

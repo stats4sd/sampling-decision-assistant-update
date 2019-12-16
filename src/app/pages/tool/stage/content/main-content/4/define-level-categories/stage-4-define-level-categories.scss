@@ -9,6 +9,10 @@
   font-weight: bold;
   color: var(--ion-color-primary);
 }
+.builder-container {
+  max-width: 600px;
+  margin-left: 0;
+}
 .row-headers {
   font-weight: bold;
   background: var(--ion-color-light-tint);

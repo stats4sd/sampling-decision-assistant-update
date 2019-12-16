@@ -128,7 +128,7 @@ More editor features
 
 ## 0.9.0 (29th March 2018)
 
-Various user interface and experience improvements including ability to automatically resume last project, background saving on every change so work shouldn't be lost, clearer question boxes, and optional range-slider style question (currently bugged in chrome). Option to rename reporting levels and sampling stages, and better managing of other data associated with them. A number of other minor bug fixes.
+Various user interface and experience improvements including ability to automatically resume last project, background saving on every change so work shouldn't be lost, clearer question boxes, and optional range-slider style question (currently bugged in chrome). Option to rename Disaggregation and sampling stages, and better managing of other data associated with them. A number of other minor bug fixes.
 
 A backend development live database link to allow content editors to directly make changes to the app (such as writing glossary definitions of Q&As). Once live this will most likely be removed.
 
@@ -146,9 +146,9 @@ for changes to all question variables in the project as the specific min/max did
 
 Stages with multiple steps now have breadcrumbs to help navigate where in the subprocess you are.
 
-Stage 4 - Reporting levels are now classified during this stage (previously stage 5) and lists of combination are presented for review. In the future there may be an option for users to specify which levels of combination they consider relevant, however for now it should help to advise against the use of too many complex levels where not necessary.
+Stage 4 - Disaggregation are now classified during this stage (previously stage 5) and lists of combination are presented for review. In the future there may be an option for users to specify which levels of combination they consider relevant, however for now it should help to advise against the use of too many complex levels where not necessary.
 
-Tree diagram now supports multiple reporting levels in a single stage and automatically populates combinations of unallocated reporting levels within the final sampling unit (orange boxes at the bottom level). It's also had a number of iterations of styling and display logic. (Next step will be to allow user input for nodes, an early template has been started in the resources -> allocating section however it's not functional yet).
+Tree diagram now supports multiple Disaggregation in a single stage and automatically populates combinations of unallocated Disaggregation within the final sampling unit (orange boxes at the bottom level). It's also had a number of iterations of styling and display logic. (Next step will be to allow user input for nodes, an early template has been started in the resources -> allocating section however it's not functional yet).
 
 ## 0.8.1 (3rd March 2018)
 

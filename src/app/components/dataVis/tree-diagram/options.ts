@@ -19,7 +19,7 @@ export default {
     },
     shape: "box"
   },
-  // all reporting levels/strata marked as reporting level for building tree,
+  // all Disaggregation/strata marked as reporting level for building tree,
   // but want to colour differently the levels which are not actually
   // for reporting purposes (only stratification)
   strataOnlyNodes: {

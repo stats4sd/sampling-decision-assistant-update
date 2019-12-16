@@ -14,11 +14,11 @@
       </div>
 
       <p *ngIf="reportingLevels.length===0">
-        No reporting levels have been specified. This can be changed in section
-        4.
+        No disaggregation levels have been specified. This can be changed in
+        section 4.
       </p>
       <ion-list *ngIf="reportingLevels.length>0">
-        <ion-list-header>Reporting Level</ion-list-header>
+        <ion-list-header>Disaggregation</ion-list-header>
         <!-- non-final stage -->
         <div *ngIf="!isFinalStage">
           <ion-item

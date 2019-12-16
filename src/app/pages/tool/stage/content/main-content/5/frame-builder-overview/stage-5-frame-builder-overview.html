@@ -15,8 +15,7 @@
       <ion-col size="2">Sampling Unit</ion-col>
       <ion-col size="3">Frame</ion-col>
       <ion-col size="2">Units</ion-col>
-      <ion-col size="3">Reporting Level</ion-col>
-      <!-- <ion-col col-2>Stratification</ion-col> -->
+      <ion-col size="3">Disaggregation</ion-col>
     </ion-row>
     <div *ngIf="samplingStages.length>0">
       <ion-row *ngFor="let stage of samplingStages; let i=index; let last=last">
@@ -53,7 +52,7 @@
           <div *ngIf="stage['q5.3.3']=='Sample'">Sample</div>
         </ion-col>
 
-        <!-- Reporting Levels -->
+        <!-- Disaggregation -->
         <ion-col size="3" *ngIf="stage._built">
           <div *ngIf="!stage['q5.3.4.2'] || stage['q5.3.4.2']==''">
             <ion-note>None</ion-note>

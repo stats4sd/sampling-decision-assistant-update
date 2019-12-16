@@ -17,7 +17,7 @@ export class QuestionCustomReportingLevelsComponent extends SurveyQuestionCompon
   @ViewChild("textMultipleInput", { static: true })
   textMultipleInput: any; ///////////////////////////////////////////////////////////////////////////////////////////////
 
-  /************** custom reporting levels *********************************************************
+  /************** custom Disaggregation *********************************************************
   similar code and template to multiple text input, but builds objects array instead of string array
   could try find better way to combine/reuse code
   */ ngOnInit() {

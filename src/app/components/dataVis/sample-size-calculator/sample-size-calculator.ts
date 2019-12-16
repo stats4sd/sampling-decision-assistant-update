@@ -62,7 +62,6 @@ export class SampleSizeCalculatorComponent {
   init(values: ProjectValues) {
     console.log("init", values);
     this.sampleStageMeta = values.samplingStages;
-    // attempt to fetch disaggregation meta from data vis provider (returns null if no reporting levels)
     this.disaggregationMeta = this.dataVisPrvdr.getReportingLevels();
     this.calculateVariables();
     this.calculateSize();
@@ -290,7 +289,7 @@ export class SampleSizeCalculatorComponent {
   }
 
   calculateTotalSampleSize() {
-    // attempt to fetch disaggregation meta from data vis provider (returns null if no reporting levels)
+    // attempt to fetch disaggregation meta from data vis provider (returns null if no Disaggregation)
     if (!this.disaggregationMeta) {
       this.disaggregationMeta = this.dataVisPrvdr.getReportingLevels();
     }

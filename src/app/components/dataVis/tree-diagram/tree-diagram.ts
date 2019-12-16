@@ -83,7 +83,7 @@ export class TreeDiagramComponent {
     this.buildDiagram(this.treeNodes, this.treeEdges);
   }
 
-  // check through each stage to see which reporting levels have been assigned,
+  // check through each stage to see which Disaggregation have been assigned,
   // and automatically allocate any remaining to the final stage
   addFinalStageLevels() {
     if (!this.samplingStages) {
@@ -137,7 +137,7 @@ export class TreeDiagramComponent {
       if (basePath[0]) {
         parentID = basePath.join("/");
       }
-      // build nodes for reporting levels
+      // build nodes for Disaggregation
       if (reportingLevels) {
         const reportingLevelCombinations = this.dataVisPrvdr.buildReportingCombinations(
           reportingLevels
@@ -163,7 +163,7 @@ export class TreeDiagramComponent {
           this.prepareStages(startStage + 1, childPath);
         });
       }
-      // build nodes if no reporting levels
+      // build nodes if no Disaggregation
       else {
         basePath.push(stage.name);
         let node = this._createNode(basePath, "stageNodes", parentID);

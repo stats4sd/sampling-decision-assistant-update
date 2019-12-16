@@ -11,7 +11,7 @@ export class Stage5_RecapComponent extends Stage5Component {
     { heading: "Main Objective", stage: "stage-1" },
     { heading: "Key Indicator", stage: "stage-2" },
     { heading: "Sampling Unit", stage: "stage-3" },
-    { heading: "Reporting Level", stage: "stage-4" }
+    { heading: "Disaggregation", stage: "stage-4" }
   ];
 
   ngOnInit() {}

@@ -68,7 +68,7 @@ export class DataVisProvider {
   */
 
   getReportingLevels() {
-    console.log("getting reporting levels");
+    console.log("getting Disaggregation");
     try {
       const levels: ReportingLevel[] = this.ngRedux
         .getState()
@@ -101,7 +101,7 @@ export class DataVisProvider {
         };
       }
     } catch (error) {
-      // no reporting levels
+      // no Disaggregation
       return null;
     }
   }

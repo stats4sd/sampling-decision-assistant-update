@@ -66,7 +66,7 @@ export class Stage4_DefineLevelCategoriesComponent {
   ngOnDestroy() {
     this.updateNames();
   }
-  // iterate through each name input and update corresponding value on reporting levels
+  // iterate through each name input and update corresponding value on Disaggregation
   // note that we haven't used direct binding due to issues with how the values sometimes incorrectly update when
   // navigating between different inputs bound to json sub properties (#130)
   updateNames() {

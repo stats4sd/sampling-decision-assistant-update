@@ -210,7 +210,7 @@ export class TreeNodeAllocationComponent {
     }, 50);
   }
 
-  // return sampling stage values and reporting levels for given stage number
+  // return sampling stage values and Disaggregation for given stage number
   _getStageMeta(stageNumber: number) {
     let meta = this.samplingStages[stageNumber - 1];
     if (!meta) {

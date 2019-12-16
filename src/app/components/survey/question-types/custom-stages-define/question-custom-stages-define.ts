@@ -32,7 +32,7 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
   editMode: boolean;
   editIndex: number; ///////////////////////////////////////////////////////////////////////////////////////////////
 
-  /************** custom reporting levels *********************************************************
+  /************** custom Disaggregation *********************************************************
   similar code and template to multiple text input, but builds form controls instead of string array
   could try find better way to combine/reuse code
   */ constructor(
