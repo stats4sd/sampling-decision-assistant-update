@@ -26,6 +26,7 @@ import { FormProvider } from "src/app/services/form/form";
 import { DataProvider } from "src/app/services/data/data";
 import { Question } from "../../../models/models";
 import { fadein } from "src/app/services/animationStates";
+import { getControlName } from "src/app/hacks";
 
 // settings to enable a model binding
 export const VALUE_ACCESSOR: any = {
@@ -70,7 +71,7 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
   initComplete: boolean = false;
   questionKey: string;
   selectOtherValue: any = "";
-  selectOptionsArray: string[];
+  selectOptions: string[];
   initialScrollHeight: number;
   showSelectOther: boolean = false;
   originalLabel: string;
@@ -86,6 +87,9 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
     public dataPrvdr: DataProvider
   ) {
     this.events.subscribe("valueUpdate", data => this.updateLabel(data.key));
+  }
+  get controlName() {
+    return getControlName(this.question.controlName);
   }
 
   // **********************************************************************************************
@@ -166,23 +170,12 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
   }
   generateSelectOptions() {
     // parse select options to array
-    if (this.question.selectOptions != "") {
-      let options;
-      try {
-        options = this.question.selectOptions.split(",");
-      } catch (error) {
-        options = [];
-      }
-      // trim whitespace at start if present
-      options = options.map(el => {
-        return el.trim();
-      });
-      this.selectOptionsArray = options;
+    if (this.question.selectOptions) {
+      this.selectOptions = this.question.selectOptions;
       // if value not in options populate
       let value = this.formPrvdr.getSurveyValue(this.question.controlName);
       if (value != "") {
-        if (this.selectOptionsArray.indexOf(value) == -1) {
-          // this.showSelectOther=true
+        if (this.selectOptions.indexOf(value) == -1) {
           this.selectOtherValue = value;
         }
       }
