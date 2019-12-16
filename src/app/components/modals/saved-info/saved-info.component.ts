@@ -53,8 +53,29 @@ export class SavedInfoComponent implements AfterViewInit {
     this.dataPrvdr.loadProject(project);
     this.modalCtrl.dismiss();
   }
-  deleteProject(project: Project) {
-    this.dataPrvdr.deleteProject(project);
+  async deleteProject(project: Project) {
+    const alert = await this.alertCtrl.create({
+      header: "Delete Project",
+      message: `
+      <div>Are you sure you want to permanently delete this project?</div>
+      <div class="project-title">${project.title}</div> 
+      `,
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel",
+          cssClass: "secondary",
+          handler: () => null
+        },
+        {
+          text: "Delete",
+          handler: () => {
+            this.dataPrvdr.deleteProject(project);
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
   async loadTemplate(project: Project) {
     const d: number = Date.now();
