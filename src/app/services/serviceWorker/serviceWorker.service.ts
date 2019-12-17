@@ -8,10 +8,10 @@ import { ToastController } from "@ionic/angular";
 export class ServiceWorkerService {
   constructor(private updates: SwUpdate, private toastCtrl: ToastController) {
     console.log("hello sw service");
-    this.checkForUpdate();
   }
 
   async checkForUpdate() {
+    console.info("checking for udpates");
     if (this.updates.isEnabled) {
       this.updates.available.subscribe(async event => {
         const toast = await this.toastCtrl.create({
