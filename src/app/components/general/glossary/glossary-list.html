@@ -15,21 +15,19 @@
 
   </div> -->
   <!-- all glossary terms -->
-  <div *ngIf="!filteredGlossaryTerms || filteredGlossaryTerms.length==0">
-    <h3 *ngIf="!filteredGlossaryTerms">All glossary terms</h3>
-    <span *ngFor="let term of allGlossaryTerms">
-      <span
-        (click)="setActiveTerm(term)"
-        class="glossary-term"
-        [ngClass]="{
+  <h3>All glossary terms</h3>
+  <span *ngFor="let term of allGlossaryTerms">
+    <span
+      (click)="setActiveTerm(term)"
+      class="glossary-term"
+      [ngClass]="{
         'term-selected':activeTerm && term.slug==activeTerm.slug,
         'term-incomplete':term.definition==''
       }"
-        >{{term.term}}</span
-      >
-    </span>
-    <div class="glossary-detail-container" *ngIf="activeTerm">
-      <glossary-detail *ngIf="activeTerm" [term]="activeTerm"></glossary-detail>
-    </div>
+      >{{term.term}}</span
+    >
+  </span>
+  <div class="glossary-detail-container" *ngIf="activeTerm">
+    <glossary-detail *ngIf="activeTerm" [term]="activeTerm"></glossary-detail>
   </div>
 </div>

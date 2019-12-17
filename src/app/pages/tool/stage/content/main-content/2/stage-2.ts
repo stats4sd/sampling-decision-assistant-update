@@ -9,7 +9,6 @@ import { takeUntil } from "rxjs/operators";
   styleUrls: ["stage-2.scss"]
 })
 export class Stage2Component extends StagePage {
-  private removeSubscriptions$: Subject<any> = new Subject();
   // could use select, but as data not streamed into template becomes messier for unsubscribe
   sdLower$: Subscription;
   sdUpper$: Subscription;

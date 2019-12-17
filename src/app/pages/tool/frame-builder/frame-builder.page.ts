@@ -16,6 +16,7 @@ export class FrameBuilderPage implements OnInit {
   removeSubscriptions$ = new Subject();
   stageFormGroup: FormGroup;
   parentStageName: string;
+  stageName: string;
   stageRepeatIndex: number;
   stageIndex: number;
   reportingLevels: any;
@@ -29,11 +30,19 @@ export class FrameBuilderPage implements OnInit {
     navParams: NavParams
   ) {
     this.stageRepeatIndex = navParams.data.stageIndex;
-    this.parentStageName = this.formPrvdr.formGroup.value.samplingStages[
-      this.stageRepeatIndex
-    ].name;
+    this.stageName = this.getStageName(this.stageRepeatIndex);
+    this.parentStageName = this.getStageName(this.stageRepeatIndex - 1);
+
     this._buildFormGroup();
     this._preloadValues();
+  }
+
+  getStageName(i: number) {
+    try {
+      return this.formPrvdr.formGroup.value.samplingStages[i].name;
+    } catch (error) {
+      return null;
+    }
   }
 
   ngOnInit() {

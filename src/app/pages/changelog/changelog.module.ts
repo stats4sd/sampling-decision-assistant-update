@@ -9,7 +9,7 @@ import { ChangelogPageRoutingModule } from "./changelog-routing.module";
 import { ChangelogPage } from "./changelog.page";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
 import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageComponents.module";
-import { ImageViewerModule } from "ngx-image-viewer";
+// import { ImageViewerModule } from "ngx-image-viewer";
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
 import { ResourceComponentsModule } from "../resources/components/resourceComponents.module";
@@ -24,13 +24,13 @@ import { ResourceComponentsModule } from "../resources/components/resourceCompon
     GeneralComponentsModule,
     ResourceComponentsModule,
     StageComponentsModule,
-    NgxYoutubePlayerModule,
-    ImageViewerModule.forRoot({
-      btnIcons: {
-        zoomIn: "fa fa-plus",
-        zoomOut: "fa fa-minus"
-      }
-    })
+    NgxYoutubePlayerModule
+    // ImageViewerModule.forRoot({
+    //   btnIcons: {
+    //     zoomIn: "fa fa-plus",
+    //     zoomOut: "fa fa-minus"
+    //   }
+    // })
   ],
   declarations: [ChangelogPage]
 })
