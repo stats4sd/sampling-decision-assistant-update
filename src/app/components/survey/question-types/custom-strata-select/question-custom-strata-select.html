@@ -1,7 +1,7 @@
 <div class="question-container">
   <div style="display: flex;">
     <div>
-      <div *ngIf="reportingLevels!=''">
+      <div *ngIf="reportingLevels.length>0">
         <p *ngIf="!isFinalStage">
           Do the sampling units form strata to satisfy any of your reporting
           requirements? <br />

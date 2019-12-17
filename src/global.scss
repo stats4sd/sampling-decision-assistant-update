@@ -34,16 +34,16 @@
   font-weight: 300;
   font-style: normal;
   src: url("./assets/fonts/proximanova-regular-webfont.woff2");
-  @font-face {
-    font-family: "proxima_nova";
-    font-style: semi-bold;
-    font-weight: 600;
-    src: url("./assets/fonts/proximanova-semibold-webfont.woff2");
-  }
-  @font-face {
-    font-family: "proxima_nova";
-    font-style: bold;
-    font-weight: 700;
-    src: url("./assets/fonts/proximanova-bold-webfont.woff2");
-  }
+}
+@font-face {
+  font-family: "proxima_nova";
+  font-style: semi-bold;
+  font-weight: 600;
+  src: url("./assets/fonts/proximanova-semibold-webfont.woff2");
+}
+@font-face {
+  font-family: "proxima_nova";
+  font-style: bold;
+  font-weight: 700;
+  src: url("./assets/fonts/proximanova-bold-webfont.woff2");
 }
