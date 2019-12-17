@@ -1,8 +1,9 @@
 import { Component, Input } from "@angular/core";
 import { select } from "@angular-redux/store";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { ReportingLevel } from "../../../../../../../models/models";
 import { FormProvider } from "src/app/services";
+import { takeUntil } from "rxjs/operators";
 
 export interface ReportingLevel {
   name: string;
@@ -20,6 +21,7 @@ export interface LevelClassification {
   styleUrls: ["stage-4-define-level-categories.scss"]
 })
 export class Stage4_DefineLevelCategoriesComponent {
+  removeSubscriptions$ = new Subject();
   @Input("reviewMode")
   reviewMode: boolean;
   reportingLevels: ReportingLevel[] = [];
@@ -31,11 +33,19 @@ export class Stage4_DefineLevelCategoriesComponent {
   constructor(private formPrvdr: FormProvider) {}
   ngOnInit() {
     // bind to reporting level changes to recalculate classification fields
-    this.reportingLevels$.subscribe(levels => {
-      if (levels instanceof Array) {
-        this.reportingLevels = levels;
-      }
-    });
+    this.reportingLevels$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(levels => {
+        if (levels instanceof Array) {
+          this.reportingLevels = levels;
+        }
+      });
+  }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
+    // only save the name changes when leaving the section to avoid update bugs
+    this.updateNames();
   }
 
   // change the current array of level classification data on change, adding placeholder on increase and removing existing on decrease
@@ -62,10 +72,6 @@ export class Stage4_DefineLevelCategoriesComponent {
     this.formPrvdr.formGroup.patchValue(patch);
   }
 
-  // only save the name changes when leaving the section to avoid strange update bugs
-  ngOnDestroy() {
-    this.updateNames();
-  }
   // iterate through each name input and update corresponding value on Disaggregation
   // note that we haven't used direct binding due to issues with how the values sometimes incorrectly update when
   // navigating between different inputs bound to json sub properties (#130)

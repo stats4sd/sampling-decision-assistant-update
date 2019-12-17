@@ -6,7 +6,7 @@ import {
   AppState,
   IAllocation
 } from "src/app/models/models";
-import { debounceTime } from "rxjs/operators";
+import { debounceTime, takeUntil } from "rxjs/operators";
 import { Subscription } from "rxjs";
 import { NgRedux } from "@angular-redux/store";
 import { CalculatorVars } from "src/app/components/dataVis/sample-size-calculator/sample-size-calculator";
@@ -49,7 +49,7 @@ interface ICalcVal {
   styleUrls: ["./summary.page.scss"]
 })
 export class SummaryPage {
-  projectValues$: Subscription;
+  removeSubscriptions$ = new Subject();
   projectValues: ProjectValues;
   questionMetaObject: IMeta = {};
   summaryQuestions: ISummaryQuestion[];
@@ -71,7 +71,8 @@ export class SummaryPage {
     this.getQuestionLabels();
   }
   ngOnDestroy(): void {
-    this.projectValues$.unsubscribe();
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
   dismiss() {
     this.modalCtrl.dismiss();
@@ -197,8 +198,9 @@ export class SummaryPage {
   }
 
   addSubscribers() {
-    this.projectValues$ = this.ngRedux
+    this.ngRedux
       .select<ProjectValues>(["activeProject", "values"])
+      .pipe(takeUntil(this.removeSubscriptions$))
       .pipe(debounceTime(250))
       .subscribe(v => this.init(v));
   }

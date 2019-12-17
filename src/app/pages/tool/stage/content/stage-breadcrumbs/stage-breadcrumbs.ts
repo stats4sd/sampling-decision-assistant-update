@@ -18,7 +18,7 @@ export class StageBreadcrumbsComponent {
   part$: Subscription;
   activePart: number;
   breadcrumbs: any = [];
-  componentDestroyed: Subject<any> = new Subject();
+  removeSubscriptions$: Subject<any> = new Subject();
   stageBreadcrumbs = {
     4: ["Intro", "Level Classifications", "Review"],
     5: ["Intro", "Sampling Stages", "Building Frames", "Sampling Weights"],
@@ -35,14 +35,14 @@ export class StageBreadcrumbsComponent {
     // subscribe to stage part state changes
     this.part$ = this.ngRedux
       .select<number>(["view", "params", "stagePart"])
-      .pipe(takeUntil(this.componentDestroyed))
+      .pipe(takeUntil(this.removeSubscriptions$))
       .subscribe(p => {
         this.activePart = p;
       });
   }
   ngOnDestroy(): void {
-    this.componentDestroyed.next();
-    this.componentDestroyed.unsubscribe();
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   goToPart(index) {

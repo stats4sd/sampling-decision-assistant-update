@@ -3,11 +3,41 @@ import { PopoverController, Events, ModalController } from "@ionic/angular";
 import { FormProvider } from "src/app/services/form/form";
 import { DataProvider } from "src/app/services/data/data";
 import { Project } from "src/app/models/models";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { select } from "@angular-redux/store";
 import { Router } from "@angular/router";
 import { DecisionToolMenuComponent } from "src/app/components/modals/decision-tool-menu/decision-tool-menu";
 import { SavedInfoComponent } from "src/app/components/modals/saved-info/saved-info.component";
+import { takeUntil } from "rxjs/operators";
+
+const sections = [
+  {
+    name: "General objectives",
+    icon: "assets/img/icons/objectives.svg",
+    stage: 1
+  },
+  { name: "Indicators", icon: "assets/img/icons/indicators.svg", stage: 2 },
+  {
+    name: "Definition of the target population and units of study",
+    icon: "assets/img/icons/population.svg",
+    stage: 3
+  },
+  {
+    name: "At what level do you need to report these results",
+    icon: "assets/img/icons/reporting.svg",
+    stage: 4
+  },
+  {
+    name: "Selecting the sampling units",
+    icon: "assets/img/icons/outreach.svg",
+    stage: 5
+  },
+  {
+    name: "Allocating and deploying resources",
+    icon: "assets/img/icons/allocate.svg",
+    stage: 6
+  }
+];
 
 @Component({
   selector: "app-tool-page",
@@ -15,8 +45,9 @@ import { SavedInfoComponent } from "src/app/components/modals/saved-info/saved-i
   styleUrls: ["./tool.page.scss"]
 })
 export class ToolPage {
+  removeSubscriptions$ = new Subject();
   introVideoYoutubeID = "c6RnCjDnRAI";
-  sections: any = [];
+  sections = sections;
   stagesComplete: boolean[] = [];
   activeProject: Project;
   editingMode: boolean;
@@ -31,42 +62,19 @@ export class ToolPage {
     public formPrvdr: FormProvider,
     public popoverCtrl: PopoverController
   ) {
-    this.sections = [
-      // add class:disabled to disable a button
-      {
-        name: "General objectives",
-        icon: "assets/img/icons/objectives.svg",
-        stage: 1
-      },
-      { name: "Indicators", icon: "assets/img/icons/indicators.svg", stage: 2 },
-      {
-        name: "Definition of the target population and units of study",
-        icon: "assets/img/icons/population.svg",
-        stage: 3
-      },
-      {
-        name: "At what level do you need to report these results",
-        icon: "assets/img/icons/reporting.svg",
-        stage: 4
-      },
-      {
-        name: "Selecting the sampling units",
-        icon: "assets/img/icons/outreach.svg",
-        stage: 5
-      },
-      {
-        name: "Allocating and deploying resources",
-        icon: "assets/img/icons/allocate.svg",
-        stage: 6
-      }
-    ];
     //       { name: "Allocating and deploying resources", icon: "assets/img/icons/allocate.svg", stage: 6, class:"disabled" },
-    this.activeProject$.subscribe(p => {
-      if (p) {
-        this.activeProject = p;
-        this.stagesComplete = this.activeProject.stagesComplete;
-      }
-    });
+    this.activeProject$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(p => {
+        if (p) {
+          this.activeProject = p;
+          this.stagesComplete = this.activeProject.stagesComplete;
+        }
+      });
+  }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   goToSection(section) {

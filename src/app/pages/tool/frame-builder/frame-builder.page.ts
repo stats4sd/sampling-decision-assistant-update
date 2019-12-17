@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { select } from "@angular-redux/store";
 import { NavParams, ModalController } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
 import { FormProvider } from "src/app/services/form/form";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "app-frame-builder",
@@ -12,6 +13,7 @@ import { FormProvider } from "src/app/services/form/form";
   styleUrls: ["./frame-builder.page.scss"]
 })
 export class FrameBuilderPage implements OnInit {
+  removeSubscriptions$ = new Subject();
   stageFormGroup: FormGroup;
   parentStageName: string;
   stageRepeatIndex: number;
@@ -36,6 +38,10 @@ export class FrameBuilderPage implements OnInit {
 
   ngOnInit() {
     this._addValueSubscribers();
+  }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   dismiss() {
@@ -73,12 +79,16 @@ export class FrameBuilderPage implements OnInit {
 
   private _addValueSubscribers() {
     // listen to changes on this formgroup and reflect on master
-    this.stageFormGroup.valueChanges.subscribe(v => {
-      if (v) {
-        this._patchValue(v);
-      }
-    });
-    this.reportingLevels$.subscribe(levels => (this.reportingLevels = levels));
+    this.stageFormGroup.valueChanges
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(v => {
+        if (v) {
+          this._patchValue(v);
+        }
+      });
+    this.reportingLevels$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(levels => (this.reportingLevels = levels));
   }
 
   private _patchValue(update: any) {

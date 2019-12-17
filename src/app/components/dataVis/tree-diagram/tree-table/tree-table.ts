@@ -28,7 +28,7 @@ export class TreeTableComponent {
   };
   recommendations$: Subscription;
   recommendations: CalculatorRecommendations;
-  private componentDestroyed: Subject<any> = new Subject();
+  private removeSubscriptions$: Subject<any> = new Subject();
 
   constructor(
     private ngRedux: NgRedux<AppState>,
@@ -44,8 +44,8 @@ export class TreeTableComponent {
     // want to remove subscriptions on destroy (note automatically handled for @select bound to async pipe in html)
     // using subject emits value manually (like event emitter) by calling the 'next()' function
     // on destroy we want to emit any value so that the takeUntil subscription records it no longer needs to subscribe
-    this.componentDestroyed.next();
-    this.componentDestroyed.unsubscribe();
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   // check .allocation values control exist, create if doesn't using recommendation and allocated values
@@ -130,7 +130,7 @@ export class TreeTableComponent {
         "_calculatorVars",
         "recommendations"
       ])
-      .pipe(takeUntil(this.componentDestroyed))
+      .pipe(takeUntil(this.removeSubscriptions$))
       .subscribe(recommendations => {
         if (recommendations) {
           console.log("recommendations updated");

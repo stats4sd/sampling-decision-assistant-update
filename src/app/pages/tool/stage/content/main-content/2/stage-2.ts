@@ -9,7 +9,7 @@ import { takeUntil } from "rxjs/operators";
   styleUrls: ["stage-2.scss"]
 })
 export class Stage2Component extends StagePage {
-  private componentDestroyed: Subject<any> = new Subject();
+  private removeSubscriptions$: Subject<any> = new Subject();
   // could use select, but as data not streamed into template becomes messier for unsubscribe
   sdLower$: Subscription;
   sdUpper$: Subscription;
@@ -21,9 +21,8 @@ export class Stage2Component extends StagePage {
   }
 
   ngOnDestroy() {
-    this.componentDestroyed.next();
-    this.componentDestroyed.unsubscribe();
-    console.log("subscription removed?", this.sdLower$);
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   // manage subscribe and unsubscribe in declarative way
@@ -32,13 +31,13 @@ export class Stage2Component extends StagePage {
     // listen for updates on min/max values to automatically calculate s.d
     this.sdLower$ = this.ngRedux
       .select(["activeProject", "values", "q2.2.3"])
-      .pipe(takeUntil(this.componentDestroyed))
+      .pipe(takeUntil(this.removeSubscriptions$))
       .subscribe(v => {
         this._calculateSD();
       });
     this.sdUpper$ = this.ngRedux
       .select(["activeProject", "values", "q2.2.4"])
-      .pipe(takeUntil(this.componentDestroyed))
+      .pipe(takeUntil(this.removeSubscriptions$))
       .subscribe(v => {
         this._calculateSD();
       });

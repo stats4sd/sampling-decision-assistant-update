@@ -138,6 +138,7 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
   }
 
   ngOnDestroy() {
+    this.events.unsubscribe("valueUpdate");
     // detach change detector to prevent trying to detect destroyed question error
     this.cdr.detach();
   }
@@ -376,14 +377,4 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
     }
     this.showQuestion = applicable;
   }
-
-  // _trackValueChanges(controlName: string, formGroup: FormGroup) {
-  //   // subscribe to value changes on form control to recheck show question condition
-  //   //console.log('tracking value changes',control,formGroup)
-  //   formGroup.valueChanges.subscribe(
-  //     v => {
-  //       this.showQuestion = this.checkQuestionConditions(v)
-  //     }
-  //   )
-  // }
 }

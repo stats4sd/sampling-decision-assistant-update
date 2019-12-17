@@ -12,8 +12,8 @@ import {
 } from "../../../models/models";
 import { TreeDiagramActions } from "../../../actions/actions";
 import { select, NgRedux } from "@angular-redux/store";
-import { Observable } from "rxjs";
-import { debounceTime } from "rxjs/operators";
+import { Observable, Subject } from "rxjs";
+import { debounceTime, takeUntil } from "rxjs/operators";
 import { DataProvider } from "src/app/services/data/data";
 import { DataVisProvider } from "src/app/services/data-vis/data-vis";
 
@@ -27,6 +27,7 @@ declare let vis: any;
   styleUrls: ["tree-diagram.scss"]
 })
 export class TreeDiagramComponent {
+  removeSubscriptions$ = new Subject();
   // custom component to represent sampling stages in a tree diagram
   nodes: any[] = [];
   treeNodes: any;
@@ -55,19 +56,25 @@ export class TreeDiagramComponent {
     private dataVisPrvdr?: DataVisProvider
   ) {}
 
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
+    this.events.unsubscribe("node:updated");
+  }
+
   ngAfterViewInit() {
     this.initComplete = false;
     this.events.unsubscribe("node:updated");
     this.events.subscribe("node:updated", update => this.updateNode(update));
-    this.projectValues$.pipe(debounceTime(200)).subscribe(v => {
-      if (v && !this.initComplete) {
-        this.treeInit(v);
-        this.initComplete = true;
-      }
-    });
-    // this.finalStageSampleSize$.pipe(debounceTime(200)).subscribe(size => {
-    //   this.updateFinalStageSize(size)
-    // })
+    this.projectValues$
+      .pipe(debounceTime(200))
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(v => {
+        if (v && !this.initComplete) {
+          this.treeInit(v);
+          this.initComplete = true;
+        }
+      });
   }
 
   treeInit(values) {

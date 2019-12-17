@@ -6,7 +6,8 @@ import { Events } from "@ionic/angular";
 import { FormProvider } from "src/app/services/form/form";
 import { DataProvider } from "src/app/services/data/data";
 import { select } from "@angular-redux/store";
-import { Observable, Subscription } from "rxjs";
+import { Observable, Subscription, Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 /*
 Custom component to add multiple stages, populate repeat formgroup and give option to remove or reorder
@@ -18,6 +19,7 @@ Custom component to add multiple stages, populate repeat formgroup and give opti
   styleUrls: ["question-custom-stages-define.scss"]
 })
 export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent {
+  removeSubscriptions$ = new Subject();
   @select(["activeProject", "values", "q3.1"])
   readonly finalSamplingUnit$: Observable<string>;
   @select(["activeProject", "values"])
@@ -55,12 +57,15 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
 
   ngOnInit() {
     // run init on fsu changes
-    this.finalSamplingUnit$.subscribe(fsu => this._init(fsu));
+    this.finalSamplingUnit$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(fsu => this._init(fsu));
     // rewrite query param on value update (annoying bug in platform that changes hash on action sheet present)
   }
 
   ngOnDestroy() {
-    this.dragularSub$.unsubscribe();
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   ngAfterViewInit() {
@@ -148,10 +153,13 @@ export class QuestionCustomStagesDefineComponent extends SurveyQuestionComponent
   _addDragDropSubscriber() {
     // automatically save form values when rearranged using drag drop. Push final sampling unit back to array and reverse
     this.dragularSub$.add(
-      this.dragulaService.dropModel().subscribe(_ => {
-        console.log("drop");
-        this.patchForm();
-      })
+      this.dragulaService
+        .dropModel()
+        .pipe(takeUntil(this.removeSubscriptions$))
+        .subscribe(_ => {
+          console.log("drop");
+          this.patchForm();
+        })
     );
   }
 }

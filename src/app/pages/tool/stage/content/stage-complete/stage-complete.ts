@@ -2,9 +2,10 @@ import { Component, Input } from "@angular/core";
 import { StagePage } from "../../stage.page";
 
 import { select } from "@angular-redux/store";
-import { Observable, Subscription } from "rxjs";
+import { Observable, Subscription, Subject } from "rxjs";
 import { flyin } from "src/app/services/animationStates";
 import { ProjectValues } from "src/app/models/models";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "stage-complete",
@@ -13,11 +14,11 @@ import { ProjectValues } from "src/app/models/models";
   animations: [flyin]
 })
 export class StageCompleteComponent extends StagePage {
+  removeSubscriptions$ = new Subject();
   @select(["activeProject", "stagesComplete"])
   readonly stagesComplete$: Observable<boolean[]>;
   @select(["activeProject", "title"])
   readonly projectTitle$: Observable<string>;
-  formValues$: Subscription;
   @Input("disabled")
   disabled: boolean;
   @Input("stageNumber")
@@ -38,8 +39,9 @@ export class StageCompleteComponent extends StagePage {
   ngOnInit() {
     // subscribe to form value changes to mark when section complete
     this.checkSectionValid();
-    this.formValues$ = this.ngRedux
+    this.ngRedux
       .select(["activeProject", "values"])
+      .pipe(takeUntil(this.removeSubscriptions$))
       .subscribe(v => {
         if (v) {
           this.checkSectionValid();
@@ -53,7 +55,8 @@ export class StageCompleteComponent extends StagePage {
     this.projectTitle$.subscribe(t => (this.projectTitle = t));
   }
   ngOnDestroy() {
-    this.formValues$.unsubscribe();
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   saveProjectTitle() {

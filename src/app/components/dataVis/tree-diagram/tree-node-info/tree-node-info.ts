@@ -1,12 +1,13 @@
 import { Component } from "@angular/core";
 import { select } from "@angular-redux/store";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import {
   TreeDiagramNode,
   StageMeta,
   ReportingLevel
 } from "../../../../models/models";
 import { TreeDiagramActions } from "../../../../actions/actions";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "tree-node-info",
@@ -14,6 +15,7 @@ import { TreeDiagramActions } from "../../../../actions/actions";
   styleUrls: ["tree-node-info.scss"]
 })
 export class TreeNodeInfoComponent {
+  removeSubscriptions$ = new Subject();
   @select(["_treeMeta", "activeNode"])
   readonly activeNode$: Observable<TreeDiagramNode>;
   @select(["activeProject", "values", "samplingStages"])
@@ -36,20 +38,32 @@ export class TreeNodeInfoComponent {
   ];
 
   constructor(private treeActions: TreeDiagramActions) {
-    this.stagePart$.subscribe(p => this._updateInfoSection(null, p));
-    this.samplingStages$.subscribe(s => {
-      if (s) {
-        this.samplingStages = s;
-        this._updateActiveNode(this.activeNode);
-      }
-    });
-    this.activeNode$.subscribe(node => this._updateActiveNode(node));
-    this.reportingLevels$.subscribe(l => {
-      if (l) {
-        this.reportingLevels = l;
-        this._updateActiveNode(this.activeNode);
-      }
-    });
+    this.stagePart$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(p => this._updateInfoSection(null, p));
+    this.samplingStages$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(s => {
+        if (s) {
+          this.samplingStages = s;
+          this._updateActiveNode(this.activeNode);
+        }
+      });
+    this.activeNode$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(node => this._updateActiveNode(node));
+    this.reportingLevels$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(l => {
+        if (l) {
+          this.reportingLevels = l;
+          this._updateActiveNode(this.activeNode);
+        }
+      });
+  }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   // set the active node and get meta information depending on node type

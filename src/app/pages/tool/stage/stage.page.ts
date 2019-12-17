@@ -1,7 +1,7 @@
 import { ViewChild, Component } from "@angular/core";
 import { IStageMeta, IStageResources, AppState } from "src/app/models/models";
 import { IonSlides, Events, IonContent, ModalController } from "@ionic/angular";
-import { Subscription } from "rxjs";
+import { Subscription, Subject } from "rxjs";
 import { FormGroup } from "@angular/forms";
 import { DataProvider } from "src/app/services/data/data";
 import { DataVisProvider } from "src/app/services/data-vis/data-vis";
@@ -10,6 +10,7 @@ import { ViewActions, ProjectActions } from "src/app/actions/actions";
 import { ResourcesProvider } from "src/app/services/resources/resources";
 import { NgRedux } from "@angular-redux/store";
 import { ActivatedRoute, Router } from "@angular/router";
+import { takeUntil } from "rxjs/operators";
 
 const INTRO_HTML = {
   1: `You will identify the main objectives of the survey you want to carry out. There are <strong>1-3 questions</strong> in 
@@ -76,6 +77,7 @@ const STAGES = {
   styleUrls: ["./stage.page.scss"]
 })
 export class StagePage {
+  removeSubscriptions$ = new Subject();
   stage: IStageMeta;
   stages: { [stageId: string]: IStageMeta } = STAGES;
   @ViewChild("navbar", { static: true })
@@ -84,7 +86,6 @@ export class StagePage {
   content: IonContent;
   @ViewChild("stageSlides", { static: true })
   stageSlides: IonSlides;
-  stagePart$: Subscription;
   stagePart: string;
   activeSection: string = "main";
   introHtml = INTRO_HTML;
@@ -118,11 +119,13 @@ export class StagePage {
   }
 
   ngOnDestroy() {
-    this.stagePart$.unsubscribe();
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
   _addSubscribers() {
-    this.stagePart$ = this.ngRedux
+    this.ngRedux
       .select<string>(["view", "params", "stagePart"])
+      .pipe(takeUntil(this.removeSubscriptions$))
       .subscribe(p => (this.stagePart = p));
   }
 

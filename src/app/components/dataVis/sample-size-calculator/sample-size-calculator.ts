@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { NgRedux } from "@angular-redux/store";
 import * as jStat from "jStat";
-import { Subscription } from "rxjs";
+import { Subscription, Subject } from "rxjs";
 import {
   AppState,
   ReportingLevel,
@@ -9,6 +9,7 @@ import {
   ProjectValues
 } from "../../../models/models";
 import { DataProvider, FormProvider, DataVisProvider } from "src/app/services";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "sample-size-calculator",
@@ -16,6 +17,7 @@ import { DataProvider, FormProvider, DataVisProvider } from "src/app/services";
   styleUrls: ["sample-size-calculator.scss"]
 })
 export class SampleSizeCalculatorComponent {
+  removeSubscriptions$ = new Subject();
   inputFields: any[] = [];
   inputFieldsDefault: any = {
     conf: { label: "Desired Confidence Level", var: "conf" },
@@ -59,6 +61,10 @@ export class SampleSizeCalculatorComponent {
   ngOnInit() {
     this._waitForProject();
   }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
+  }
   init(values: ProjectValues) {
     console.log("init", values);
     this.sampleStageMeta = values.samplingStages;
@@ -78,6 +84,7 @@ export class SampleSizeCalculatorComponent {
   _waitForProject() {
     this.valuesSubscription$ = this.ngRedux
       .select(["activeProject", "values"])
+      .pipe(takeUntil(this.removeSubscriptions$))
       .subscribe(v => {
         if (v) {
           this.init(v);

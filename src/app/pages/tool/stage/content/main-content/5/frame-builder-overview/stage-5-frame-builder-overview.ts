@@ -1,8 +1,9 @@
 import { Component, Input } from "@angular/core";
 import { select } from "@angular-redux/store";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { ModalController } from "@ionic/angular";
 import { FrameBuilderPage } from "src/app/pages/tool/frame-builder/frame-builder.page";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "stage-5-frame-builder-overview",
@@ -10,6 +11,7 @@ import { FrameBuilderPage } from "src/app/pages/tool/frame-builder/frame-builder
   styleUrls: ["stage-5-frame-builder-overview.scss"]
 })
 export class Stage5_FrameBuilderOverviewComponent {
+  removeSubscriptions$ = new Subject();
   @Input("reviewMode")
   reviewMode: boolean;
   @select(["activeProject", "values", "samplingStages"])
@@ -17,11 +19,17 @@ export class Stage5_FrameBuilderOverviewComponent {
   samplingStages: any[] = [];
   constructor(private modalCtrl: ModalController) {}
   ngOnInit() {
-    this.samplingStages$.subscribe(stages => {
-      if (stages) {
-        this.samplingStages = stages;
-      }
-    });
+    this.samplingStages$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(stages => {
+        if (stages) {
+          this.samplingStages = stages;
+        }
+      });
+  }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
   async buildStage(stageIndex: number) {
     // get formgroup matching stage name to parentID

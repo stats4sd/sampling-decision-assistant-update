@@ -1,8 +1,8 @@
 import { Component, ViewChild } from "@angular/core";
 import { Events } from "@ionic/angular";
 import { select, NgRedux } from "@angular-redux/store";
-import { Observable } from "rxjs";
-import { debounceTime } from "rxjs/operators";
+import { Observable, Subject } from "rxjs";
+import { debounceTime, takeUntil } from "rxjs/operators";
 import {
   TreeDiagramNode,
   AppState,
@@ -19,6 +19,7 @@ import { DataProvider } from "src/app/services/data/data";
   styleUrls: ["tree-node-allocation.scss"]
 })
 export class TreeNodeAllocationComponent {
+  removeSubscriptions$ = new Subject();
   @select(["_treeMeta", "activeNode"])
   readonly activeNode$: Observable<TreeDiagramNode>;
   @select(["activeProject", "values", "samplingStages"])
@@ -53,32 +54,45 @@ export class TreeNodeAllocationComponent {
     public dataPrvdr: DataProvider,
     public events: Events
   ) {
-    this.samplingStages$.subscribe(s => {
-      if (s) {
-        this.samplingStages = s;
-        this.setActiveNode(this.activeNode);
-      }
-    });
+    this.samplingStages$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(s => {
+        if (s) {
+          this.samplingStages = s;
+          this.setActiveNode(this.activeNode);
+        }
+      });
     this.activeNode$
       .pipe(debounceTime(200))
+      .pipe(takeUntil(this.removeSubscriptions$))
       .subscribe(node => this.setActiveNode(node));
-    this.reportingLevels$.subscribe(l => {
-      if (l) {
-        this.reportingLevels = l;
-        this.setActiveNode(this.activeNode);
-      }
-    });
-    this.stagePart$.subscribe(part => {
-      this.stagePart = part;
-    });
-    this.allocation$.subscribe(allocation => {
-      if (allocation) {
-        this.allocation = allocation;
-      }
-    });
-    this.hash$.subscribe(hash => {
+    this.reportingLevels$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(l => {
+        if (l) {
+          this.reportingLevels = l;
+          this.setActiveNode(this.activeNode);
+        }
+      });
+    this.stagePart$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(part => {
+        this.stagePart = part;
+      });
+    this.allocation$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(allocation => {
+        if (allocation) {
+          this.allocation = allocation;
+        }
+      });
+    this.hash$.pipe(takeUntil(this.removeSubscriptions$)).subscribe(hash => {
       this.reviewMode = hash && hash.indexOf("review") > -1 ? true : false;
     });
+  }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   setSampleSize() {

@@ -2,10 +2,11 @@ import { Component, AfterViewInit } from "@angular/core";
 import { Project } from "src/app/models/models";
 import { AlertController, Events, ModalController } from "@ionic/angular";
 import { DataProvider } from "src/app/services/data/data";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { select } from "@angular-redux/store";
 import { NgxFileDropEntry } from "ngx-file-drop";
 import { ALL_EXAMPLES } from "src/app/data";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "app-saved-info",
@@ -13,6 +14,7 @@ import { ALL_EXAMPLES } from "src/app/data";
   styleUrls: ["./saved-info.component.scss"]
 })
 export class SavedInfoComponent implements AfterViewInit {
+  removeSubscriptions$ = new Subject();
   @select("savedProjects")
   savedProjects$: Observable<Project[]>;
   @select("activeProject")
@@ -32,18 +34,28 @@ export class SavedInfoComponent implements AfterViewInit {
     private modalCtrl: ModalController
   ) {
     this._dbVersion = this.dataPrvdr.dbVersion;
-    this.savedProjects$.subscribe(projects => {
-      if (projects) {
-        this.savedProjects = projects.filter(
-          p => p.dbVersion == this._dbVersion
-        );
-      }
-    });
-    this.activeProject$.subscribe(p => (this.activeProject = p));
+    this.savedProjects$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(projects => {
+        if (projects) {
+          this.savedProjects = projects.filter(
+            p => p.dbVersion == this._dbVersion
+          );
+        }
+      });
+    this.activeProject$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(p => (this.activeProject = p));
   }
   // when saved projects loaded want to refresh projects list from db
   ngAfterViewInit() {
     this.dataPrvdr.loadSavedProjects(false);
+  }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
+    this.events.unsubscribe("import:duplicate");
+    this.events.unsubscribe("import:complete");
   }
 
   dismiss() {

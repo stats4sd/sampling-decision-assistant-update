@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
 import { StagePage } from "src/app/pages/tool/stage/stage.page";
 import { select } from "@angular-redux/store";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { ProjectValues } from "../../../../../../models/models";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "stage-4",
@@ -10,17 +11,24 @@ import { ProjectValues } from "../../../../../../models/models";
   styleUrls: ["stage-4.scss"]
 })
 export class Stage4Component extends StagePage {
+  removeSubscriptions$ = new Subject();
   @select(["activeProject", "values", "q4.1"]) estimatesType$: Observable<
     string
   >;
 
   ngOnInit() {
-    this.estimatesType$.subscribe(type => {
-      if (type == "One estimate") {
-        this.setSingleEstimate();
-        this.clearReportingLevels();
-      }
-    });
+    this.estimatesType$
+      .pipe(takeUntil(this.removeSubscriptions$))
+      .subscribe(type => {
+        if (type == "One estimate") {
+          this.setSingleEstimate();
+          this.clearReportingLevels();
+        }
+      });
+  }
+  ngOnDestroy(): void {
+    this.removeSubscriptions$.next();
+    this.removeSubscriptions$.complete();
   }
 
   // case where user has specified one estimate, want to automatically populate with indicator but still provide option to change
