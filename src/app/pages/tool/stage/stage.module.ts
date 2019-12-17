@@ -11,6 +11,7 @@ import { StageComponentsModule } from "src/app/pages/tool/stage/content/stageCom
 import { SurveyComponentsModule } from "src/app/components/survey/survey-components.module";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
 import { PageComponentsModule } from "src/app/components/page/pageComponentsModule";
+import { FrameBuilderPageModule } from "../frame-builder/frame-builder.module";
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { PageComponentsModule } from "src/app/components/page/pageComponentsModu
     StagePageRoutingModule,
     StageComponentsModule,
     SurveyComponentsModule,
-    GeneralComponentsModule
+    GeneralComponentsModule,
+    FrameBuilderPageModule
   ],
   declarations: [StagePage]
 })

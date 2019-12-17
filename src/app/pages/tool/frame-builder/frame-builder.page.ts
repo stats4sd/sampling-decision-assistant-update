@@ -13,9 +13,9 @@ import { FormProvider } from "src/app/services/form/form";
 })
 export class FrameBuilderPage implements OnInit {
   stageFormGroup: FormGroup;
-  stageName: string;
   parentStageName: string;
   stageRepeatIndex: number;
+  stageIndex: number;
   reportingLevels: any;
   @select(["activeProject", "values", "reportingLevels"])
   reportingLevels$: Observable<any>;
@@ -23,36 +23,30 @@ export class FrameBuilderPage implements OnInit {
   constructor(
     private dataPrvdr: DataProvider,
     private formPrvdr: FormProvider,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    navParams: NavParams
   ) {
-    alert("todo");
-    // this.stageRepeatIndex = navParams.data.stageIndex;
-    // this.stageName = navParams.data.stageFormGroup.name;
-    // this.parentStageName = this.getParentStageName(navParams.data.stageIndex);
-    console.log("parent stage name:", this.parentStageName);
+    this.stageRepeatIndex = navParams.data.stageIndex;
+    this.parentStageName = this.formPrvdr.formGroup.value.samplingStages[
+      this.stageRepeatIndex
+    ].name;
     this._buildFormGroup();
+    this._preloadValues();
   }
 
   ngOnInit() {
-    this._preloadValues();
     this._addValueSubscribers();
   }
 
-  // quick method to get name of parent stage for use in intro text
-  getParentStageName(stageIndex: number) {
-    console.log("get parent stage name", stageIndex);
-    if (stageIndex && stageIndex > 0) {
-      try {
-        console.log("stages", this.formPrvdr.formGroup.value.samplingStages);
-        return this.formPrvdr.formGroup.value.samplingStages[stageIndex - 1]
-          .name;
-      } catch (error) {
-        console.error(error);
-      }
+  dismiss() {
+    if (this.stageFormGroup.value["q5.3.1"]) {
+      this._patchValue({ _built: true });
     }
+    this.dataPrvdr.backgroundSave();
+    this.modalCtrl.dismiss();
   }
 
-  _buildFormGroup() {
+  private _buildFormGroup() {
     // generate a new formgroup which will be used to hold information saved in these questions
 
     let builderQuestions: any = this.formPrvdr.allQuestions;
@@ -63,10 +57,11 @@ export class FrameBuilderPage implements OnInit {
     this.stageFormGroup = builderForm;
   }
 
-  _preloadValues() {
+  private _preloadValues() {
     let currentValue = this.formPrvdr.formGroup.value.samplingStages[
       this.stageRepeatIndex
     ];
+    console.log("current value", currentValue);
     Object.keys(currentValue).forEach(k => {
       // build additional controls for thing like name and built status which aren't included in questions
       if (!this.stageFormGroup.controls[k]) {
@@ -76,7 +71,7 @@ export class FrameBuilderPage implements OnInit {
     this.stageFormGroup.patchValue(currentValue);
   }
 
-  _addValueSubscribers() {
+  private _addValueSubscribers() {
     // listen to changes on this formgroup and reflect on master
     this.stageFormGroup.valueChanges.subscribe(v => {
       if (v) {
@@ -86,20 +81,12 @@ export class FrameBuilderPage implements OnInit {
     this.reportingLevels$.subscribe(levels => (this.reportingLevels = levels));
   }
 
-  _patchValue(update: any) {
+  private _patchValue(update: any) {
     // update value on master group
     let currentValue = this.formPrvdr.formGroup.value.samplingStages;
     Object.keys(update).forEach(k => {
       currentValue[this.stageRepeatIndex][k] = update[k];
     });
     this.formPrvdr.formGroup.patchValue({ samplingStages: currentValue });
-  }
-
-  dismiss() {
-    if (this.stageFormGroup.value["q5.3.1"]) {
-      this._patchValue({ _built: true });
-    }
-    this.dataPrvdr.backgroundSave();
-    this.modalCtrl.dismiss();
   }
 }

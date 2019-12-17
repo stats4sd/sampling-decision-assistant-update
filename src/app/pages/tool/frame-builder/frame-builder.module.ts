@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { IonicModule } from "@ionic/angular";
 
-import { FrameBuilderPageRoutingModule } from "./frame-builder-routing.module";
-
 import { FrameBuilderPage } from "./frame-builder.page";
 import { SurveyComponentsModule } from "src/app/components/survey/survey-components.module";
 import { GeneralComponentsModule } from "src/app/components/general/generalComponents.module";
@@ -18,10 +16,10 @@ import { PageComponentsModule } from "src/app/components/page/pageComponentsModu
     ReactiveFormsModule,
     IonicModule,
     PageComponentsModule,
-    FrameBuilderPageRoutingModule,
     GeneralComponentsModule,
     SurveyComponentsModule
   ],
-  declarations: [FrameBuilderPage]
+  declarations: [FrameBuilderPage],
+  entryComponents: [FrameBuilderPage]
 })
 export class FrameBuilderPageModule {}

@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { select } from "@angular-redux/store";
 import { Observable } from "rxjs";
 import { ModalController } from "@ionic/angular";
+import { FrameBuilderPage } from "src/app/pages/tool/frame-builder/frame-builder.page";
 
 @Component({
   selector: "stage-5-frame-builder-overview",
@@ -22,12 +23,11 @@ export class Stage5_FrameBuilderOverviewComponent {
       }
     });
   }
-  async buildStage(stage, stageIndex) {
+  async buildStage(stageIndex: number) {
     // get formgroup matching stage name to parentID
-    let params = { stageFormGroup: stage, stageIndex: stageIndex };
     const modal = await this.modalCtrl.create({
-      component: "FrameBuilderPage",
-      componentProps: params,
+      component: FrameBuilderPage,
+      componentProps: { stageIndex },
       cssClass: "full-screen"
     });
     await modal.present();

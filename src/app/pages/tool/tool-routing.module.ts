@@ -17,13 +17,6 @@ const routes: Routes = [
       import("./stage/stage.module").then(m => m.StagePageModule)
   },
   {
-    path: "frame-builder",
-    loadChildren: () =>
-      import("./frame-builder/frame-builder.module").then(
-        m => m.FrameBuilderPageModule
-      )
-  },
-  {
     path: "review",
     loadChildren: () =>
       import("./review/review.module").then(m => m.ReviewPageModule)

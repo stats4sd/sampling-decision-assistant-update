@@ -19,6 +19,8 @@
   text-align: center;
 }
 ion-row {
+  cursor: pointer;
+  position: relative;
   align-items: center;
   border-bottom: 1px solid var(--ion-color-light-tint);
   height: 3em;
@@ -61,32 +63,21 @@ ion-row {
 }
 // edit button
 .edit-button-container {
-  cursor: pointer;
-  float: right;
-  position: absolute;
-  height: 3em;
   width: 100%;
+  position: absolute;
+  height: calc(100% - 2px);
 }
 .edit-button-container:hover {
+  background-color: rgba(245, 222, 179, 0.8);
   .edit-button {
     opacity: 1;
-    z-index: 2;
   }
-  .edit-button-overlay {
-    opacity: 0.8;
-  }
-}
-.edit-button-overlay {
-  width: 100%;
-  background-color: wheat;
-  height: 100%;
-  opacity: 0;
 }
 .edit-button {
-  width: 100%;
   opacity: 0;
-  z-index: 2;
   position: relative;
+  margin: 0;
+  height: 100%;
 }
 
 // general review show/hide
