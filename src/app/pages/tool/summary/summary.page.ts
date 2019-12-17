@@ -7,7 +7,7 @@ import {
   IAllocation
 } from "src/app/models/models";
 import { debounceTime, takeUntil } from "rxjs/operators";
-import { Subscription } from "rxjs";
+import { Subscription, Subject } from "rxjs";
 import { NgRedux } from "@angular-redux/store";
 import { CalculatorVars } from "src/app/components/dataVis/sample-size-calculator/sample-size-calculator";
 import { _htmlToDoc } from "src/utils/download";
