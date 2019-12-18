@@ -5,8 +5,8 @@
   "newProjectRoot": "projects",
   "projects": {
     "app": {
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/app/src/",
+      "sourceRoot": "projects/app/src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
@@ -15,15 +15,15 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "aot": false,
-            "outputPath": "www",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "outputPath": "dist",
+            "index": "projects/app/src/index.html",
+            "main": "projects/app/src/main.ts",
+            "polyfills": "projects/app/src/polyfills.ts",
+            "tsConfig": "projects/app/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "projects/app/src/assets",
                 "output": "assets"
               },
               {
@@ -31,7 +31,7 @@
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               },
-              "src/manifest.webmanifest",
+              "projects/app/src/manifest.webmanifest",
               {
                 "glob": "_redirects",
                 "input": "src",
@@ -39,10 +39,10 @@
               }
             ],
             "styles": [
-              "src/global.scss",
-              "src/theme/variables.scss",
-              "src/theme/app.scss",
-              "src/theme/scrollbar.scss",
+              "projects/app/src/global.scss",
+              "projects/app/src/theme/variables.scss",
+              "projects/app/src/theme/app.scss",
+              "projects/app/src/theme/scrollbar.scss",
               "./node_modules/videogular2/fonts/videogular.css"
             ],
             "scripts": []
@@ -51,8 +51,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/app/src/environments/environment.ts",
+                  "with": "projects/app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -102,8 +102,8 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "main": "projects/app/src/test.ts",
+            "polyfills": "projects/app/src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "styles": [],
@@ -111,15 +111,15 @@
             "assets": [
               {
                 "glob": "favicon.ico",
-                "input": "src/",
+                "input": "projects/app/src/",
                 "output": "/"
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "projects/app/src/assets",
                 "output": "/assets"
               },
-              "src/manifest.webmanifest"
+              "projects/app/src/manifest.webmanifest"
             ]
           },
           "configurations": {

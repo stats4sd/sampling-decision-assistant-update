@@ -1,11 +1,10 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": ["node"],
-    "paths": {
-      "dragula": ["./node_modules/dragula/dist/dragula.min.js"]
-    }
+    "baseUrl": "./",
+    "resolveJsonModule": true
   },
   "angularCompilerOptions": {
     "enableIvy": false

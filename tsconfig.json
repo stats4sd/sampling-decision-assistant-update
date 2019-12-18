@@ -14,12 +14,17 @@
     "importHelpers": true,
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "dragula": ["node_modules/dragula/dist/dragula.min.js"],
+      "@root/*": ["*"],
+      "@data/*": ["data/*"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": false,
     "strictInjectionParameters": true
   },
-  "include": ["src/**/*"],
+  "include": ["projects/app/src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
