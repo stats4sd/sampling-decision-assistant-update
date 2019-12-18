@@ -2,7 +2,19 @@
   "name": "sampling-decision-assistant",
   "version": "2.0.1",
   "author": "Statistics for Sustainable Development",
-  "homepage": "https://stats4sd.org",
+  "homepage": "https://github.com/stats4sd/Sampling-Decision-Assistant",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stats4sd/Sampling-Decision-Assistant.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stats4sd/Sampling-Decision-Assistant/issues",
+    "email": "c.clarke@stats4sd.org"
+  },
+  "license": "GPL-3.0",
+  "files": [
+    "www"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
