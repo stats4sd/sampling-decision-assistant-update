@@ -28,18 +28,20 @@
         </div>
         <div style="margin:10px">
           <ion-item class="input-item">
-            <ion-label position="fixed">{{moe.label}}</ion-label>
+            <div class="input-label">{{moe.label}}</div>
             <ion-input
+              class="input-value"
               type="number"
               [(ngModel)]="inputValues.moe"
               (ionChange)="calculateSize()"
             ></ion-input>
           </ion-item>
           <ion-item class="input-item">
-            <ion-label position="fixed">Clustering Level</ion-label>
+            <div class="input-label">Clustering Level</div>
             <ion-select
               [(ngModel)]="inputValues.rho"
               (ionChange)="calculateSize()"
+              class="input-value"
             >
               <ion-select-option value="0">None</ion-select-option>
               <ion-select-option value="0.1">Low (0.1)</ion-select-option>
@@ -53,22 +55,24 @@
             class="input-item"
             *ngIf="sampleStages>1 && sampleStageMeta"
           >
-            <ion-label position="fixed"
-              >Number of {{sampleStageMeta[sampleStageMeta.length-1].name}} per
-              {{sampleStageMeta[sampleStageMeta.length-2].name}}</ion-label
-            >
+            <div class="input-label">
+              Number of {{sampleStageMeta[sampleStageMeta.length-1].name}} to be
+              sampled per {{sampleStageMeta[sampleStageMeta.length-2].name}}
+            </div>
             <ion-input
+              class="input-value"
               type="number"
               [(ngModel)]="inputValues.nHH"
               (ionChange)="setFinalStageN()"
             ></ion-input>
           </ion-item>
           <ion-item class="input-item">
-            <ion-label position="fixed" *ngIf="sampleStageMeta"
-              >Total {{sampleStageMeta[sampleStageMeta.length-1].name}} in
-              Population</ion-label
-            >
+            <div class="input-label" *ngIf="sampleStageMeta">
+              Total {{sampleStageMeta[sampleStageMeta.length-1].name}} in
+              Population
+            </div>
             <ion-input
+              class="input-value"
               type="number"
               min="1"
               max="9999999999"
@@ -77,8 +81,9 @@
             ></ion-input>
           </ion-item>
           <ion-item class="input-item">
-            <ion-label position="fixed">Desired Confidence Level</ion-label>
+            <div class="input-label">Desired Confidence Level</div>
             <ion-input
+              class="input-value"
               type="number"
               min="0.9"
               max="0.999"
@@ -114,9 +119,7 @@
       >
         <!-- Show results button -->
         <div *ngIf="!showResults" id="showResults">
-          <ion-button (click)="toggleShowResults()"
-            >Calculate Results</ion-button
-          >
+          <ion-button (click)="toggleShowResults()">Show Results</ion-button>
         </div>
         <!-- main results section -->
         <div [style.opacity]="showResults ? 1 : 0.2">

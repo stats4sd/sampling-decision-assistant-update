@@ -19,8 +19,12 @@ const INTRO_HTML = {
   2: `You will specify the indicator that will guide some of your decisions about sampling.`,
   3: `You will identify your target population and consider any additional criteria for exclusion or inclusion to
   make it as well-defined as possible.`,
-  4: `You will consider the reporting requirements for the data to be collected, to use as a basis for determining
-  sampling frames and strata.`,
+  4: `You will consider the disaggregation requirements for the data to be collected, to use as a basis for determining
+  sampling frames.
+  <br><br>
+  <span class="disclaimer">Disclaimer - The tool has been simplified since original recording. Please disregard any comments on strata or reporting levels, 
+  as these are now referred to as disaggregation.</span>
+  `,
   5: `You will develop a sampling system to support the collection of data to meet your overall objective.`,
   6: `You will determine your desired sampling size and specify the number of sampling units across all sampling stages.`
 };
@@ -73,8 +77,8 @@ const STAGES = {
 
 @Component({
   selector: "app-stage",
-  templateUrl: "./stage.page.html",
-  styleUrls: ["./stage.page.scss"]
+  templateUrl: "stage.page.html",
+  styleUrls: ["stage.page.scss"]
 })
 export class StagePage {
   removeSubscriptions$ = new Subject();
