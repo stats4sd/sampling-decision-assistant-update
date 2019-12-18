@@ -14,14 +14,14 @@
     <ion-grid *ngIf="reportingLevels && reportingLevels.length>0">
       <ion-row class="row-headers">
         <ion-col>Disaggregation</ion-col>
-        <ion-col style="max-width: 100px">Number of Classifications</ion-col>
+        <ion-col style="max-width: 110px">Number of Classifications</ion-col>
         <ion-col col class="left">Names of Classifications</ion-col>
       </ion-row>
       <ion-row
         *ngFor="let level of reportingLevels; let i=index; let last=last"
       >
         <ion-col>{{level.name}}</ion-col>
-        <ion-col class="center" style="max-width: 100px" class="required">
+        <ion-col class="center" style="max-width: 110px" class="required">
           <ion-input
             type="number"
             (ionChange)="setClassificationsNumber(level,i)"

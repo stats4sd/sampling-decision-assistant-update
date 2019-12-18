@@ -28,10 +28,11 @@ export class Stage4_ReviewLevelsComponent extends Stage4Component {
           this.form.value &&
           this.form.value.reportingLevels
         ) {
-          // *** slightly untidy code due to data vis provider refactor, could be tidies
           const disaggregationMeta = this.dataVisPrvdr.getReportingLevels();
-          this.levelCombinations = disaggregationMeta.levelCombinations;
-          this.reportingLevels = disaggregationMeta.reportingLevels;
+          if (disaggregationMeta) {
+            this.levelCombinations = disaggregationMeta.levelCombinations;
+            this.reportingLevels = disaggregationMeta.reportingLevels;
+          }
         }
       });
   }
