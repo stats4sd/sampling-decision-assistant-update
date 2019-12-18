@@ -39,6 +39,11 @@ td.fail {
   color: var(--ion-color-primary);
   text-decoration: underline;
 }
+.exportMode {
+  .strata-name {
+    color: black;
+  }
+}
 
 .strata-classification {
   margin: 2px 2px 0 0;

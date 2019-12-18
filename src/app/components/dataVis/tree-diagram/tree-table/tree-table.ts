@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { NgRedux, select } from "@angular-redux/store";
 import { Subject, Subscription, Observable } from "rxjs";
 import {
@@ -19,6 +19,7 @@ import { takeUntil } from "rxjs/operators";
   styleUrls: ["./tree-table.scss"]
 })
 export class TreeTableComponent {
+  @Input() exportMode: boolean;
   samplingStages: StageMeta[] = [];
   allocationSampleSize: number = -1;
   stageStrata: string[][];
