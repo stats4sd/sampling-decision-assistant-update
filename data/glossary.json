@@ -181,7 +181,7 @@
   },
   "respondent-driven-sampling": {
     "slug": "respondent-driven-sampling",
-    "definition": "Respondent-driven sampling (RDS), combines 'snowball sampling' (getting individuals to refer those they know, these individuals in turn refer those they know and so on) with a mathematical model that weights the sample to compensate for the fact that the sample was collected in a non-random way.\nFor more information visit: http://www.respondentdrivensampling.org/",
+    "definition": "Respondent-driven sampling (RDS), combines 'snowball sampling' (getting individuals to refer those they know, these individuals in turn refer those they know and so on) with a mathematical model that weights the sample to compensate for the fact that the sample was collected in a non-random way.\nFor more information visit: <a href='http://www.respondentdrivensampling.org/' target='_blank' rel='nofollow'>respondentdrivensampling.org</a>",
     "term": "respondent-driven sampling"
   },
   "sample": {

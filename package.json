@@ -1,6 +1,6 @@
 {
   "name": "sampling-decision-assistant",
-  "version": "2.0.1",
+  "version": "2.0.0-rc1",
   "author": "Statistics for Sustainable Development",
   "homepage": "https://github.com/stats4sd/Sampling-Decision-Assistant",
   "repository": {
@@ -21,6 +21,8 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "serve:prod": "http-server -p 8080 -c-1 www",
+    "build:stats": "ng build --prod --stats-json",
+    "analyze": "webpack-bundle-analyzer www/stats-es2015.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -33,7 +35,7 @@
     "@angular-redux/store": "^10.0.0",
     "@angular/animations": "^8.2.14",
     "@angular/common": "~8.1.2",
-    "@angular/core": "~8.1.2",
+    "@angular/core": "^8.2.14",
     "@angular/forms": "~8.1.2",
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
@@ -64,14 +66,14 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "~0.801.2",
-    "@angular-devkit/build-angular": "~0.801.2",
-    "@angular-devkit/core": "~8.1.2",
-    "@angular-devkit/schematics": "~8.1.2",
-    "@angular/cli": "~8.1.2",
-    "@angular/compiler": "~8.1.2",
-    "@angular/compiler-cli": "~8.1.2",
-    "@angular/language-service": "~8.1.2",
+    "@angular-devkit/architect": "0.803.20",
+    "@angular-devkit/build-angular": "~0.803.20",
+    "@angular-devkit/core": "~8.3.20",
+    "@angular-devkit/schematics": "~8.3.20",
+    "@angular/cli": "~8.3.20",
+    "@angular/compiler": "~8.2.14",
+    "@angular/compiler-cli": "~8.2.14",
+    "@angular/language-service": "~8.2.14",
     "@ionic/angular-toolkit": "^2.1.1",
     "@ionic/v4-migration-tslint": "^1.7.1",
     "@types/core-js": "^2.5.2",
@@ -91,7 +93,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.4.3",
+    "webpack-bundle-analyzer": "^3.6.0"
   },
   "description": "Sampling decision assistant"
 }

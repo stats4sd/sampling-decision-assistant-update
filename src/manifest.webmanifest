@@ -1,8 +1,8 @@
 {
   "name": "Sampling Decision Assistant",
   "short_name": "Sampling Tool",
-  "theme_color": "#5b92e5",
-  "background_color": "#fafafa",
+  "theme_color": "#fafafa",
+  "background_color": "#5b92e5",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

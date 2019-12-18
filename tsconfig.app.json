@@ -7,6 +7,9 @@
       "dragula": ["./node_modules/dragula/dist/dragula.min.js"]
     }
   },
+  "angularCompilerOptions": {
+    "enableIvy": false
+  },
   "include": ["src/**/*.ts"],
   "exclude": ["src/test.ts", "src/**/*.spec.ts"]
 }
