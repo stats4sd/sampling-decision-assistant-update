@@ -59,7 +59,7 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
   reviewMode: boolean;
   @Output()
   onValueChange = new EventEmitter<any>();
-  @ViewChild("textAreaInput", { static: true })
+  @ViewChild("textAreaInput", { static: false })
   textAreaInput: ElementRef;
   @ViewChild("saveMessage", { static: true })
   saveMessage: ElementRef;
@@ -313,14 +313,16 @@ export class SurveyQuestionComponent implements ControlValueAccessor {
 
   resize() {
     // increase height on text area automatically except when first entry row (looks jumpy otherwise as 10px increase on first char)
-    let scrollHeight = this.textAreaInput.nativeElement.scrollHeight;
-    if (!this.initialScrollHeight) {
-      this.initialScrollHeight = scrollHeight;
-    }
-    if (scrollHeight > this.initialScrollHeight) {
-      this.textAreaInput.nativeElement.style.height = "auto";
-      this.textAreaInput.nativeElement.style.height =
-        this.textAreaInput.nativeElement.scrollHeight + 10 + "px";
+    if (this.textAreaInput) {
+      let scrollHeight = this.textAreaInput.nativeElement.scrollHeight;
+      if (!this.initialScrollHeight) {
+        this.initialScrollHeight = scrollHeight;
+      }
+      if (scrollHeight > this.initialScrollHeight) {
+        this.textAreaInput.nativeElement.style.height = "auto";
+        this.textAreaInput.nativeElement.style.height =
+          this.textAreaInput.nativeElement.scrollHeight + 10 + "px";
+      }
     }
   }
 

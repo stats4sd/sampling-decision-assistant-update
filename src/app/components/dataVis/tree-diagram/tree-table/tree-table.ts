@@ -91,7 +91,8 @@ export class TreeTableComponent {
   // for each stage want the total reporting combinations to allocate from the sample
   // adds _reportingLevels and _stageStrata properties, could be done at earlier stage (e.g. when building tree nodes)
   // *** note, currently strata names simply listed so don't need full combinations (would be useful if allowing more allocation)
-  getStageStrata(stages: StageMeta[]) {
+  getStageStrata(stages: StageMeta[] = []) {
+    console.log("get stage strata", stages);
     stages = stages.map(s => {
       if (s["q5.3.4.2"] && s["q5.3.4.2"].length > 0) {
         s._reportingLevels = s["q5.3.4.2"].map(level =>
@@ -139,8 +140,10 @@ export class TreeTableComponent {
           // trigger stages update too
           const stages = this.ngRedux.getState().activeProject.values
             .samplingStages;
-          this.samplingStages = this.getStageStrata(stages);
-          this.calculateAllocationSampleSize();
+          if (stages) {
+            this.samplingStages = this.getStageStrata(stages);
+            this.calculateAllocationSampleSize();
+          }
         }
       });
   }

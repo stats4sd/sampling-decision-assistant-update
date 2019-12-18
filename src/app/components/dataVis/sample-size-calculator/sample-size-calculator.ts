@@ -101,16 +101,18 @@ export class SampleSizeCalculatorComponent {
   }
   // when number of units specified for final stage want to reflect to state as well as applying usual calculations and save
   setFinalStageN() {
-    this.sampleStageMeta[this.sampleStageMeta.length - 1].sampleSize = Number(
-      this.inputValues.nHH
-    );
-    console.log("setting final stage N", this.inputValues.nHH);
-    this.formPrvdr.formGroup.patchValue({
-      samplingStages: this.sampleStageMeta
-    });
-    // only calculate if more than 1 stage (otherwise inf loop as final stage n decided from calc)
-    if (this.sampleStageMeta.length > 1) {
-      this.calculateSize();
+    if (this.sampleStageMeta) {
+      this.sampleStageMeta[this.sampleStageMeta.length - 1].sampleSize = Number(
+        this.inputValues.nHH
+      );
+      console.log("setting final stage N", this.inputValues.nHH);
+      this.formPrvdr.formGroup.patchValue({
+        samplingStages: this.sampleStageMeta
+      });
+      // only calculate if more than 1 stage (otherwise inf loop as final stage n decided from calc)
+      if (this.sampleStageMeta.length > 1) {
+        this.calculateSize();
+      }
     }
   }
 
@@ -296,6 +298,11 @@ export class SampleSizeCalculatorComponent {
   }
 
   calculateTotalSampleSize() {
+    console.log(
+      "calculate total sample size",
+      this.disaggregationMeta,
+      this.sampleStageMeta
+    );
     // attempt to fetch disaggregation meta from data vis provider (returns null if no Disaggregation)
     if (!this.disaggregationMeta) {
       this.disaggregationMeta = this.dataVisPrvdr.getReportingLevels();
@@ -305,6 +312,7 @@ export class SampleSizeCalculatorComponent {
       : 1;
     // for multi stage multiply combinations * nHH * stage2N
     if (
+      this.sampleStageMeta &&
       this.sampleStageMeta.length > 1 &&
       typeof this.outputs.raw.stage2N == "number"
     ) {
@@ -341,6 +349,7 @@ export class SampleSizeCalculatorComponent {
         formatted.push({ var: "SRSn_FPC", label: "Sample Size Required" });
       }
       if (stages.length > 1) {
+        console.log("stages", stages);
         const level2Name = stages[stages.length - 2].name;
         const level1Name = stages[stages.length - 1].name;
         formatted.push(
