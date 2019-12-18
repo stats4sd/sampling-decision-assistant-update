@@ -66,7 +66,7 @@
   },
   "hypothesis-testing": {
     "slug": "hypothesis-testing",
-    "definition": "",
+    "definition": "A statistical hypothesis is a statement about a parameter in the population. Statistical hypothesis testing is the formal process to infer from the observed sample data to make a decision as to whether the hypothesis is true in the population.",
     "term": "hypothesis testing"
   },
   "indicator": {
@@ -114,11 +114,6 @@
     "slug": "margin-of-error",
     "definition": "The margin of error expresses the amount of the random variation underlying a survey's results. This can be thought of as a measure of the variation one would see in reported percentages if the same poll were taken multiple times. The larger the margin of error, the less precise the estimate of the proportion is and the less confidence one has that the survey’s reported percentages are close to the \"true\" percentages, that is the percentages in the whole population.\nA margin of error can be calculated for each figure produced from a sample survey, unless a nonprobability sample is used, and decreases as the sample size is increased."
   },
-  "migrant": {
-    "slug": "migrant",
-    "definition": "The International Organization for Migration defines a migrant as any person who is moving or has moved across an international border or within a State away from his/her habitual place of residence, regardless of (1) the person’s legal status; (2) whether the movement is voluntary or involuntary; (3) what the causes for the movement are; or (4) what the length of the stay is.",
-    "term": "migrant"
-  },
   "multi-stage-sampling": {
     "slug": "multi-stage-sampling",
     "definition": "The sample is drawn in two or more stages for example: selection of settlements at the first stage and a selection of households within settlement at the second stage.",
@@ -165,14 +160,9 @@
     "definition": "Sample units are selected in proportion to their size giving a higher chance of selection to the larger sampling units. For example if we are sampling settlements, and the size of the settlement is given by the number of households, if sampling of settlements is done with PPS, larger settlements would have higher probability of selection. For example if a settlement is double the size of another, it will have a probability of selection that is double than the other."
   },
   "quasi-experiments": {
-    "term": "quasi-experiments",
+    "term": "quasi-experiment",
     "slug": "quasi-experiments",
     "definition": "Surveys are observational studies, and as such they can describe (the characterisitcs of a population) but cannot attribute causal effects. To attribute causal effects, experiments are needed. In experiments, units are assigned randomly to the treatments and cotrol groups, but in a sample, for example, the age of a respondent cannot be assigned randomly, it is what it is! Quasi-experiments can test causal hypothesis, by identifying a comparison group that is as similar as possible to the Treatment group. There are different techniques for creating a valid comparison group."
-  },
-  "refugee": {
-    "slug": "refugee",
-    "definition": "A refugee, according to the United Nations Convention relating to the Status of Refugees, is someone who is unable or unwilling to return to their country of origin owing to a well-founded fear of being persecuted for reasons of race, religion, nationality, membership of a particular social group, or political opinion.",
-    "term": "refugee"
   },
   "representative-sample": {
     "slug": "representative-sample",
@@ -211,7 +201,7 @@
   },
   "strata-(stratum)": {
     "slug": "strata-(stratum)",
-    "definition": "",
+    "definition": "Strata are defined with one or more variables known for all population units in advance. They partition the entire population into mutually exclusive groups. For example, we can divide a population of refugees according to their countries of origin. Country of origin would then be the stratifying variable, and each group of refugees from the same country of origin would be one stratum. Strata are especially useful if they correspond to domains for which separate estimates are needed. In stratified sampling, a separate sample is then drawn from each stratum. Stratified sampling has the following potential benefits: It avoids a very unbalanced sample with respect to the stratifying variable; It guarantees a certain sample size in each stratum; It can improve sample efficiency for total population estimates; To manage cost; And for logistical/administrative reasons.",
     "term": "strata (stratum)"
   }
 }

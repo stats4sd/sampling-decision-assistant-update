@@ -3,8 +3,8 @@
     <div>
       <div *ngIf="reportingLevels.length>0">
         <p *ngIf="!isFinalStage">
-          Do the sampling units form strata to satisfy any of your reporting
-          requirements? <br />
+          Do the sampling units form strata to satisfy any of your
+          disaggregation levels? <br />
           If yes select from the list below.
         </p>
         <p *ngIf="isFinalStage">
@@ -18,7 +18,9 @@
         section 4.
       </p>
       <ion-list *ngIf="reportingLevels.length>0">
-        <ion-list-header>Disaggregation</ion-list-header>
+        <ion-list-header style="font-weight: bold;"
+          >Disaggregation</ion-list-header
+        >
         <!-- non-final stage -->
         <div *ngIf="!isFinalStage">
           <ion-item

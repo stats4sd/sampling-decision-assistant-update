@@ -170,10 +170,10 @@
     "isQuestion": "TRUE",
     "controlName": "reportingLevels",
     "type": "custom-reporting-levels",
-    "label": "Specify the different characteristics that you wish to disaggregate by. Note, specific values will be defined in the next step",
+    "label": "State the disaggregation criteria required (specific levels will be defined in the next section).",
     "section": "At what level do you need to report these results",
     "condition": "type:value, controlName:q4.1, value:Disaggregated estimates",
-    "labelMultiple": "Name of level"
+    "labelMultiple": "Name of criteria"
   },
   {
     "isQuestion": "TRUE",
