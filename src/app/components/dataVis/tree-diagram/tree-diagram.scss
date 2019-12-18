@@ -4,15 +4,17 @@
 }
 
 #treeContainerParent {
+  position: relative;
   height: 300px;
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: rgba(97, 101, 103, 0.08);
   border: 1px solid rgba(130, 148, 158, 0.4);
 }
 #treeContainer.export-mode {
   width: 500%;
   height: 500%;
+  overflow: auto;
 }
 
 // track color variables

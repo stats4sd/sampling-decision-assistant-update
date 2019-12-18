@@ -34,7 +34,7 @@ export class TreeNodeInfoComponent {
     { label: "Sampling Unit", var: "name" },
     { label: "Frame", var: "q5.3.1" },
     { label: "Units", var: "q5.3.3" },
-    { label: "Reporting Level", var: "q5.3.4.2" }
+    { label: "Disaggregation", var: "q5.3.4.2" }
   ];
 
   constructor(private treeActions: TreeDiagramActions) {
