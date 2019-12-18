@@ -20,11 +20,6 @@ const routes: Routes = [
     path: "review",
     loadChildren: () =>
       import("./review/review.module").then(m => m.ReviewPageModule)
-  },
-  {
-    path: "summary",
-    loadChildren: () =>
-      import("./summary/summary.module").then(m => m.SummaryPageModule)
   }
 ];
 

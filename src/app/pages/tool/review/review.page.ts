@@ -10,6 +10,7 @@ import {
 } from "src/app/models/models";
 import { LoadingController, ModalController } from "@ionic/angular";
 import { CalculatorVars } from "src/app/components/dataVis/sample-size-calculator/sample-size-calculator";
+import { SummaryPage } from "../summary/summary.page";
 
 @Component({
   selector: "app-review",
@@ -94,7 +95,7 @@ export class ReviewPage {
 
   async exportDocx() {
     const modal = await this.modalCtrl.create({
-      component: "SummaryPage",
+      component: SummaryPage,
       cssClass: "full-screen"
     });
     await modal.present();
