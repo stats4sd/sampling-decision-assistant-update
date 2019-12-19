@@ -27,14 +27,14 @@
                 "output": "assets"
               },
               {
-                "glob": "**/*.svg",
+                "glob": "projects/app/**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               },
               "projects/app/src/manifest.webmanifest",
               {
                 "glob": "_redirects",
-                "input": "src",
+                "input": "projects/app/src",
                 "output": "/"
               }
             ],
@@ -72,7 +72,7 @@
                 }
               ],
               "serviceWorker": true,
-              "ngswConfigPath": "ngsw-config.json"
+              "ngswConfigPath": "projects/app/ngsw-config.json"
             },
             "ci": {
               "progress": false

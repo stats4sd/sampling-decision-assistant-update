@@ -23,6 +23,10 @@ import { IonicStorageModule } from "@ionic/storage";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 
+if (environment.production) {
+  console.log = () => null;
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
